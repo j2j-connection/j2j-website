@@ -1236,11 +1236,13 @@ section {
     }
     
     .video-carousel-hero {
-        height: 40vh;
-        min-height: 250px;
-        max-height: 400px;
+        height: 50vh;
+        min-height: 300px;
+        max-height: 500px;
         border-radius: 12px;
         overflow: hidden;
+        width: 100%;
+        margin: 0 auto;
     }
     
     .video-content {
@@ -1255,7 +1257,34 @@ section {
     .video-hero-container {
         flex-direction: column;
         text-align: center;
-        padding: 1rem;
+        padding: 2rem 1rem;
+        gap: 2rem;
+        max-width: 100%;
+    }
+    
+    .video-hero-content {
+        order: 1;
+        margin-bottom: 2rem;
+    }
+    
+    .video-carousel-hero {
+        order: 2;
+    }
+    
+    .carousel-controls {
+        order: 3;
+        margin-top: 1rem;
+    }
+    
+    /* Improve mobile hero text layout */
+    .hero-actions {
+        margin-top: 2rem;
+        gap: 1rem;
+    }
+    
+    .hero-title .title-line {
+        display: block;
+        margin-bottom: 0.5rem;
     }
     
     .video-hero-content {
@@ -1384,9 +1413,9 @@ section {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.2rem;
         line-height: 1.2;
     }
     
@@ -1397,11 +1426,28 @@ section {
     .hero-subtitle {
         font-size: 1rem;
         line-height: 1.5;
+        margin-bottom: 2rem;
     }
     
+    /* Fix mobile section heights - critical fix */
     section {
-        min-height: auto;
-        padding: 3rem 0;
+        min-height: auto !important;
+        padding: 4rem 0 !important;
+    }
+    
+    .hero-video {
+        min-height: auto !important;
+        padding: 2rem 0 4rem 0 !important;
+    }
+    
+    .about-section {
+        min-height: auto !important;
+        padding: 4rem 0 !important;
+    }
+    
+    .contact-section {
+        min-height: auto !important; 
+        padding: 4rem 0 !important;
     }
     
     .about-hero, .contact-main {
