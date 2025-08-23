@@ -11,6 +11,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 📱 Mobile Detection and Redirect -->
+    <script>
+        // Redirect to mobile-bikr.html on mobile devices
+        (function() {
+            if (window.location.pathname.includes('mobile-bikr.html')) return;
+            
+            function isMobileDevice() {
+                const userAgent = navigator.userAgent.toLowerCase();
+                const screenWidth = window.innerWidth || screen.width;
+                const mobileKeywords = ['android', 'webos', 'iphone', 'ipad', 'ipod', 'blackberry', 'windows phone', 'mobile', 'opera mini'];
+                const isMobileUA = mobileKeywords.some(keyword => userAgent.includes(keyword));
+                const isMobileScreen = screenWidth <= 768;
+                const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+                return isMobileUA || (isMobileScreen && isTouchDevice);
+            }
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const forceDesktop = urlParams.get('desktop') === 'true';
+            const forceMobile = urlParams.get('mobile') === 'true';
+            
+            if (forceMobile || (!forceDesktop && isMobileDevice())) {
+                const currentHash = window.location.hash;
+                window.location.replace('mobile-bikr.html' + currentHash);
+            }
+        })();
+    </script>
 </head>
 <body>
     <!-- Header -->
