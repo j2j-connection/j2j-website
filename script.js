@@ -503,15 +503,40 @@ class ModernWebsite {
     addTouchSupport() {
         let startX = 0;
         let endX = 0;
+        let startY = 0;
+        let endY = 0;
         const carousel = document.querySelector('.video-carousel-hero');
+        
+        if (!carousel) return;
         
         carousel.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
         });
         
         carousel.addEventListener('touchend', (e) => {
             endX = e.changedTouches[0].clientX;
-            this.handleSwipe(startX, endX);
+            endY = e.changedTouches[0].clientY;
+            
+            // Only handle horizontal swipes (ignore vertical scrolling)
+            const deltaX = Math.abs(startX - endX);
+            const deltaY = Math.abs(startY - endY);
+            
+            if (deltaX > deltaY && deltaX > 30) {
+                this.handleSwipe(startX, endX);
+            }
+        });
+        
+        // Add click to play functionality for mobile
+        carousel.addEventListener('click', () => {
+            const activeVideo = this.videoItems[this.currentIndex].querySelector('video');
+            if (activeVideo) {
+                if (activeVideo.paused) {
+                    activeVideo.play().catch(e => console.log('Play failed:', e));
+                } else {
+                    activeVideo.pause();
+                }
+            }
         });
     }
     
