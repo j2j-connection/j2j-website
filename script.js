@@ -416,7 +416,15 @@ class ModernWebsite {
                 
                 // Only autoplay the first video initially
                 if (index === 0) {
-                    video.play().catch(e => console.log('Initial video play failed:', e));
+                    // Try to play, but handle mobile restrictions gracefully
+                    const playPromise = video.play();
+                    if (playPromise !== undefined) {
+                        playPromise.catch(e => {
+                            console.log('Initial video autoplay failed (likely mobile):', e);
+                            // On mobile, user will need to tap to play
+                            video.controls = true;
+                        });
+                    }
                 } else {
                     video.pause();
                 }
@@ -455,7 +463,14 @@ class ModernWebsite {
             newVideo.currentTime = 0;
             // Small delay to ensure smooth transition
             setTimeout(() => {
-                newVideo.play().catch(e => console.log('Video play failed:', e));
+                const playPromise = newVideo.play();
+                if (playPromise !== undefined) {
+                    playPromise.catch(e => {
+                        console.log('Video play failed (likely mobile):', e);
+                        // Show controls if autoplay fails
+                        newVideo.controls = true;
+                    });
+                }
             }, 100);
         }
         
