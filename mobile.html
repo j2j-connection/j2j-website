@@ -240,57 +240,6 @@
             transform: scale(1.1);
         }
         
-        /* 🎮 VIDEO CONTROLS */
-        .video-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .video-nav-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--border-light);
-            color: var(--text-white);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .video-nav-btn:hover {
-            background: var(--primary-gold);
-            color: var(--primary-black);
-        }
-        
-        .video-dots {
-            display: flex;
-            gap: 12px;
-        }
-        
-        .video-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .video-dot.active {
-            background: var(--primary-gold);
-            transform: scale(1.2);
-        }
-        
-        .video-dot:hover {
-            background: var(--primary-gold);
-        }
         
         /* 🎯 CTA BUTTONS */
         .cta-section {
@@ -605,16 +554,6 @@
             </div>
         </div>
         
-        <!-- Video Controls -->
-        <div class="video-controls">
-            <button class="video-nav-btn" onclick="previousVideo()" id="prevBtn">‹</button>
-            <div class="video-dots" id="videoDots">
-                <span class="video-dot active" onclick="goToVideo(0)"></span>
-                <span class="video-dot" onclick="goToVideo(1)"></span>
-                <span class="video-dot" onclick="goToVideo(2)"></span>
-            </div>
-            <button class="video-nav-btn" onclick="nextVideo()" id="nextBtn">›</button>
-        </div>
     </section>
 
     <!-- 🎯 CTA SECTION -->
@@ -759,25 +698,12 @@
             changeVideo();
         }
         
-        function previousVideo() {
-            currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
-            changeVideo();
-        }
-        
-        function goToVideo(index) {
-            currentVideoIndex = index;
-            changeVideo();
-        }
-        
         function changeVideo() {
             const video = document.getElementById('heroVideo');
             const wasPlaying = videoPlaying;
             
             // Update video source
             video.src = videos[currentVideoIndex];
-            
-            // Update dots
-            updateVideoDots();
             
             // Resume playing if was playing
             if (wasPlaying) {
@@ -789,17 +715,6 @@
                 video.load();
                 document.getElementById('videoOverlay').style.display = 'flex';
             }
-        }
-        
-        function updateVideoDots() {
-            const dots = document.querySelectorAll('.video-dot');
-            dots.forEach((dot, index) => {
-                if (index === currentVideoIndex) {
-                    dot.classList.add('active');
-                } else {
-                    dot.classList.remove('active');
-                }
-            });
         }
         
         function startAutoPlay() {
