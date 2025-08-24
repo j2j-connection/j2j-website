@@ -445,6 +445,41 @@
             cursor: pointer;
             flex: 1;
             min-width: 100px;
+            transition: all 0.3s ease;
+        }
+        
+        .quick-btn:hover {
+            background: var(--primary-gold);
+            color: var(--primary-black);
+            border-color: var(--primary-gold);
+        }
+        
+        /* 💬 CHAT MESSAGES */
+        .user-message, .ai-message {
+            margin: 12px 0;
+            padding: 12px 16px;
+            border-radius: 12px;
+            line-height: 1.4;
+        }
+        
+        .user-message {
+            background: var(--primary-gold);
+            color: var(--primary-black);
+            margin-left: 20px;
+            border-bottom-right-radius: 4px;
+        }
+        
+        .ai-message {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-white);
+            margin-right: 20px;
+            border-bottom-left-radius: 4px;
+            border-left: 3px solid var(--primary-gold);
+        }
+        
+        .user-message p, .ai-message p {
+            margin: 0;
+            font-size: 0.9rem;
         }
         
         /* 🔝 BACK TO TOP */
@@ -751,28 +786,72 @@
             }, 1000);
         });
         
-        // 💬 Chat Functions
+        // 💬 CHAT FUNCTIONS
         function sendMessage() {
             const input = document.getElementById('chatInput');
-            if (input.value.trim()) {
-                // Simulate sending message
+            const message = input.value.trim();
+            
+            if (message) {
+                // Add user message to chat
+                addMessageToChat('user', message);
+                
+                // Clear input
                 input.value = '';
-                console.log('Message sent');
+                
+                // Simulate AI response after a delay
+                setTimeout(() => {
+                    const responses = [
+                        "Thanks for your message! I'll connect you with our team shortly.",
+                        "Great question! Our team will reach out to you within 24 hours.",
+                        "I've received your request. Someone from J2J will contact you soon.",
+                        "Perfect! We'll get back to you with more information.",
+                        "Thanks for reaching out! Our team is reviewing your message."
+                    ];
+                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    addMessageToChat('ai', randomResponse);
+                }, 1000);
             }
+        }
+        
+        function addMessageToChat(sender, message) {
+            const chatContainer = document.querySelector('.ai-chat');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = sender === 'user' ? 'user-message' : 'ai-message';
+            
+            if (sender === 'user') {
+                messageDiv.innerHTML = `<p><strong>You:</strong> ${message}</p>`;
+            } else {
+                messageDiv.innerHTML = `<p><strong>J2J Assistant:</strong> ${message}</p>`;
+            }
+            
+            // Insert before the input area
+            const inputArea = document.querySelector('.chat-input-area');
+            chatContainer.insertBefore(messageDiv, inputArea);
+            
+            // Scroll to bottom
+            chatContainer.scrollTop = chatContainer.scrollHeight;
         }
         
         function quickAction(action) {
             const input = document.getElementById('chatInput');
+            let message = '';
+            
             switch(action) {
                 case 'schedule':
-                    input.value = 'I\'d like to schedule a consultation call';
+                    message = 'I\'d like to schedule a consultation call';
                     break;
                 case 'demo':
-                    input.value = 'Can I see a BIKR demo?';
+                    message = 'Can I see a BIKR demo?';
                     break;
                 case 'contact':
-                    input.value = 'I\'d like to contact your team';
+                    message = 'I\'d like to contact your team';
                     break;
+            }
+            
+            if (message) {
+                input.value = message;
+                // Auto-send the message
+                sendMessage();
             }
         }
         
@@ -817,6 +896,19 @@
         document.addEventListener('touchstart', function(e) {
             if (e.touches.length > 1) {
                 e.preventDefault();
+            }
+        });
+        
+        // 💬 ENTER KEY SUPPORT FOR CHAT
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatInput = document.getElementById('chatInput');
+            if (chatInput) {
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        sendMessage();
+                    }
+                });
             }
         });
     </script>
