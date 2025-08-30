@@ -19,7 +19,6 @@ const videos = [
 
 export default function VideoCarousel() {
   const [currentVideo, setCurrentVideo] = useState(0)
-  const [videosLoaded, setVideosLoaded] = useState(false)
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([])
 
   useEffect(() => {
@@ -29,10 +28,6 @@ export default function VideoCarousel() {
 
     return () => clearInterval(interval)
   }, [])
-
-  const handleVideoLoad = () => {
-    setVideosLoaded(true)
-  }
 
   const handleVideoError = () => {
     console.error('Video failed to load')
@@ -52,7 +47,6 @@ export default function VideoCarousel() {
           loop
           playsInline
           preload="metadata"
-          onLoadedData={handleVideoLoad}
           onError={handleVideoError}
         >
           <source src={video.src} type="video/mp4" />
