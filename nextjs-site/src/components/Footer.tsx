@@ -27,22 +27,10 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Product Links */}
+          {/* Links */}
           <div>
-            <h4 className="text-yellow-500 font-semibold mb-4">Product</h4>
+            <h4 className="text-yellow-500 font-semibold mb-4">Company</h4>
             <div className="space-y-3">
-              <Link
-                href="/bikr"
-                className="block text-gray-400 hover:text-white transition-colors"
-              >
-                BIKR
-              </Link>
-              <Link
-                href="/testr"
-                className="block text-gray-400 hover:text-white transition-colors"
-              >
-                TESTR
-              </Link>
               <Link
                 href="/#about"
                 className="block text-gray-400 hover:text-white transition-colors"
@@ -69,13 +57,7 @@ export default function Footer() {
                 Help
               </Link>
               <Link
-                href="/bikr"
-                className="block text-gray-400 hover:text-white transition-colors"
-              >
-                Demo
-              </Link>
-              <Link
-                href="mailto:hello@j2j.info"
+                href="mailto:tom@j2j.info"
                 className="block text-gray-400 hover:text-white transition-colors"
               >
                 Support

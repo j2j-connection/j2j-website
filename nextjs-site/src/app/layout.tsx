@@ -14,9 +14,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "J2J Connection - Building AI for Stronger Communities",
-  description: "J2J builds AI tools that actually work for real communities. From BIKR bike diagnostics to local business solutions - practical AI that solves real problems.",
-  keywords: ["AI tools", "community solutions", "bike diagnostics", "BIKR", "local business AI", "practical artificial intelligence"],
+  title: "J2J Connection - AI That Works for Everyone",
+  description: "J2J builds AI tools that actually work for real people and communities. Practical artificial intelligence solutions that solve real problems.",
+  keywords: ["AI tools", "community solutions", "practical AI", "local business AI", "artificial intelligence", "custom AI solutions"],
 };
 
 export default function RootLayout({

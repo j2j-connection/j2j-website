@@ -27,10 +27,10 @@ export default function Hero() {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link
-            href="/bikr"
+            href="#contact"
             className="bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-400 hover:shadow-lg hover:shadow-yellow-500/20 transition-all transform hover:scale-105 w-full sm:w-auto text-center"
           >
-            Explore BIKR
+            Get Started
           </Link>
           <Link
             href="#about"

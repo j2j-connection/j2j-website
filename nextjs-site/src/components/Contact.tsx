@@ -13,10 +13,10 @@ export default function Contact() {
     {
       id: 1,
       content: `Hi! I&apos;m your J2J AI assistant. I can:
-      
+
 • Schedule consultation calls
-• Demo BIKR diagnostics  
-• Discuss community AI solutions
+• Discuss AI solutions for your needs
+• Answer questions about our services
 • Connect you with our team
 
 What do you need?`,
@@ -28,7 +28,7 @@ What do you need?`,
 
   const quickActions = [
     { label: 'Schedule Call', action: 'schedule' },
-    { label: 'BIKR Demo', action: 'bikr' },
+    { label: 'Learn More', action: 'learn' },
     { label: 'Contact Team', action: 'contact' },
   ]
 
@@ -63,8 +63,8 @@ What do you need?`,
       case 'schedule':
         message = 'I\'d like to schedule a consultation call'
         break
-      case 'bikr':
-        message = 'Can you show me a BIKR demo?'
+      case 'learn':
+        message = 'Tell me more about your AI solutions'
         break
       case 'contact':
         message = 'I\'d like to contact your team'
@@ -77,55 +77,45 @@ What do you need?`,
 
   const getAIResponse = (userMessage: string): string => {
     const message = userMessage.toLowerCase()
-    
+
     if (message.includes('schedule') || message.includes('call') || message.includes('meeting')) {
       return `Perfect! I can help you schedule a call with our team. What works better for you:
 
-• 15-minute BIKR overview call
-• 30-minute full consultation  
+• 15-minute quick overview
+• 30-minute full consultation
 • Custom demo for your specific needs
 
-You can also email us directly at hello@j2j.info and we'll get back to you within 24 hours.`
+You can also email us directly at tom@j2j.info and we'll get back to you within 24 hours.`
     }
-    
-    if (message.includes('bikr') || message.includes('demo') || message.includes('bike')) {
-      return `Great choice! BIKR is our AI-powered bike diagnostics tool that helps bike shops:
 
-• Save 10-20 minutes per diagnosis
-• Turn website visitors into ready-to-book repairs
-• Integrate with POS systems like Lightspeed
+    if (message.includes('learn') || message.includes('more') || message.includes('about') || message.includes('solutions')) {
+      return `We build AI solutions that actually work for everyone. Our approach:
 
-Would you like to see a live demo or learn more about pricing?`
+• Practical AI tools tailored to real-world needs
+• Solutions designed for people who use them
+• Focus on making technology accessible and useful
+
+What industry or challenge are you looking to address with AI?`
     }
-    
+
     if (message.includes('contact') || message.includes('team') || message.includes('support')) {
       return `Happy to connect you with our team! Here are the best ways to reach us:
 
-📧 Email: hello@j2j.info (24hr response)
+📧 Email: tom@j2j.info (24hr response)
 📞 For urgent inquiries, mention "urgent" in your email
 💬 Continue chatting here for immediate questions
 
-What specific questions can I help answer about our AI tools?`
+What specific questions can I help answer about our AI solutions?`
     }
 
-    if (message.includes('testr')) {
-      return `TESTR is our newest AI solution for software testing! It helps development teams:
-
-• Automate test case generation
-• Save staff time on manual testing
-• Improve test coverage
-
-We're currently in beta. Would you like to join our early access program?`
-    }
-    
     return `Thanks for your message! I'm here to help with questions about:
 
-• BIKR bike diagnostics
-• TESTR software testing
-• Custom AI solutions for your business
+• AI solutions for your business
+• Custom implementations
+• How we can solve your specific challenges
 • Scheduling demos or consultations
 
-What specific area interests you most?`
+What would you like to know more about?`
   }
 
   return (
