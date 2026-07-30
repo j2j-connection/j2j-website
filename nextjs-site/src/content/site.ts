@@ -29,7 +29,7 @@ export const bookingUrl: string | null = 'https://calendly.com/tom-j2j/30min'
 
 // GoatCounter site code (the NAME part of NAME.goatcounter.com). When set,
 // the privacy-friendly analytics script loads - no cookies, no banner needed.
-export const goatCounterCode: string | null = null
+export const goatCounterCode: string | null = 'j2j'
 
 // "AI in the Built Environment" talk, May 21 2026. Host name follows the
 // same permission gate as the case study.
