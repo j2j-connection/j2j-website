@@ -11,8 +11,8 @@ const steps = [
   },
   {
     number: '3',
-    title: 'We build it in weeks',
-    body: 'Most projects ship in three to four weeks, working inside the tools you already use.',
+    title: 'We build it with you',
+    body: 'You see working results early and often, on a timeline agreed up front - no long silences, no big reveal at the end.',
   },
   {
     number: '4',
@@ -27,7 +27,7 @@ export default function HowItWorks() {
       <div className="mx-auto max-w-5xl py-20 md:py-28">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">How it works</p>
         <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold tracking-tight md:text-4xl">
-          Fixed price. Weeks, not quarters.
+          Fixed price. No open-ended bills.
         </h2>
         <div className="mt-12 max-w-2xl">
           {steps.map((step) => (
