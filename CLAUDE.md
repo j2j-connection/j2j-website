@@ -30,7 +30,7 @@ nextjs-site/
 │   │   ├── Hero.tsx       # "AI that earns its keep." with Highlight marker swipe
 │   │   ├── Highlight.tsx  # Reusable yellow marker-highlight wrapper
 │   │   ├── Services.tsx   # "What we do" - three-step process (id="services")
-│   │   ├── CaseStudy.tsx  # client case study on a pale-yellow band (id="work")
+│   │   ├── CaseStudy.tsx  # featured client case study + two "More work" cards on a pale-yellow band (id="work")
 │   │   ├── WhoWeAre.tsx   # Tom + Hayden bios, speaking note (id="about")
 │   │   ├── Contact.tsx    # Single mailto CTA, no forms (id="contact")
 │   │   └── Footer.tsx     # Logo, copyright, mailto
@@ -48,6 +48,8 @@ nextjs-site/
 - `site.email` / `site.mailto`: contact address used everywhere (`team@j2j.info`). Change once here to update the whole site.
 - `CASE_STUDY_NAMED`: boolean flag. `true` names the client in the case study and speaking note. Flip to `false` if the client has not approved being named publicly - copy falls back to "Our client" / anonymized phrasing automatically.
 - `testimonial`: stays `null` until an approved quote exists; the testimonial block does not render while it is `null`.
+- The two "More work" case studies (exit waterfall, POS analytics) live as a `moreWork` const in `CaseStudy.tsx`. They are deliberately client-anonymous - no gating needed.
+- **Case-study facts source of truth**: https://j2j-deploy.vercel.app/case-studies.html has the full write-ups with verified stats and client quotes. All numbers on the site must trace to it (or another real source) - never invent statistics.
 
 ## Deployment Pipeline
 
@@ -86,6 +88,12 @@ nextjs-site/
 **Status**: Consulting-site redesign live in production (deployed 2026-07-29)
 
 ## Changelog
+
+### 2026-07-29 (case studies expansion)
+- Added two client-anonymous "More work" cards to the #work section: exit waterfall modeling (PE, 80+ investors, $25M+) and POS analytics pipeline (bakery, 2.1M records, 99% cost match). Rewritten in site voice from the source write-ups, not copied.
+- Upgraded LC3 sidebar with real verified stats (95% accuracy, three-week payback) replacing qualitative placeholders; body now says the system "reads the day's calendars and email".
+- Design decision: kept the single-page featured-plus-supporting layout instead of equal-weight cards or a separate case-studies page. Revisit only at 5+ case studies.
+- Deployed and verified live.
 
 ### 2026-07-29 (launch)
 - **Deployed to production**: merged to `main`, GitHub Pages deploy succeeded, verified live at j2j.info (content strings, photos, 200s).
