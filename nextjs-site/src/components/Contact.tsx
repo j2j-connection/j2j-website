@@ -1,4 +1,4 @@
-import { site } from '@/content/site'
+import { site, bookingUrl } from '@/content/site'
 
 export default function Contact() {
   return (
@@ -13,9 +13,19 @@ export default function Contact() {
           business and where the hours go, and we will tell you honestly
           whether AI can help.
         </p>
+        {bookingUrl && (
+          <a
+            href={bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-10 inline-block rounded-full bg-ink px-7 py-3.5 font-medium text-paper transition-opacity hover:opacity-85"
+          >
+            Book a 30-minute call
+          </a>
+        )}
         <a
           href={site.mailto}
-          className="mt-10 inline-block font-mono text-2xl font-medium underline decoration-marker decoration-4 underline-offset-8 transition-colors hover:decoration-ink md:text-4xl"
+          className={`${bookingUrl ? 'mt-6' : 'mt-10'} block max-w-fit font-mono text-2xl font-medium underline decoration-marker decoration-4 underline-offset-8 transition-colors hover:decoration-ink md:text-4xl`}
         >
           {site.email}
         </a>

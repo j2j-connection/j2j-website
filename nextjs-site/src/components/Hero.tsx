@@ -1,5 +1,5 @@
 import Highlight from './Highlight'
-import { site } from '@/content/site'
+import { site, bookingUrl } from '@/content/site'
 
 export default function Hero() {
   return (
@@ -17,18 +17,39 @@ export default function Hero() {
           actually do, and stay until it works.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
-          <a
-            href={site.mailto}
-            className="rounded-full bg-ink px-7 py-3.5 font-medium text-paper transition-opacity hover:opacity-85"
-          >
-            Email {site.email}
-          </a>
-          <a
-            href="#work"
-            className="rounded-full border border-line px-7 py-3.5 font-medium transition-colors hover:border-ink"
-          >
-            See the work
-          </a>
+          {bookingUrl ? (
+            <>
+              <a
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-ink px-7 py-3.5 font-medium text-paper transition-opacity hover:opacity-85"
+              >
+                Book a 30-minute call
+              </a>
+              <a
+                href={site.mailto}
+                className="rounded-full border border-line px-7 py-3.5 font-medium transition-colors hover:border-ink"
+              >
+                Email {site.email}
+              </a>
+            </>
+          ) : (
+            <>
+              <a
+                href={site.mailto}
+                className="rounded-full bg-ink px-7 py-3.5 font-medium text-paper transition-opacity hover:opacity-85"
+              >
+                Email {site.email}
+              </a>
+              <a
+                href="#work"
+                className="rounded-full border border-line px-7 py-3.5 font-medium transition-colors hover:border-ink"
+              >
+                See the work
+              </a>
+            </>
+          )}
         </div>
       </div>
     </section>

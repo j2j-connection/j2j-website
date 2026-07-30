@@ -8,6 +8,7 @@ import { site } from '@/content/site'
 const navLinks = [
   { href: '/#services', label: 'What we do' },
   { href: '/#work', label: 'Our work' },
+  { href: '/#how', label: 'How it works' },
   { href: '/#about', label: 'Who we are' },
 ]
 

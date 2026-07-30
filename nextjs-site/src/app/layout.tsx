@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Bricolage_Grotesque, Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
+import { goatCounterCode } from '@/content/site'
 
 const bricolage = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -54,6 +55,13 @@ export default function RootLayout({
       >
         <Header />
         <main className="pt-20">{children}</main>
+        {goatCounterCode && (
+          <script
+            data-goatcounter={`https://${goatCounterCode}.goatcounter.com/count`}
+            async
+            src="https://gc.zgo.at/count.js"
+          />
+        )}
       </body>
     </html>
   )

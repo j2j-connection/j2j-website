@@ -23,6 +23,14 @@ export const caseStudyClient = CASE_STUDY_NAMED
 // and the testimonial block will not render.
 export const testimonial: { quote: string; attribution: string } | null = null
 
+// Booking link. When set, "Book a 30-minute call" becomes the primary CTA
+// in the hero and contact sections; set to null to fall back to email-only.
+export const bookingUrl: string | null = 'https://calendly.com/tom-j2j/30min'
+
+// GoatCounter site code (the NAME part of NAME.goatcounter.com). When set,
+// the privacy-friendly analytics script loads - no cookies, no banner needed.
+export const goatCounterCode: string | null = null
+
 // "AI in the Built Environment" talk, May 21 2026. Host name follows the
 // same permission gate as the case study.
 export const summit = {
