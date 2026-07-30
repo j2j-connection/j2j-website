@@ -3,11 +3,26 @@ import { caseStudyClient, testimonial } from '@/content/site'
 
 const facts = [
   'Nightly AI reports, every workday',
-  'Covers the whole team’s billable time',
+  '95% accurate before anyone edits it',
+  'Paid for itself in three weeks',
   'Built on the tools they already use',
   'Data never used to train AI models',
   'Nothing leaves their own accounts',
-  'In production today',
+]
+
+const moreWork = [
+  {
+    eyebrow: 'Private equity · Exit planning',
+    title: 'Who gets what when the company sells?',
+    body: 'A venture-backed company was heading into an exit with four series of preferred stock, accrued dividends, and more than 80 shareholders - and no way to answer the one question every investor asks: what do I take home at each price? We built an interactive model that reads the cap table, applies the legal waterfall from the company charter, and lets any investor test any exit scenario in seconds.',
+    facts: ['80+ investors modeled', '$25M+ of capital covered', 'In use during a live exit'],
+  },
+  {
+    eyebrow: 'Food & beverage · Data',
+    title: 'Two million sales records, finally in one place.',
+    body: 'A bakery business had years of sales history trapped in fourteen incompatible register exports, with product costs living in separate spreadsheets. Margin questions took hours of manual work, so mostly they went unanswered. We built a pipeline that unifies everything into one clean dataset and rebuilds it from scratch in under a minute - and it immediately surfaced a year of quiet cost creep the owners could not see before.',
+    facts: ['2.1M records unified', '99% of products cost-matched', 'Full rebuild in under 60 seconds'],
+  },
 ]
 
 export default function CaseStudy() {
@@ -29,8 +44,9 @@ export default function CaseStudy() {
               like most firms, hours were quietly going unrecorded every week.
             </p>
             <p>
-              We built an AI system that reads each day’s work and drafts a
-              nightly time report for every person on the team. Instead of
+              We built an AI system that reads the day’s calendars and email
+              and drafts a nightly time report for every person on the team.
+              Instead of
               reconstructing their week from memory, people review a draft that
               is already mostly right, and the hours that used to slip away get
               billed.
@@ -69,6 +85,29 @@ export default function CaseStudy() {
             </cite>
           </blockquote>
         )}
+        <div className="mt-16">
+          <div className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
+            More work
+          </div>
+          <div className="mt-6 grid gap-6 md:grid-cols-2">
+            {moreWork.map((work) => (
+              <div key={work.title} className="rounded-lg border border-line bg-paper p-6 md:p-8">
+                <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
+                  {work.eyebrow}
+                </div>
+                <h3 className="mt-3 font-display text-xl font-bold">{work.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted">{work.body}</p>
+                <ul className="mt-5 space-y-1.5 border-t border-line pt-4">
+                  {work.facts.map((fact) => (
+                    <li key={fact} className="font-mono text-xs">
+                      {fact}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )
