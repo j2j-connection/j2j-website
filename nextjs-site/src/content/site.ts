@@ -1,6 +1,6 @@
 // Single source for permission-gated and contact content.
 // CASE_STUDY_NAMED: flip to false to anonymize the client across the whole site.
-export const CASE_STUDY_NAMED: boolean = true
+export const CASE_STUDY_NAMED: boolean = false
 
 export const site = {
   email: 'team@j2j.info',

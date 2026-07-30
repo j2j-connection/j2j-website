@@ -1,5 +1,5 @@
 import Highlight from './Highlight'
-import { caseStudyClient, testimonial } from '@/content/site'
+import { CASE_STUDY_NAMED, caseStudyClient, testimonial } from '@/content/site'
 
 const facts = [
   'Nightly AI reports, every workday',
@@ -30,7 +30,7 @@ export default function CaseStudy() {
     <section id="work" className="scroll-mt-20 border-t border-line bg-marker-soft/40 px-6 lg:px-8">
       <div className="mx-auto max-w-5xl py-20 md:py-28">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
-          Case study · {caseStudyClient.name}
+          Case study{CASE_STUDY_NAMED && <> · {caseStudyClient.name}</>}
         </p>
         <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold tracking-tight md:text-4xl">
           Billable hours were slipping away <Highlight>in plain sight.</Highlight>
