@@ -74,7 +74,7 @@ nextjs-site/
 ## Production Site
 
 **Live URL**: https://j2j.info (HTTPS secured)
-**Status**: Consulting-site redesign complete on `redesign/consulting-site`, pending push to `main`
+**Status**: Consulting-site redesign live in production (deployed 2026-07-29)
 
 ## Changelog
 
