@@ -31,6 +31,7 @@ nextjs-site/
 │   │   ├── Highlight.tsx  # Reusable yellow marker-highlight wrapper
 │   │   ├── Services.tsx   # "What we do" - three-step process (id="services")
 │   │   ├── CaseStudy.tsx  # featured client case study + two "More work" cards on a pale-yellow band (id="work")
+│   │   ├── HowItWorks.tsx # fixed-price engagement steps (id="how")
 │   │   ├── WhoWeAre.tsx   # Tom + Hayden bios, speaking note (id="about")
 │   │   ├── Contact.tsx    # Single mailto CTA, no forms (id="contact")
 │   │   └── Footer.tsx     # Logo, copyright, mailto
@@ -48,6 +49,8 @@ nextjs-site/
 - `site.email` / `site.mailto`: contact address used everywhere (`team@j2j.info`). Change once here to update the whole site.
 - `CASE_STUDY_NAMED`: boolean flag. `true` names the client in the case study and speaking note. Flip to `false` if the client has not approved being named publicly - copy falls back to "Our client" / anonymized phrasing automatically.
 - `testimonial`: stays `null` until an approved quote exists; the testimonial block does not render while it is `null`.
+- `bookingUrl`: Calendly link (https://calendly.com/tom-j2j/30min). When set, "Book a 30-minute call" is the primary CTA in Hero and Contact; set to `null` to fall back to email-only (Hero then shows "See the work" as secondary).
+- `goatCounterCode`: GoatCounter site code (`j2j`). When set, layout.tsx loads the analytics script (cookieless, no consent banner needed). Dashboard: https://j2j.goatcounter.com. Set to `null` to disable.
 - The two "More work" case studies (exit waterfall, POS analytics) live as a `moreWork` const in `CaseStudy.tsx`. They are deliberately client-anonymous - no gating needed.
 - **Case-study facts source of truth**: https://j2j-deploy.vercel.app/case-studies.html has the full write-ups with verified stats and client quotes. All numbers on the site must trace to it (or another real source) - never invent statistics.
 
@@ -88,6 +91,12 @@ nextjs-site/
 **Status**: Consulting-site redesign live in production (deployed 2026-07-29)
 
 ## Changelog
+
+### 2026-07-29 (conversion features)
+- Added "How it works" section (`HowItWorks.tsx`, id="how", in nav): free first call, fixed-price scoping, build-with-you, stay-until-it-works. Headline "Fixed price. No open-ended bills." - delivery-speed claims deliberately softened (one past project ran 12+ months; every claim must hold for all engagements).
+- Added Calendly booking CTA (`bookingUrl` in site.ts) as primary button in Hero and Contact; email is secondary when set.
+- Enabled GoatCounter analytics (`goatCounterCode: 'j2j'` in site.ts) - cookieless script in layout.tsx, gated on the config value.
+- All deployed and verified live.
 
 ### 2026-07-29 (case studies expansion)
 - Added two client-anonymous "More work" cards to the #work section: exit waterfall modeling (PE, 80+ investors, $25M+) and POS analytics pipeline (bakery, 2.1M records, 99% cost match). Rewritten in site voice from the source write-ups, not copied.

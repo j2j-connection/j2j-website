@@ -29,6 +29,8 @@ Contact address, and the case-study naming gate, live in `nextjs-site/src/conten
 - `site.email` / `site.mailto` - the contact address shown across the site (`team@j2j.info`).
 - `CASE_STUDY_NAMED` - set to `false` to anonymize the case study client if they have not approved being named publicly.
 - `testimonial` - stays `null` (and hidden) until an approved quote is added.
+- `bookingUrl` - Calendly link for the "Book a 30-minute call" buttons; `null` falls back to email-only.
+- `goatCounterCode` - GoatCounter analytics site code; `null` disables analytics.
 
 ## Deployment
 
