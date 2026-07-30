@@ -3,82 +3,89 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
+import { site } from '@/content/site'
+
+const navLinks = [
+  { href: '/#services', label: 'What we do' },
+  { href: '/#work', label: 'Our work' },
+  { href: '/#about', label: 'Who we are' },
+]
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <header className="bg-black/80 backdrop-blur-md fixed top-0 w-full z-50 border-b border-white/10">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-4 hover:opacity-80 transition-opacity">
-            <div className="w-12 h-12 relative">
-              <Image
-                src="/J2J_logo.svg"
-                alt="J2J Logo"
-                fill
-                className="object-contain"
-              />
+    <header className="fixed top-0 z-50 w-full border-b border-line bg-paper/85 backdrop-blur-md">
+      <div className="mx-auto max-w-5xl px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
+          <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80">
+            <div className="relative h-10 w-10">
+              <Image src="/J2J_logo.svg" alt="J2J logo" fill className="object-contain" />
             </div>
-            <div className="text-white">
-              <div className="text-xl font-bold">J2J</div>
-              <div className="text-xs text-yellow-500 font-medium">AI FOR ALL</div>
+            <div>
+              <div className="font-display text-lg font-bold leading-tight">J2J Connection</div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+                AI Consulting
+              </div>
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-white hover:text-yellow-500 transition-colors font-medium">
-              Home
-            </Link>
-            <Link href="/#about" className="text-white hover:text-yellow-500 transition-colors font-medium">
-              About
-            </Link>
-            <Link
-              href="/#contact"
-              className="bg-yellow-500 text-black px-6 py-2 rounded-full font-semibold hover:bg-yellow-400 hover:shadow-lg hover:shadow-yellow-500/20 transition-all"
+          <nav className="hidden items-center gap-8 md:flex">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-muted transition-colors hover:text-ink"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <a
+              href={site.mailto}
+              className="rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-opacity hover:opacity-85"
             >
-              Get Started
-            </Link>
+              Email us
+            </a>
           </nav>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden flex flex-col gap-1 p-2"
+            className="flex flex-col gap-1.5 p-2 md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
           >
-            <span className={`w-6 h-0.5 bg-white transition-all ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-            <span className={`w-6 h-0.5 bg-white transition-all ${isMenuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`w-6 h-0.5 bg-white transition-all ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+            <span className={`h-0.5 w-6 bg-ink transition-all ${isMenuOpen ? 'translate-y-2 rotate-45' : ''}`} />
+            <span className={`h-0.5 w-6 bg-ink transition-all ${isMenuOpen ? 'opacity-0' : ''}`} />
+            <span className={`h-0.5 w-6 bg-ink transition-all ${isMenuOpen ? '-translate-y-2 -rotate-45' : ''}`} />
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        <div className={`md:hidden overflow-hidden transition-all duration-300 ${isMenuOpen ? 'max-h-80 pb-6' : 'max-h-0'}`}>
-          <nav className="flex flex-col gap-4 pt-4 border-t border-white/10">
-            <Link
-              href="/"
-              className="text-white hover:text-yellow-500 transition-colors font-medium py-2"
+        <div
+          id="mobile-menu"
+          inert={!isMenuOpen || undefined}
+          className={`overflow-hidden transition-all duration-300 md:hidden ${
+            isMenuOpen ? 'max-h-80 pb-6' : 'max-h-0'
+          }`}
+        >
+          <nav className="flex flex-col gap-1 border-t border-line pt-4">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="py-2 font-medium text-muted transition-colors hover:text-ink"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <a
+              href={site.mailto}
+              className="mt-3 rounded-full bg-ink px-5 py-3 text-center font-medium text-paper"
               onClick={() => setIsMenuOpen(false)}
             >
-              Home
-            </Link>
-            <Link
-              href="/#about"
-              className="text-white hover:text-yellow-500 transition-colors font-medium py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="/#contact"
-              className="bg-yellow-500 text-black px-6 py-3 rounded-full font-semibold text-center hover:bg-yellow-400 hover:shadow-lg hover:shadow-yellow-500/20 transition-all"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Get Started
-            </Link>
+              Email us
+            </a>
           </nav>
         </div>
       </div>

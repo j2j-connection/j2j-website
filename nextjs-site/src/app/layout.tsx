@@ -1,37 +1,60 @@
-import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
-import Header from "@/components/Header";
+import type { Metadata } from 'next'
+import { Bricolage_Grotesque, Inter, JetBrains_Mono } from 'next/font/google'
+import './globals.css'
+import Header from '@/components/Header'
+
+const bricolage = Bricolage_Grotesque({
+  subsets: ['latin'],
+  variable: '--font-bricolage',
+  weight: ['700', '800'],
+})
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+  subsets: ['latin'],
+  variable: '--font-inter',
+})
 
 const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-});
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+})
+
+const description =
+  'J2J is a two-brother AI consultancy. We find where AI saves your business real time and money, build the system, and run it with you.'
 
 export const metadata: Metadata = {
-  title: "J2J Connection - AI That Works for Everyone",
-  description: "J2J builds AI tools that actually work for real people and communities. Practical artificial intelligence solutions that solve real problems.",
-  keywords: ["AI tools", "community solutions", "practical AI", "local business AI", "artificial intelligence", "custom AI solutions"],
-};
+  metadataBase: new URL('https://j2j.info'),
+  title: 'J2J Connection - Practical AI Consulting',
+  description,
+  keywords: [
+    'AI consulting',
+    'small business AI',
+    'practical AI',
+    'AI automation',
+    'custom AI systems',
+  ],
+  openGraph: {
+    title: 'J2J Connection - Practical AI Consulting',
+    description,
+    url: 'https://j2j.info',
+    siteName: 'J2J Connection',
+    type: 'website',
+  },
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased bg-black text-white`}>
+    <html lang="en">
+      <body
+        className={`${bricolage.variable} ${inter.variable} ${jetbrainsMono.variable} bg-paper font-sans text-ink antialiased`}
+      >
         <Header />
-        <main className="pt-20">
-          {children}
-        </main>
+        <main className="pt-20">{children}</main>
       </body>
     </html>
-  );
+  )
 }

@@ -21,3 +21,7 @@ node_modules/
 
 # Claude artifacts (keep reports but ignore temp files)
 .claude/
+
+# Superpowers planning docs (client-sensitive, must never be pushed)
+.superpowers/
+docs/superpowers/

@@ -1,49 +1,35 @@
-import Link from 'next/link'
-import VideoCarousel from './VideoCarousel'
+import Highlight from './Highlight'
+import { site } from '@/content/site'
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Carousel */}
-      <VideoCarousel />
-
-      {/* Fallback gradient when videos aren't loaded */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-yellow-500/10 via-transparent to-yellow-500/5"></div>
-      </div>
-
-      {/* Content */}
-      <div className="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-          <span className="block">AI that works</span>
-          <span className="block text-yellow-500">
-            for everyone
-          </span>
-        </h1>
-        
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
-          We build intelligent tools that solve real problems in real communities. No buzzwords, just results.
+    <section className="px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl py-24 md:py-36">
+        <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
+          Practical AI for real businesses
         </p>
-
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link
-            href="#contact"
-            className="bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold text-lg hover:bg-yellow-400 hover:shadow-lg hover:shadow-yellow-500/20 transition-all transform hover:scale-105 w-full sm:w-auto text-center"
+        <h1 className="mt-6 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
+          AI that <Highlight>earns its keep.</Highlight>
+        </h1>
+        <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
+          J2J is a two-brother consultancy. Everyone says AI will change your
+          business - nobody says how. We come in, show you what it can
+          actually do, and stay until it works.
+        </p>
+        <div className="mt-10 flex flex-wrap items-center gap-4">
+          <a
+            href={site.mailto}
+            className="rounded-full bg-ink px-7 py-3.5 font-medium text-paper transition-opacity hover:opacity-85"
           >
-            Get Started
-          </Link>
-          <Link
-            href="#about"
-            className="border-2 border-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/10 transition-all transform hover:scale-105 backdrop-blur-sm w-full sm:w-auto text-center"
+            Email {site.email}
+          </a>
+          <a
+            href="#work"
+            className="rounded-full border border-line px-7 py-3.5 font-medium transition-colors hover:border-ink"
           >
-            Learn More
-          </Link>
+            See the work
+          </a>
         </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-1 h-16 bg-gradient-to-b from-white/50 to-transparent rounded-full"></div>
       </div>
     </section>
   )
