@@ -1,6 +1,7 @@
 // Single source for permission-gated and contact content.
 // CASE_STUDY_NAMED: flip to false to anonymize the client across the whole site.
-export const CASE_STUDY_NAMED: boolean = false
+// Client approved public naming 2026-08-03. Spelling is "LC Three", never "LC3".
+export const CASE_STUDY_NAMED: boolean = true
 
 export const site = {
   email: 'team@j2j.info',
@@ -10,7 +11,7 @@ export const site = {
 
 export const caseStudyClient = CASE_STUDY_NAMED
   ? {
-      name: 'LC3',
+      name: 'LC Three',
       descriptor: 'an owner’s-representation firm for construction projects',
     }
   : {
@@ -36,6 +37,6 @@ export const goatCounterCode: string | null = 'j2j'
 export const summit = {
   title: 'AI in the Built Environment',
   detail: CASE_STUDY_NAMED
-    ? 'A talk on practical AI for construction teams, hosted by LC3 in New York, May 2026.'
+    ? 'A talk on practical AI for construction teams, hosted by LC Three in New York, May 2026.'
     : 'A talk on practical AI for construction teams, presented at a client-hosted summit in New York, May 2026.',
 }
