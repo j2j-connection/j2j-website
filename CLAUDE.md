@@ -47,7 +47,7 @@ nextjs-site/
 ## Content Gating (`src/content/site.ts`)
 
 - `site.email` / `site.mailto`: contact address used everywhere (`team@j2j.info`). Change once here to update the whole site.
-- `CASE_STUDY_NAMED`: boolean flag. `true` names the client in the case study and speaking note. Flip to `false` if the client has not approved being named publicly - copy falls back to "Our client" / anonymized phrasing automatically.
+- `CASE_STUDY_NAMED`: boolean flag. `true` names the client in the case study and speaking note; `false` falls back to "Our client" / anonymized phrasing automatically. Currently `true` - client approved public naming 2026-08-03. **Canonical spelling is "LC Three", never "LC3"** (client's own requirement; applies to site copy AND repo docs).
 - `testimonial`: stays `null` until an approved quote exists; the testimonial block does not render while it is `null`.
 - `bookingUrl`: Calendly link (https://calendly.com/tom-j2j/30min). When set, "Book a 30-minute call" is the primary CTA in Hero and Contact; set to `null` to fall back to email-only (Hero then shows "See the work" as secondary).
 - `goatCounterCode`: GoatCounter site code (`j2j`). When set, layout.tsx loads the analytics script (cookieless, no consent banner needed). Dashboard: https://j2j.goatcounter.com. Set to `null` to disable.
@@ -92,6 +92,14 @@ nextjs-site/
 
 ## Changelog
 
+### 2026-08-03 (client naming approved)
+- Client approved public naming; `CASE_STUDY_NAMED` back to `true`. Corrected the name to "LC Three" everywhere (client requirement - never "LC3"), including the summit note and this file.
+- The case-study eyebrow now renders "Case study · {name}" only when named, plain "Case study" when anonymized (conditional added 2026-07-30 during the anonymization interval).
+- Verified live: 6 "LC Three" occurrences, zero "LC3".
+
+### 2026-07-30 (anonymization interval)
+- Client name temporarily removed site-wide via the `CASE_STUDY_NAMED` gate while awaiting approval - one flag flip, verified zero name occurrences live. The gate design proved itself.
+
 ### 2026-07-29 (conversion features)
 - Added "How it works" section (`HowItWorks.tsx`, id="how", in nav): free first call, fixed-price scoping, build-with-you, stay-until-it-works. Headline "Fixed price. No open-ended bills." - delivery-speed claims deliberately softened (one past project ran 12+ months; every claim must hold for all engagements).
 - Added Calendly booking CTA (`bookingUrl` in site.ts) as primary button in Hero and Contact; email is secondary when set.
@@ -100,7 +108,7 @@ nextjs-site/
 
 ### 2026-07-29 (case studies expansion)
 - Added two client-anonymous "More work" cards to the #work section: exit waterfall modeling (PE, 80+ investors, $25M+) and POS analytics pipeline (bakery, 2.1M records, 99% cost match). Rewritten in site voice from the source write-ups, not copied.
-- Upgraded LC3 sidebar with real verified stats (95% accuracy, three-week payback) replacing qualitative placeholders; body now says the system "reads the day's calendars and email".
+- Upgraded the featured case-study sidebar with real verified stats (95% accuracy, three-week payback) replacing qualitative placeholders; body now says the system "reads the day's calendars and email".
 - Design decision: kept the single-page featured-plus-supporting layout instead of equal-weight cards or a separate case-studies page. Revisit only at 5+ case studies.
 - Deployed and verified live.
 
