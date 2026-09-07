@@ -37,6 +37,10 @@ jobs:
         working-directory: ./nextjs-site
         run: npm ci
         
+      - name: Test demo behavior
+        working-directory: ./nextjs-site
+        run: npm test
+
       - name: Build Next.js
         working-directory: ./nextjs-site
         run: npm run build

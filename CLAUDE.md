@@ -14,6 +14,7 @@ cd nextjs-site/
 npm run dev        # Start development server (localhost:3000)
 npm run build      # Build for production (outputs to /out/)
 npm run lint       # Run ESLint
+npm test           # Budget calculations and chat progression
 ```
 
 ## Project Structure
@@ -91,6 +92,13 @@ nextjs-site/
 **Status**: Consulting-site redesign live in production (deployed 2026-07-29)
 
 ## Changelog
+
+### 2026-09-07 (budget chat demo)
+
+- Added `/demos/` and `/demos/budget/` as static HTML/CSS/JS under `nextjs-site/public/demos/`. The budget walkthrough has a fictional Excel attachment, three prepared questions, inspectable figures and a copyable follow-up email. Responses are explicitly labeled as prepared, with no live AI or file uploads.
+- After two distinct questions, the contact card offers Tom’s existing Calendly booking link and an email to Tom with Hayden copied. The third question remains available. Duplicate selections cannot unlock the invitation early.
+- Uses existing GoatCounter for aggregate question, invitation, download, copy and contact-click events on production hostnames only. Local previews send no analytics; recipient identity and completed bookings are not tracked.
+- Added `npm test` to deployment CI. Seven unit tests, lint, isolated static build, exported-file comparison and browser checks at desktop and 390/320px mobile widths passed before publication.
 
 ### 2026-08-03 (client naming approved)
 - Client approved public naming; `CASE_STUDY_NAMED` back to `true`. Corrected the name to "LC Three" everywhere (client requirement - never "LC3"), including the summit note and this file.

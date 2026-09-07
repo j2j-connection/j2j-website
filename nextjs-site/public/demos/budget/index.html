@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ask your project budget | J2J AI Consulting</title>
+<meta name="description" content="Try three questions about a sample project budget. An interactive walkthrough from J2J AI Consulting for architecture, design, and construction.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="stylesheet" href="./style.css">
+<script src="./model.js" defer></script><script src="./flow.js" defer></script><script src="./app.js" defer></script>
+</head><body>
+<header class="site-header"><a class="brand" href="https://j2j.info"><img src="../../J2J_logo.svg" alt="" width="32" height="40"><span><b>J2J</b> AI Consulting</span></a><a class="header-link" href="../">More demos ↗</a></header>
+<main class="wrap">
+<div class="hero"><p class="eyebrow">AI IN THE BUILT ENVIRONMENT</p><h1>Your project budget.<br><span class="highlight">A conversation away.</span></h1><p class="lede">The spreadsheet is already here. Pick a question and see what you could do with your own project files.</p></div>
+<section class="chat" aria-label="Sample budget conversation">
+<div class="chat-bar"><span class="chat-indicator" aria-hidden="true"></span><strong>Project workspace</strong><span class="sample-tag">INTERACTIVE WALKTHROUGH</span></div>
+<div class="chat-content">
+<details class="attachment" id="spreadsheet"><summary><span class="excel-icon" aria-hidden="true">X</span><span class="file-name"><strong>Project Budget.xlsx</strong><small>Sample file attached · Tap to view</small></span><span class="expand" aria-hidden="true">+</span></summary>
+<div class="file-preview"><p>Consultant fees · USD · Fictional project</p><div class="sheet-scroll" tabindex="0" role="region" aria-label="Budget spreadsheet, scroll horizontally for all columns"><table><caption class="sr-only">Budget worksheet, rows 8 through 12</caption><thead><tr><th scope="col">Workstream</th><th scope="col">Original</th><th scope="col">Changes</th><th scope="col">Approved</th><th scope="col">Billed</th><th scope="col">Remaining</th></tr></thead><tbody id="budget-rows"></tbody><tfoot><tr><th scope="row">Total</th><td>$275,000</td><td>$25,000</td><td>$300,000</td><td>$234,000</td><td>$66,000</td></tr></tfoot></table></div><a class="download" id="download" href="./Project%20Budget.xlsx" download>Download the sample Excel file ↓</a></div></details>
+<p class="disclosure">Fictional project · Prepared responses · No live AI</p>
+<div id="messages" role="log" aria-label="Conversation" aria-live="polite" aria-relevant="additions"><article class="message assistant"><span class="speaker">J2J DEMO</span><p>I have the sample budget ready. What would you like to know?</p></article></div>
+<aside class="invitation" id="invitation" aria-labelledby="invitation-title" hidden>
+<div class="people"><img src="../../team/tom.png" width="42" height="42" alt="Tom"><img src="../../team/hayden.png" width="42" height="42" alt="Hayden"><span>Tom &amp; Hayden<br><b>J2J AI Consulting</b></span></div>
+<h2 id="invitation-title">Want this working with your own project files?</h2><p>We can help you set it up around how your business works.</p>
+<div class="contact-actions"><a class="button primary" id="book" href="https://calendly.com/tom-j2j/30min" target="_blank" rel="noopener noreferrer">Book a conversation ↗</a><a class="button secondary" id="email-us" href="mailto:tom@j2j.info?cc=hayden%40j2j.info&amp;subject=AI%20for%20our%20project%20files&amp;body=Hi%20Tom%20and%20Hayden%2C%0A%0AI%20tried%20the%20budget%20demo%20and%20would%20like%20to%20discuss%20using%20AI%20with%20our%20project%20files.%0A%0A">Email us</a></div>
+<small>A 30-minute introductory conversation with Tom.</small></aside>
+<div class="suggestions"><p id="question-label">TRY A QUESTION</p><div id="questions" aria-labelledby="question-label"></div><p class="finished" id="finished" hidden>You’ve explored all three questions. What would you ask about your own projects?</p></div>
+<noscript><p>Enable JavaScript to try the three prepared questions. You can still <a href="./Project%20Budget.xlsx">download the sample budget</a> or <a href="https://calendly.com/tom-j2j/30min">book a conversation</a>.</p></noscript>
+</div></section><p class="below-chat">A sample workflow from J2J AI Consulting, for architecture, design &amp; construction.</p></main>
+<footer class="wrap"><span>J2J Connection LLC</span><span>Demo interactions counted in aggregate on the live site.</span></footer>
+<template id="answer-summary"><p>The approved consultant budget is <strong>$300,000</strong>, including $25,000 in approved changes.</p><div class="totals"><div><span>BILLED TO DATE</span><strong>$234,000</strong></div><div><span>REMAINING</span><strong>$66,000</strong></div></div><p>78% of the approved fees have been billed. That tells us how much has been invoiced, not how much work is complete.</p><p>One detail deserves a closer look: architectural design has billed more than its approved fees.</p><button class="source-link" type="button">Source: Budget worksheet, rows 8–12 ↗</button></template>
+<template id="answer-overrun"><p><strong>Yes. Architectural design is $9,000 over its approved fees.</strong></p><div class="calculation"><span>$80,000 original + $10,000 approved change</span><strong>$90,000 approved</strong><span>$99,000 billed − $90,000 approved</span><strong class="variance">$9,000 to reconcile</strong></div><p>This could be additional scope, an invoice error, or an approval missing from the tracker. The spreadsheet alone doesn’t establish which.</p><button class="source-link" type="button">Source: Budget worksheet, row 8 ↗</button></template>
+<template id="answer-email"><p>Here’s a draft you could review before sending.</p><div class="email-draft"><p class="draft-subject"><strong>Subject:</strong> Architectural design fee reconciliation</p><div class="draft-body">Hi team,
+
+Our tracker shows $99,000 billed for architectural design against $90,000 in approved fees, including the $10,000 approved change. That leaves a $9,000 difference to reconcile.
+
+Could you confirm whether this relates to additional scope, an invoice correction, or an approval we have not recorded? Please point us to the relevant invoice and approval so we can reconcile the tracker.
+
+Thanks,
+Project team</div></div><div class="copy-actions"><button class="button secondary copy-draft" type="button">Copy draft</button><span class="copy-status" role="status"></span></div></template>
+</body></html>
