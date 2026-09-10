@@ -3,11 +3,9 @@ import { CASE_STUDY_NAMED, caseStudyClient, testimonial } from '@/content/site'
 
 const facts = [
   'Nightly AI reports, every workday',
-  '95% accurate before anyone edits it',
-  'Paid for itself in three weeks',
+  'Draft time entries for human review',
+  'Calendar and email activity together',
   'Built on the tools they already use',
-  'Data never used to train AI models',
-  'Nothing leaves their own accounts',
 ]
 
 const moreWork = [
@@ -47,21 +45,22 @@ export default function CaseStudy() {
             </p>
             <p>
               We built an AI system that reads the day’s calendars and email and
-              drafts a nightly time report for every person on the team. Instead
-              of reconstructing their week from memory, people review a draft
-              that is already mostly right, and the hours that used to slip away
-              get billed.
+              drafts a nightly time report for the team. Instead of reconstructing
+              their week from memory, people review suggested entries, correct
+              them, and decide what belongs on their timesheet.
             </p>
             <p>
-              And the data stays private. The system runs on accounts they
-              own, the AI provider never trains on their information, and
-              client details never leave their team. Their business stays
-              their business.
+              The goal is to surface billable work that would otherwise be
+              missed, without treating an AI suggestion as a finished billing
+              record. Human review stays part of the process.
             </p>
             <p className="text-ink">
-              No new software to learn. No change to how anyone works. Just
-              hours recovered, every single day.
+              The work starts with the tools the team already uses, not another
+              system they have to remember to fill in.
             </p>
+            <a href="/case-studies/billable-time/" data-event="case-study-open" className="inline-block py-2 font-medium text-ink underline decoration-marker decoration-2 underline-offset-4">
+              Read the full case study ↗
+            </a>
           </div>
           <div>
             <div className="border-t-2 border-ink pt-4 font-mono text-xs uppercase tracking-[0.2em] text-muted">
@@ -86,18 +85,22 @@ export default function CaseStudy() {
             </cite>
           </blockquote>
         )}
-        <div className="mt-16">
-          <div className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
-            Other complex operations
-          </div>
+        <div className="mt-14 border-t border-line pt-8">
+          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Try a project workflow</p>
+          <h3 className="mt-3 font-display text-2xl font-bold">What is your budget trying to tell you?</h3>
+          <p className="mt-3 max-w-2xl leading-relaxed text-muted">Explore a sample consultant budget, spot an overrun, and draft the follow-up. The figures are fictional and the responses are prepared, so you can try it without uploading a file.</p>
+          <a href="/demos/budget/" data-event="demo-open-work" className="mt-4 inline-block py-2 font-medium underline decoration-marker decoration-2 underline-offset-4">Try the budget demo ↗</a>
+        </div>
+        <details className="mt-12 border-t border-line pt-6">
+          <summary className="cursor-pointer py-2 font-medium">More work, beyond the built environment</summary>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             {moreWork.map((work) => (
               <div key={work.title} className="rounded-lg border border-line bg-paper p-6 md:p-8">
-                <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
+                <div className="font-mono text-xs uppercase tracking-[0.15em] text-muted">
                   {work.eyebrow}
                 </div>
                 <h3 className="mt-3 font-display text-xl font-bold">{work.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{work.body}</p>
+                <p className="mt-3 leading-relaxed text-muted">{work.body}</p>
                 <ul className="mt-5 space-y-1.5 border-t border-line pt-4">
                   {work.facts.map((fact) => (
                     <li key={fact} className="font-mono text-xs">
@@ -108,7 +111,7 @@ export default function CaseStudy() {
               </div>
             ))}
           </div>
-        </div>
+        </details>
       </div>
     </section>
   )

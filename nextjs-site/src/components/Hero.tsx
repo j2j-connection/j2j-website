@@ -21,6 +21,7 @@ export default function Hero() {
             <>
               <a
                 href={bookingUrl}
+                data-placement="hero"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-full bg-ink px-7 py-3.5 font-medium text-paper transition-opacity hover:opacity-85"
@@ -51,6 +52,9 @@ export default function Hero() {
             </>
           )}
         </div>
+        <a href="/demos/budget/" data-event="demo-open-hero" className="mt-7 inline-block py-2 font-medium underline decoration-marker decoration-2 underline-offset-4">
+          Try the project-budget demo ↗
+        </a>
       </div>
     </section>
   )

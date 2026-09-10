@@ -3,20 +3,10 @@
   const { sample, review } = globalThis.BudgetDemo;
   const chat = createConversation();
   const byId = id => document.getElementById(id);
-  const production = location.protocol === 'https:' && ['j2j.info', 'www.j2j.info'].includes(location.hostname);
   // Aggregate event names only. Never send query strings, recipient IDs, or email addresses.
   function track(name) {
-    if (!production) return;
-    try { window.goatcounter?.count({ path: 'budget-demo-' + name, title: 'Budget demo: ' + name, event: true }); }
+    try { globalThis.J2JAnalytics?.track('budget-demo-' + name); }
     catch { /* Analytics must never interrupt the walkthrough or a contact link. */ }
-  }
-  if (production) {
-    window.goatcounter = { path: '/demos/budget/', referrer: '' };
-    const analytics = document.createElement('script');
-    analytics.src = 'https://gc.zgo.at/count.js';
-    analytics.dataset.goatcounter = 'https://j2j.goatcounter.com/count';
-    analytics.async = true;
-    document.head.append(analytics);
   }
   const money = value => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(value);
   for (const row of review(sample).rows) {
@@ -75,7 +65,5 @@
       status.textContent = 'Copied. Review before sending.'; track('draft-copied');
     } catch { status.textContent = 'Select the draft above and copy it manually.'; }
   });
-  byId('book').addEventListener('click', () => track('booking-click'));
-  byId('email-us').addEventListener('click', () => track('email-click'));
   byId('download').addEventListener('click', () => track('workbook-download'));
 })();

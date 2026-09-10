@@ -7,7 +7,7 @@ const steps = [
   {
     number: '2',
     title: 'We scope a fixed-price project',
-    body: 'You know the cost and the deliverable before we start. No hourly meter, no surprise invoices.',
+    body: 'Implementation has a fixed scope and price agreed before work starts. If we need deeper investigation first, we offer a clearly priced discovery session with a defined outcome.',
   },
   {
     number: '3',
@@ -16,8 +16,8 @@ const steps = [
   },
   {
     number: '4',
-    title: 'We stay until it works',
-    body: 'Live systems get watched, tuned, and improved as your business changes.',
+    title: 'We agree how to support it',
+    body: 'We test the agreed deliverable with your team before handoff. Ongoing monitoring, improvements, and support are scoped and priced separately.',
   },
 ]
 
@@ -27,7 +27,7 @@ export default function HowItWorks() {
       <div className="mx-auto max-w-5xl py-20 md:py-28">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">How it works</p>
         <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold tracking-tight md:text-4xl">
-          Fixed price. No open-ended bills.
+          Clear scope. Agreed price.
         </h2>
         <div className="mt-12 max-w-2xl">
           {steps.map((step) => (
@@ -43,6 +43,10 @@ export default function HowItWorks() {
             </div>
           ))}
         </div>
+        <p className="mt-8 max-w-2xl leading-relaxed text-muted">
+          Not ready for a build? Standalone advisory work is available at an agreed rate.
+          Your first 30-minute call is free.
+        </p>
       </div>
     </section>
   )

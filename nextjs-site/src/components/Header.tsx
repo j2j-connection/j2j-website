@@ -25,7 +25,7 @@ export default function Header() {
             </div>
             <div>
               <div className="font-display text-lg font-bold leading-tight">J2J Connection</div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
+              <div className="font-mono text-xs uppercase tracking-[0.12em] text-muted">
                 Built Environment AI
               </div>
             </div>
@@ -33,13 +33,13 @@ export default function Header() {
 
           <nav className="hidden items-center gap-8 md:flex">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
                 className="text-sm font-medium text-muted transition-colors hover:text-ink"
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
             <a
               href={site.mailto}
@@ -50,11 +50,12 @@ export default function Header() {
           </nav>
 
           <button
-            className="flex flex-col gap-1.5 p-2 md:hidden"
+            className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
+            onKeyDown={(event) => { if (event.key === 'Escape') setIsMenuOpen(false) }}
           >
             <span className={`h-0.5 w-6 bg-ink transition-all ${isMenuOpen ? 'translate-y-2 rotate-45' : ''}`} />
             <span className={`h-0.5 w-6 bg-ink transition-all ${isMenuOpen ? 'opacity-0' : ''}`} />
@@ -71,14 +72,14 @@ export default function Header() {
         >
           <nav className="flex flex-col gap-1 border-t border-line pt-4">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
                 className="py-2 font-medium text-muted transition-colors hover:text-ink"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
             <a
               href={site.mailto}

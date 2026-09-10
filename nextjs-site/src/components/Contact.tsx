@@ -9,13 +9,14 @@ export default function Contact() {
           Tell us where your projects get stuck.
         </h2>
         <p className="mt-6 max-w-xl leading-relaxed text-muted">
-          No forms, no sales funnel. Send us a few sentences about the workflow,
+          Book a free introductory call, or send a few sentences about the workflow,
           report, handoff, or pile of project information that keeps costing
           your team time. We will tell you honestly whether AI can help.
         </p>
         {bookingUrl && (
           <a
             href={bookingUrl}
+            data-placement="contact"
             target="_blank"
             rel="noopener noreferrer"
             className="mt-10 inline-block rounded-full bg-ink px-7 py-3.5 font-medium text-paper transition-opacity hover:opacity-85"
@@ -29,6 +30,9 @@ export default function Contact() {
         >
           {site.email}
         </a>
+        <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted">
+          When you get in touch, let us know how you heard about J2J.
+        </p>
       </div>
     </section>
   )

@@ -37,13 +37,17 @@ jobs:
         working-directory: ./nextjs-site
         run: npm ci
         
-      - name: Test demo behavior
+      - name: Test behavior
         working-directory: ./nextjs-site
         run: npm test
 
       - name: Build Next.js
         working-directory: ./nextjs-site
         run: npm run build
+
+      - name: Verify exported pages and discovery metadata
+        working-directory: ./nextjs-site
+        run: npm run test:export
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -7,12 +7,12 @@ const services = [
   {
     step: '2',
     title: 'Build around your tools',
-    body: 'We connect the email, documents, spreadsheets, and project platforms your team already uses. No rip-and-replace and no new app for everyone to learn.',
+    body: 'We connect the email, documents, spreadsheets, and project platforms your team already uses. Start with what is useful, without replacing everything at once.',
   },
   {
     step: '3',
     title: 'Put it to work',
-    body: 'We test with the people doing the work, tune the system in production, and improve it as your projects and operations change.',
+    body: 'We test with the people doing the work, check the results against the agreed scope, and plan the handoff and support your team needs.',
   },
 ]
 

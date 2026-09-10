@@ -3,7 +3,7 @@
 ## Architecture Overview
 
 **Current Stack**: Next.js 15.5.2 + TypeScript + Tailwind CSS v4
-**Site**: A single scrolling page for J2J Connection, a two-brother AI consultancy. Light, paper-and-ink design with a marker-yellow accent.
+**Site**: A scrolling homepage, billable-time case study, and static budget demos for J2J Connection. Light, paper-and-ink design with a marker-yellow accent.
 **Deployment**: GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`)
 **Directory**: All code is in `/nextjs-site/` subdirectory
 
@@ -21,7 +21,8 @@ cd nextjs-site/
 npm run dev        # Start development server (localhost:3000)
 npm run build      # Build for production (outputs to /out/)
 npm run lint       # Run ESLint
-npm test           # Budget demo behavior and positioning-copy regressions
+npm test           # Demo, attribution, and positioning regressions
+npm run test:export # Metadata, sitemap, schema, links, and claims after build
 ```
 
 ## Project Structure
@@ -58,7 +59,7 @@ nextjs-site/
 - `CASE_STUDY_NAMED`: boolean flag. `true` names the client in the case study and speaking note; `false` falls back to "Our client" / anonymized phrasing automatically. Currently `true` - client approved public naming 2026-08-03. **Canonical spelling is "LC Three", never "LC3"** (client's own requirement; applies to site copy AND repo docs).
 - `testimonial`: stays `null` until an approved quote exists; the testimonial block does not render while it is `null`.
 - `bookingUrl`: Calendly link (https://calendly.com/tom-j2j/30min). When set, "Book a 30-minute call" is the primary CTA in Hero and Contact; set to `null` to fall back to email-only (Hero then shows "See the work" as secondary).
-- `goatCounterCode`: GoatCounter site code (`j2j`). When set, layout.tsx loads the analytics script (cookieless, no consent banner needed). Dashboard: https://j2j.goatcounter.com. Set to `null` to disable.
+- `goatCounterCode`: GoatCounter site code (`j2j`). React pages load shared analytics after hydration. Static demos specify the same code in their script tags. Dashboard: https://j2j.goatcounter.com. To disable site-wide, update both surfaces. Session attribution uses browser session storage; do not describe the whole site as storage-free.
 - The two "More work" case studies (exit waterfall, POS analytics) live as a `moreWork` const in `CaseStudy.tsx`. They are deliberately client-anonymous - no gating needed.
 - **Case-study facts source of truth**: https://j2j-deploy.vercel.app/case-studies.html has the full write-ups with verified stats and client quotes. All numbers on the site must trace to it (or another real source) - never invent statistics.
 
@@ -72,11 +73,11 @@ nextjs-site/
 
 ## Key Features
 
-- **Single scrolling page**: Hero, Services, Case Study, Who We Are, Contact, Footer - no separate routes.
+- **Content routes**: `/`, `/case-studies/billable-time/`, `/demos/`, `/demos/budget/`. All four have self-canonical URLs and sitemap entries. The case-study path stays generic so the naming gate can anonymize it without a route change. Supporting unrelated work is collapsed on the homepage.
 - **Light design system**: paper background, ink text, marker-yellow highlight accents (see `globals.css` tokens).
 - **Highlight swipe**: a one-time CSS animation reveals the yellow highlight behind "earns its keep." on load; respects `prefers-reduced-motion`.
 - **Mobile-first nav**: fixed header, hamburger menu on small screens, anchor links with `scroll-mt-20` so the fixed header never covers a section heading.
-- **No forms, no chat widget**: contact is a single mailto CTA to `team@j2j.info`.
+- **No on-site intake form**: contact is Calendly or `team@j2j.info`. The demo is a prepared walkthrough, not a live AI chat.
 - **Static export**: GitHub Pages compatible build, no server-side features, images unoptimized by design.
 
 ## Development Notes
@@ -89,6 +90,13 @@ nextjs-site/
 
 ## Gotchas
 
+- Static directories in `public/demos/` resolve through `index.html` on GitHub Pages, but Next dev does not resolve their directory URLs. For integrated QA, stop dev, build, then serve `out/` with a static server. A dev-only directory 404 is not evidence of a production failure.
+- React pages load `site-analytics.js` through `next/script` after hydration. A native deferred script that decorates booking URLs can change server-rendered links before hydration and cause mismatches. Static demo HTML uses `defer` because it has no React hydration.
+- Attribution is session-scoped, retaining only validated source/medium/campaign labels. Recognized AI/search referrers are classified; unknown/direct traffic is not guessed. Full query strings, referrer paths, names and emails are not sent to GoatCounter. `booking-click-*` events are clicks, never completed bookings. Actual bookings and cancellations belong in Calendly reporting.
+- `robots.txt` preserves open public crawling, including AI retrieval, without newly blocking training bots. Google-Extended combines some Gemini grounding and training controls; changing it is a separate policy decision. A missing robots file was not evidence of blocking.
+- Google HTTPS URL-prefix verification uses the public homepage tag. Keep it after verification. Domain-wide DNS verification is separate.
+- The case-study source documents 599/627 billable events matched against QuickBooks Time. Present this as sample classification agreement, not overall time accuracy. The current page omits payback and absolute data-locality/no-training claims. A marketing source alone does not establish infrastructure behavior or the calculation behind ROI.
+
 - **Never run `npm run build` while `npm run dev` is running.** They share `.next/` and the build corrupts the dev server's manifests (ENOENT `_buildManifest.js.tmp.*`, then 500s on every request). Recovery: `pkill -f "next dev"`, `rm -rf .next`, restart. Bit twice on 2026-07-29.
 - **This repo is PUBLIC** (`j2j-connection/j2j-website`). Never commit client-sensitive info: no client contact names, no permission status, no internal planning docs. `.gitignore` blocks `.superpowers/` and `docs/superpowers/` for this reason - do not remove those entries. Client naming on the site itself is gated by `CASE_STUDY_NAMED` in `src/content/site.ts`.
 - **Team photo regeneration**: source illustrations had a checkerboard "transparency" pattern baked into the pixels. Real transparency was produced with a Pillow flood-fill from the image borders (light-gray/white tolerance) - see `public/team/`. macOS `sips --cropOffset` silently crops from center, and the machine has no system PIL/ImageMagick; use a scratch venv with `pip install pillow`.
@@ -99,6 +107,13 @@ nextjs-site/
 **Status**: Built-environment positioning live in production (deployed 2026-09-10)
 
 ## Changelog
+
+### 2026-09-10 (search and proof assets)
+
+- Added the billable-time case study, expanded the budget demo with source-grounded explanations and limitations, and surfaced both on the homepage. Clarified free introductions, fixed-scope implementation, paid discovery/advisory, and separately scoped support.
+- Added static robots/sitemap endpoints, canonical/share metadata, Organization/WebSite/Article schema, the Google verification tag, keyboard skip links, and 44px menu controls. Existing hosting and dependencies are unchanged.
+- Added production-only analytics and source-preserving Calendly links. CI runs behavior tests and exported-artifact checks before deployment. No lint rules were disabled; robots directive checks are case-insensitive because directive names are case-insensitive.
+- Generated `nextjs-site/public/og.png` using the built-in image-generation tool. Prompt: landscape editorial social card in paper (#FCFBF7), ink (#1C1A14), and yellow (#F6D64A); exact text "J2J Connection", "AI that earns its keep.", "Practical AI for the built environment", and "j2j.info"; yellow marker behind the headline, generous margins, no invented logo or illustration. Detail pages do not inherit this homepage artwork.
 
 ### 2026-09-10 (built-environment positioning branch)
 

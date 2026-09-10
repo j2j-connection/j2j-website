@@ -18,6 +18,10 @@ export default function Footer() {
           {site.email}
         </a>
       </div>
+      <details className="mx-auto max-w-5xl px-6 pb-8 text-sm leading-relaxed text-muted lg:px-8">
+        <summary className="cursor-pointer py-2">Site measurement</summary>
+        <p className="mt-2 max-w-2xl">We use GoatCounter for aggregate page visits and link clicks. Referral source and campaign labels are kept in this browser tab’s session storage and passed to Calendly when you follow a booking link. We do not send your name, email, or full referral URL to our website analytics. A booking-link click is not counted as a scheduled call.</p>
+      </details>
     </footer>
   )
 }
