@@ -15,7 +15,7 @@ const layout = read('../src/app/layout.tsx');
 const siteContent = read('../src/content/site.ts');
 
 test('the first viewport clearly identifies the built-environment audience', () => {
-  assert.match(hero, /Practical AI for the built environment/);
+  assert.doesNotMatch(hero, /Practical AI for the built environment/);
   assert.match(hero, /teams across the built environment/);
   assert.doesNotMatch(hero, /owners, developers, architects, engineers, and contractors/);
   assert.match(header, /Built Environment AI/);

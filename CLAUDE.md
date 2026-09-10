@@ -110,6 +110,9 @@ nextjs-site/
 
 ### 2026-09-10 (search and proof assets)
 
+- Published and verified the deployed HTML and exact analytics/social-card assets. Google ownership of `https://j2j.info/` was verified with the HTML tag. Sitemap submission was accepted, but its report still showed "Couldn't fetch" after one resubmission; Google's live URL inspection independently reported crawl allowed and page fetch successful. Manual actions: no issues detected. Do not describe the sitemap as successfully processed until its report confirms that. Initial performance/indexing reports were still processing.
+- Calendly's optional referral question was saved, and account UI exposes tracking-ID filters and meeting exports. Source continuity into scheduling links was browser-tested. No live booking/cancellation test was performed; do not claim a completed-booking round trip was verified.
+- Removed the repeated built-environment eyebrow from the hero; the audience remains clear in the header and lead paragraph.
 - Added the billable-time case study, expanded the budget demo with source-grounded explanations and limitations, and surfaced both on the homepage. Clarified free introductions, fixed-scope implementation, paid discovery/advisory, and separately scoped support.
 - Added static robots/sitemap endpoints, canonical/share metadata, Organization/WebSite/Article schema, the Google verification tag, keyboard skip links, and 44px menu controls. Existing hosting and dependencies are unchanged.
 - Added production-only analytics and source-preserving Calendly links. CI runs behavior tests and exported-artifact checks before deployment. No lint rules were disabled; robots directive checks are case-insensitive because directive names are case-insensitive.

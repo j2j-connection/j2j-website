@@ -5,10 +5,7 @@ export default function Hero() {
   return (
     <section className="px-6 lg:px-8">
       <div className="mx-auto max-w-5xl py-24 md:py-36">
-        <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
-          Practical AI for the built environment
-        </p>
-        <h1 className="mt-6 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
+        <h1 className="max-w-3xl font-display text-4xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
           AI that <Highlight>earns its keep.</Highlight>
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
