@@ -39,11 +39,11 @@ export default function CaseStudy() {
         <div className="mt-12 grid gap-12 md:grid-cols-[1fr_260px] md:gap-16">
           <div className="space-y-5 leading-relaxed text-muted">
             <p>
-              {caseStudyClient.name} is {caseStudyClient.descriptor}. Their team
-              manages construction projects, where the day moves across calls,
-              meetings, email, and client work. Their revenue depends on people
-              remembering exactly what they worked on and for how long, but
-              hours were quietly going unrecorded every week.
+              {caseStudyClient.name} is {caseStudyClient.descriptor}. A typical
+              day moves across calls, meetings, email, and client work. Their
+              revenue depends on people remembering exactly what they worked on
+              and for how long, but hours were quietly going unrecorded every
+              week.
             </p>
             <p>
               We built an AI system that reads the day’s calendars and email and

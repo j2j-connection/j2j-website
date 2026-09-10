@@ -96,7 +96,7 @@ nextjs-site/
 ## Production Site
 
 **Live URL**: https://j2j.info (HTTPS secured)
-**Status**: Consulting-site redesign live in production (deployed 2026-07-29)
+**Status**: Built-environment positioning live in production (deployed 2026-09-10)
 
 ## Changelog
 
@@ -105,6 +105,8 @@ nextjs-site/
 - Created `codex/built-industry` from remote `main` as a broad built-environment positioning variant. The hero, header, services, featured case study framing, engagement steps, contact copy, and metadata now address owners, developers, architects, engineers, and contractors in plain language.
 - Kept the existing design and retained non-construction case studies as clearly labeled evidence from other complex operations. Added copy regression tests covering the audience, project language, metadata, prohibited unexplained `AEC` acronym, and no-em-dash rule.
 - Refined the hero after review to say "teams across the built environment" rather than listing five audience roles.
+- Published the reviewed branch to `main`. GitHub Pages run `34434809780` completed successfully, and the live page was fetched to verify the new built-environment hero copy is present and the role-by-role audience list is absent.
+- Removed repeated "construction projects" wording from the featured case-study introduction after reviewing the assembled live paragraph.
 
 ### 2026-09-07 (budget chat demo)
 

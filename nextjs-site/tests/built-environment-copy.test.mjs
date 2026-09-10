@@ -12,6 +12,7 @@ const services = read('../src/components/Services.tsx');
 const caseStudy = read('../src/components/CaseStudy.tsx');
 const contact = read('../src/components/Contact.tsx');
 const layout = read('../src/app/layout.tsx');
+const siteContent = read('../src/content/site.ts');
 
 test('the first viewport clearly identifies the built-environment audience', () => {
   assert.match(hero, /Practical AI for the built environment/);
@@ -22,7 +23,8 @@ test('the first viewport clearly identifies the built-environment audience', () 
 
 test('core sections speak to project work without relying on the AEC acronym', () => {
   assert.match(services, /project teams/);
-  assert.match(caseStudy, /construction projects/);
+  assert.match(siteContent, /construction projects/);
+  assert.doesNotMatch(caseStudy, /manages construction projects/);
   assert.match(contact, /Tell us where your projects get stuck\./);
 
   for (const source of [hero, header, services, caseStudy, contact]) {
