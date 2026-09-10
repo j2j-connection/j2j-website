@@ -12,10 +12,9 @@ export default function Hero() {
           AI that <Highlight>earns its keep.</Highlight>
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
-          J2J helps owners, developers, architects, engineers, and contractors
-          put AI to work on the real friction in projects. We connect the
-          information your team already has, automate repetitive work, and
-          stay until it works.
+          J2J helps teams across the built environment put AI to work on the
+          real friction in projects. We connect the information your team
+          already has, automate repetitive work, and stay until it works.
         </p>
         <div className="mt-10 flex flex-wrap items-center gap-4">
           {bookingUrl ? (
