@@ -85,12 +85,6 @@ export default function CaseStudy() {
             </cite>
           </blockquote>
         )}
-        <div className="mt-14 border-t border-line pt-8">
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Try a project workflow</p>
-          <h3 className="mt-3 font-display text-2xl font-bold">What is your budget trying to tell you?</h3>
-          <p className="mt-3 max-w-2xl leading-relaxed text-muted">Explore a sample consultant budget, spot an overrun, and draft the follow-up. The figures are fictional and the responses are prepared, so you can try it without uploading a file.</p>
-          <a href="/demos/budget/" data-event="demo-open-work" className="mt-4 inline-block py-2 font-medium underline decoration-marker decoration-2 underline-offset-4">Try the budget demo ↗</a>
-        </div>
         <details className="mt-12 border-t border-line pt-6">
           <summary className="cursor-pointer py-2 font-medium">More work, beyond the built environment</summary>
           <div className="mt-6 grid gap-6 md:grid-cols-2">

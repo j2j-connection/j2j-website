@@ -3,7 +3,7 @@
 ## Architecture Overview
 
 **Current Stack**: Next.js 15.5.2 + TypeScript + Tailwind CSS v4
-**Site**: A scrolling homepage, billable-time case study, and static budget demos for J2J Connection. Light, paper-and-ink design with a marker-yellow accent.
+**Site**: A scrolling homepage and billable-time case study for J2J Connection. Light, paper-and-ink design with a marker-yellow accent.
 **Deployment**: GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`)
 **Directory**: All code is in `/nextjs-site/` subdirectory
 
@@ -21,7 +21,7 @@ cd nextjs-site/
 npm run dev        # Start development server (localhost:3000)
 npm run build      # Build for production (outputs to /out/)
 npm run lint       # Run ESLint
-npm test           # Demo, attribution, and positioning regressions
+npm test           # Attribution and positioning regressions
 npm run test:export # Metadata, sitemap, schema, links, and claims after build
 ```
 
@@ -59,7 +59,7 @@ nextjs-site/
 - `CASE_STUDY_NAMED`: boolean flag. `true` names the client in the case study and speaking note; `false` falls back to "Our client" / anonymized phrasing automatically. Currently `true` - client approved public naming 2026-08-03. **Canonical spelling is "LC Three", never "LC3"** (client's own requirement; applies to site copy AND repo docs).
 - `testimonial`: stays `null` until an approved quote exists; the testimonial block does not render while it is `null`.
 - `bookingUrl`: Calendly link (https://calendly.com/tom-j2j/30min). When set, "Book a 30-minute call" is the primary CTA in Hero and Contact; set to `null` to fall back to email-only (Hero then shows "See the work" as secondary).
-- `goatCounterCode`: GoatCounter site code (`j2j`). React pages load shared analytics after hydration. Static demos specify the same code in their script tags. Dashboard: https://j2j.goatcounter.com. To disable site-wide, update both surfaces. Session attribution uses browser session storage; do not describe the whole site as storage-free.
+- `goatCounterCode`: GoatCounter site code (`j2j`). React pages load shared analytics after hydration. Dashboard: https://j2j.goatcounter.com. Session attribution uses browser session storage; do not describe the whole site as storage-free.
 - The two "More work" case studies (exit waterfall, POS analytics) live as a `moreWork` const in `CaseStudy.tsx`. They are deliberately client-anonymous - no gating needed.
 - **Case-study facts source of truth**: https://j2j-deploy.vercel.app/case-studies.html has the full write-ups with verified stats and client quotes. All numbers on the site must trace to it (or another real source) - never invent statistics.
 
@@ -73,11 +73,11 @@ nextjs-site/
 
 ## Key Features
 
-- **Content routes**: `/`, `/case-studies/billable-time/`, `/demos/`, `/demos/budget/`. All four have self-canonical URLs and sitemap entries. The case-study path stays generic so the naming gate can anonymize it without a route change. Supporting unrelated work is collapsed on the homepage.
+- **Content routes**: `/` and `/case-studies/billable-time/`, both self-canonical and in the sitemap. Retired `/demos/` and `/demos/budget/` URLs contain only immediate HTML redirects with noindex, a case-study canonical, and a fallback link. The case-study path stays generic so the naming gate can anonymize it without a route change. Supporting unrelated work is collapsed on the homepage.
 - **Light design system**: paper background, ink text, marker-yellow highlight accents (see `globals.css` tokens).
 - **Highlight swipe**: a one-time CSS animation reveals the yellow highlight behind "earns its keep." on load; respects `prefers-reduced-motion`.
 - **Mobile-first nav**: fixed header, hamburger menu on small screens, anchor links with `scroll-mt-20` so the fixed header never covers a section heading.
-- **No on-site intake form**: contact is Calendly or `team@j2j.info`. The demo is a prepared walkthrough, not a live AI chat.
+- **No on-site intake form**: contact is Calendly or `team@j2j.info`. The real LC Three case study is the primary example; the budget demo is retired.
 - **Static export**: GitHub Pages compatible build, no server-side features, images unoptimized by design.
 
 ## Development Notes
@@ -91,7 +91,7 @@ nextjs-site/
 ## Gotchas
 
 - Static directories in `public/demos/` resolve through `index.html` on GitHub Pages, but Next dev does not resolve their directory URLs. For integrated QA, stop dev, build, then serve `out/` with a static server. A dev-only directory 404 is not evidence of a production failure.
-- React pages load `site-analytics.js` through `next/script` after hydration. A native deferred script that decorates booking URLs can change server-rendered links before hydration and cause mismatches. Static demo HTML uses `defer` because it has no React hydration.
+- React pages load `site-analytics.js` through `next/script` after hydration. A native deferred script that decorates booking URLs can change server-rendered links before hydration and cause mismatches. Retired demo redirects load no analytics or application scripts.
 - Attribution is session-scoped, retaining only validated source/medium/campaign labels. Recognized AI/search referrers are classified; unknown/direct traffic is not guessed. Full query strings, referrer paths, names and emails are not sent to GoatCounter. `booking-click-*` events are clicks, never completed bookings. Actual bookings and cancellations belong in Calendly reporting.
 - `robots.txt` preserves open public crawling, including AI retrieval, without newly blocking training bots. Google-Extended combines some Gemini grounding and training controls; changing it is a separate policy decision. A missing robots file was not evidence of blocking.
 - Google HTTPS URL-prefix verification uses the public homepage tag. Keep it after verification. Domain-wide DNS verification is separate.
@@ -107,6 +107,12 @@ nextjs-site/
 **Status**: Built-environment positioning live in production (deployed 2026-09-10)
 
 ## Changelog
+
+### 2026-09-10 (retire budget demo)
+
+- Replaced the hero demo link with the LC Three case study, preserving the public naming gate. Removed the homepage demo card and case-study cross-promotion.
+- Removed the demo application, styles, and sample workbook from publication. Old demo URLs redirect to the case study with noindex and a destination canonical; only the homepage and case study remain in the sitemap. Original demo source remains recoverable in Git history.
+- Replaced retired demo behavior tests with regression checks for the new proof journey, old-URL redirects, and absence of demo assets from the exported site.
 
 ### 2026-09-10 (search and proof assets)
 

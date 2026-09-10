@@ -4,7 +4,7 @@ import fs from 'node:fs';
 
 const root = new URL('../out/', import.meta.url);
 const read = name => fs.readFileSync(new URL(name, root), 'utf8');
-const pages = ['/', '/case-studies/billable-time/', '/demos/', '/demos/budget/'];
+const pages = ['/', '/case-studies/billable-time/'];
 
 test('every public content page has its own canonical, description, share metadata and one heading', () => {
   const titles = new Set();
@@ -47,10 +47,25 @@ test('schema parses, identifies the real organization, and does not invent revie
   assert.ok(!JSON.stringify(blocks).includes('aggregateRating'));
 });
 
-test('homepage links to both proof assets and removes unsupported absolutes', () => {
+test('homepage features the real case study, without demo links or unsupported absolutes', () => {
   const html = read('index.html');
-  for (const href of ['/case-studies/billable-time/', '/demos/budget/']) assert.ok(html.includes(`href="${href}"`));
+  assert.ok(html.includes('href="/case-studies/billable-time/"'));
+  for (const route of pages) assert.doesNotMatch(read(`${route.slice(1)}index.html`), /href="\/demos\/|budget demo/);
   assert.doesNotMatch(html, /Nothing leaves their own accounts|client details never leave their team|No hourly meter|95% accurate|Paid for itself in three weeks/);
+});
+
+test('retired demo URLs redirect to the case study without shipping the demo', () => {
+  for (const route of ['demos/', 'demos/budget/']) {
+    const html = read(`${route}index.html`);
+    assert.match(html, /http-equiv="refresh" content="0;url=\/case-studies\/billable-time\/"/);
+    assert.match(html, /rel="canonical" href="https:\/\/j2j.info\/case-studies\/billable-time\/"/);
+    assert.match(html, /name="robots" content="noindex"/);
+    assert.match(html, /href="\/case-studies\/billable-time\/"/);
+    assert.doesNotMatch(html, /app.js|model.js|flow.js|Project Budget.xlsx/);
+  }
+  for (const asset of ['app.js', 'model.js', 'flow.js', 'style.css', 'Project Budget.xlsx']) {
+    assert.ok(!fs.existsSync(new URL(`demos/budget/${asset}`, root)), asset);
+  }
 });
 
 test('all local links and assets in exported content resolve on the static host', () => {

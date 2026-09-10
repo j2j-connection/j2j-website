@@ -1,5 +1,5 @@
 import Highlight from './Highlight'
-import { site, bookingUrl } from '@/content/site'
+import { site, bookingUrl, CASE_STUDY_NAMED, caseStudyClient } from '@/content/site'
 
 export default function Hero() {
   return (
@@ -49,8 +49,8 @@ export default function Hero() {
             </>
           )}
         </div>
-        <a href="/demos/budget/" data-event="demo-open-hero" className="mt-7 inline-block py-2 font-medium underline decoration-marker decoration-2 underline-offset-4">
-          Try the project-budget demo ↗
+        <a href="/case-studies/billable-time/" data-event="case-study-open-hero" className="mt-7 inline-block py-2 font-medium underline decoration-marker decoration-2 underline-offset-4">
+          {CASE_STUDY_NAMED ? `See what we built for ${caseStudyClient.name}` : 'See our billable-time case study'} ↗
         </a>
       </div>
     </section>

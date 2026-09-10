@@ -72,7 +72,6 @@ export default function BillableTimeCaseStudy() {
           <p className="mt-4 max-w-2xl leading-relaxed text-muted">Start with a free 30-minute conversation about your workflow. If there is a fit, we agree a scope and price before implementation. Any deeper discovery or ongoing support is priced separately.</p>
           <div className="mt-6 flex flex-wrap gap-5">
             <a href={bookingUrl || site.mailto} data-placement="billable-time-case-study" className="inline-block rounded-full bg-ink px-6 py-3 font-medium text-paper">{bookingUrl ? 'Book a 30-minute call' : 'Email us'}</a>
-            <a href="/demos/budget/" data-event="demo-open-case-study" className="inline-block py-3 font-medium underline decoration-marker decoration-2 underline-offset-4">Try another project workflow ↗</a>
           </div>
         </section>
       </article>
