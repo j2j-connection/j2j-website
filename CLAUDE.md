@@ -7,6 +7,13 @@
 **Deployment**: GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`)
 **Directory**: All code is in `/nextjs-site/` subdirectory
 
+## Built Environment Positioning Branch
+
+- `codex/built-industry` is a broad built-environment variant of the main consulting site.
+- The audience is owners, developers, architects, engineers, and contractors. Public copy spells those groups out or says "the built environment" instead of relying on the AEC acronym.
+- The existing LC Three construction case study is the primary sector proof. The private-equity and food-and-beverage examples remain supporting evidence for complex operational work and must not be rewritten as construction projects.
+- The branch changes positioning and copy while preserving the established paper-and-ink design, page structure, contact flow, and content gates.
+
 ## Key Commands
 
 ```bash
@@ -14,7 +21,7 @@ cd nextjs-site/
 npm run dev        # Start development server (localhost:3000)
 npm run build      # Build for production (outputs to /out/)
 npm run lint       # Run ESLint
-npm test           # Budget calculations and chat progression
+npm test           # Budget demo behavior and positioning-copy regressions
 ```
 
 ## Project Structure
@@ -92,6 +99,11 @@ nextjs-site/
 **Status**: Consulting-site redesign live in production (deployed 2026-07-29)
 
 ## Changelog
+
+### 2026-09-10 (built-environment positioning branch)
+
+- Created `codex/built-industry` from remote `main` as a broad built-environment positioning variant. The hero, header, services, featured case study framing, engagement steps, contact copy, and metadata now address owners, developers, architects, engineers, and contractors in plain language.
+- Kept the existing design and retained non-construction case studies as clearly labeled evidence from other complex operations. Added copy regression tests covering the audience, project language, metadata, prohibited unexplained `AEC` acronym, and no-em-dash rule.
 
 ### 2026-09-07 (budget chat demo)
 

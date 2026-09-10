@@ -1,18 +1,18 @@
 const services = [
   {
     step: '1',
-    title: 'Find the opportunity',
-    body: 'We sit with your team and learn how the work actually flows. Then we pinpoint where AI saves real hours - in plain language, not a 40-slide deck.',
+    title: 'Find the friction',
+    body: 'We sit with project teams to learn where information gets buried, reports repeat, and handoffs slow down. Then we pinpoint where AI can save real hours.',
   },
   {
     step: '2',
-    title: 'Build the system',
-    body: 'We build custom tools that plug into the software you already run. No new app for your team to learn, no rip-and-replace.',
+    title: 'Build around your tools',
+    body: 'We connect the email, documents, spreadsheets, and project platforms your team already uses. No rip-and-replace and no new app for everyone to learn.',
   },
   {
     step: '3',
-    title: 'Run it with you',
-    body: 'We do not hand over a binder and disappear. We watch the system in production, tune it, and improve it as your business changes.',
+    title: 'Put it to work',
+    body: 'We test with the people doing the work, tune the system in production, and improve it as your projects and operations change.',
   },
 ]
 
@@ -22,7 +22,7 @@ export default function Services() {
       <div className="mx-auto max-w-5xl py-20 md:py-28">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">What we do</p>
         <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold tracking-tight md:text-4xl">
-          Full AI consulting, start to finish.
+          Practical AI, built around project work.
         </h2>
         <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
           {services.map((service) => (

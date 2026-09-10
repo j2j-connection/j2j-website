@@ -33,23 +33,24 @@ export default function CaseStudy() {
           Case study{CASE_STUDY_NAMED && <> · {caseStudyClient.name}</>}
         </p>
         <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold tracking-tight md:text-4xl">
-          Billable hours were slipping away <Highlight>in plain sight.</Highlight>
+          A construction consultancy was losing billable hours{' '}
+          <Highlight>in plain sight.</Highlight>
         </h2>
         <div className="mt-12 grid gap-12 md:grid-cols-[1fr_260px] md:gap-16">
           <div className="space-y-5 leading-relaxed text-muted">
             <p>
-              {caseStudyClient.name} is {caseStudyClient.descriptor}. Like most
-              professional-services firms, their revenue depends on people
-              remembering exactly what they worked on, and for how long. And
-              like most firms, hours were quietly going unrecorded every week.
+              {caseStudyClient.name} is {caseStudyClient.descriptor}. Their team
+              manages construction projects, where the day moves across calls,
+              meetings, email, and client work. Their revenue depends on people
+              remembering exactly what they worked on and for how long, but
+              hours were quietly going unrecorded every week.
             </p>
             <p>
-              We built an AI system that reads the day’s calendars and email
-              and drafts a nightly time report for every person on the team.
-              Instead of
-              reconstructing their week from memory, people review a draft that
-              is already mostly right, and the hours that used to slip away get
-              billed.
+              We built an AI system that reads the day’s calendars and email and
+              drafts a nightly time report for every person on the team. Instead
+              of reconstructing their week from memory, people review a draft
+              that is already mostly right, and the hours that used to slip away
+              get billed.
             </p>
             <p>
               And the data stays private. The system runs on accounts they
@@ -87,7 +88,7 @@ export default function CaseStudy() {
         )}
         <div className="mt-16">
           <div className="font-mono text-xs uppercase tracking-[0.25em] text-muted">
-            More work
+            Other complex operations
           </div>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
             {moreWork.map((work) => (

@@ -6,12 +6,12 @@ export default function Contact() {
       <div className="mx-auto max-w-5xl py-20 md:py-28">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">Contact</p>
         <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold tracking-tight md:text-4xl">
-          Tell us what’s eating your time.
+          Tell us where your projects get stuck.
         </h2>
         <p className="mt-6 max-w-xl leading-relaxed text-muted">
-          No forms, no sales funnel. Email us a few sentences about your
-          business and where the hours go, and we will tell you honestly
-          whether AI can help.
+          No forms, no sales funnel. Send us a few sentences about the workflow,
+          report, handoff, or pile of project information that keeps costing
+          your team time. We will tell you honestly whether AI can help.
         </p>
         {bookingUrl && (
           <a

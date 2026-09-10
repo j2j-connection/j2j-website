@@ -21,21 +21,22 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 const description =
-  'J2J is a two-brother AI consultancy. We find where AI saves your business real time and money, build the system, and run it with you.'
+  'J2J builds practical AI systems for construction and real estate teams. We improve project workflows, connect existing tools, and stay until the system works.'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://j2j.info'),
-  title: 'J2J Connection - Practical AI Consulting',
+  title: 'J2J Connection - AI Consulting for the Built Environment',
   description,
   keywords: [
     'AI consulting',
-    'small business AI',
-    'practical AI',
-    'AI automation',
-    'custom AI systems',
+    'construction AI consulting',
+    'built environment AI',
+    'architecture engineering construction AI',
+    'real estate automation',
+    'project workflow automation',
   ],
   openGraph: {
-    title: 'J2J Connection - Practical AI Consulting',
+    title: 'J2J Connection - AI Consulting for the Built Environment',
     description,
     url: 'https://j2j.info',
     siteName: 'J2J Connection',

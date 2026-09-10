@@ -2,7 +2,7 @@ const steps = [
   {
     number: '1',
     title: 'The first call is free',
-    body: 'Tell us what’s eating your time. If AI is not the answer, we say so on that call.',
+    body: 'Tell us where a project or process keeps losing time. If AI is not the answer, we say so on that call.',
   },
   {
     number: '2',
@@ -11,8 +11,8 @@ const steps = [
   },
   {
     number: '3',
-    title: 'We build it with you',
-    body: 'You see working results early and often, on a timeline agreed up front - no long silences, no big reveal at the end.',
+    title: 'We build it with your team',
+    body: 'The people closest to the work see results early and often, on a timeline agreed up front - no long silences and no big reveal at the end.',
   },
   {
     number: '4',

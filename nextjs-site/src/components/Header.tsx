@@ -26,7 +26,7 @@ export default function Header() {
             <div>
               <div className="font-display text-lg font-bold leading-tight">J2J Connection</div>
               <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-                AI Consulting
+                Built Environment AI
               </div>
             </div>
           </Link>
