@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { site } from '@/content/site'
 
 export default function Footer() {
@@ -11,17 +12,13 @@ export default function Footer() {
           </div>
           <span className="text-sm text-muted">© {new Date().getFullYear()} {site.company}</span>
         </div>
-        <a
-          href={site.mailto}
-          className="font-mono text-sm text-muted transition-colors hover:text-ink"
-        >
-          {site.email}
-        </a>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted">
+          <Link href="/privacy/" className="inline-flex min-h-11 items-center transition-colors hover:text-ink">Privacy</Link>
+          <a href={site.mailto} className="inline-flex min-h-11 items-center font-mono transition-colors hover:text-ink">
+            {site.email}
+          </a>
+        </div>
       </div>
-      <details className="mx-auto max-w-5xl px-6 pb-8 text-sm leading-relaxed text-muted lg:px-8">
-        <summary className="cursor-pointer py-2">Site measurement</summary>
-        <p className="mt-2 max-w-2xl">We use GoatCounter for aggregate page visits and link clicks. Referral source and campaign labels are kept in this browser tab’s session storage and passed to Calendly when you follow a booking link. We do not send your name, email, or full referral URL to our website analytics. A booking-link click is not counted as a scheduled call.</p>
-      </details>
     </footer>
   )
 }

@@ -73,7 +73,7 @@ nextjs-site/
 
 ## Key Features
 
-- **Content routes**: `/` and `/case-studies/billable-time/`, both self-canonical and in the sitemap. Retired `/demos/` and `/demos/budget/` URLs contain only immediate HTML redirects with noindex, a case-study canonical, and a fallback link. The case-study path stays generic so the naming gate can anonymize it without a route change. Supporting unrelated work is collapsed on the homepage.
+- **Content routes**: `/`, `/case-studies/billable-time/`, and `/privacy/`, all self-canonical and in the sitemap. Retired `/demos/` and `/demos/budget/` URLs contain only immediate HTML redirects with noindex, a case-study canonical, and a fallback link. The case-study path stays generic so the naming gate can anonymize it without a route change. Supporting unrelated work is collapsed on the homepage.
 - **Light design system**: paper background, ink text, marker-yellow highlight accents (see `globals.css` tokens).
 - **Highlight swipe**: a one-time CSS animation reveals the yellow highlight behind "earns its keep." on load; respects `prefers-reduced-motion`.
 - **Mobile-first nav**: fixed header, hamburger menu on small screens, anchor links with `scroll-mt-20` so the fixed header never covers a section heading.
@@ -109,6 +109,12 @@ nextjs-site/
 **Status**: Built-environment positioning live in production (deployed 2026-09-10)
 
 ## Changelog
+
+### 2026-09-11 (privacy disclosure)
+
+- Replaced the technical "Site measurement" footer block with a discreet Privacy link and a separate plain-language `/privacy/` page. Keep visitor-facing explanations here; booking-click versus completed-booking distinctions belong in internal measurement notes.
+- Verified the deployed analytics script uses GoatCounter. Google Analytics is not installed; Google Search Console is the separate search-visibility tool. This change does not add or switch tracking services.
+- Added footer/privacy regression coverage and included the route in sitemap, metadata, and exported-link checks. Preserve this disclosure when analytics or referral handling changes.
 
 ### 2026-09-11 (OpenAI Select Partner)
 

@@ -5,7 +5,21 @@ import { createHash } from 'node:crypto';
 
 const root = new URL('../out/', import.meta.url);
 const read = name => fs.readFileSync(new URL(name, root), 'utf8');
-const pages = ['/', '/case-studies/billable-time/'];
+const pages = ['/', '/case-studies/billable-time/', '/privacy/'];
+
+test('privacy disclosure is separate from the footer on every content page', () => {
+  for (const route of pages) {
+    const html = read(`${route.slice(1)}index.html`);
+    const footer = html.match(/<footer\b[^>]*>.*?<\/footer>/s)?.[0];
+    assert.ok(footer, route);
+    assert.match(footer, /href="\/privacy\/"/);
+    assert.doesNotMatch(footer, /Site measurement|GoatCounter|session storage|scheduled call/);
+  }
+  const privacy = read('privacy/index.html');
+  assert.match(privacy, /GoatCounter/);
+  assert.match(privacy, /Calendly/);
+  assert.doesNotMatch(privacy, /property="og:image"|name="twitter:image"/);
+});
 
 test('homepage uses the supplied OpenAI Select Partner badge and exact designation', () => {
   const html = read('index.html');
