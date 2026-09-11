@@ -14,6 +14,13 @@ const contact = read('../src/components/Contact.tsx');
 const layout = read('../src/app/layout.tsx');
 const siteContent = read('../src/content/site.ts');
 
+test('partner badge balances the desktop actions without repeating the credential', () => {
+  assert.match(hero, /lg:grid-cols-\[minmax\(0,1fr\)_188px\]/);
+  assert.match(hero, /lg:items-end/);
+  assert.match(hero, /gap-10/);
+  assert.doesNotMatch(read('../src/components/WhoWeAre.tsx'), /OpenAI Select Partner/);
+});
+
 test('LC Three replaces the budget demo throughout the reading journey', () => {
   assert.match(hero, /href="\/case-studies\/billable-time\/"/);
   assert.match(hero, /caseStudyClient.name/);

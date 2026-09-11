@@ -10,7 +10,8 @@ const pages = ['/', '/case-studies/billable-time/'];
 test('homepage uses the supplied OpenAI Select Partner badge and exact designation', () => {
   const html = read('index.html');
   assert.ok(html.includes('alt="OpenAI Select Partner"'));
-  assert.ok(html.includes('J2J Connection is an OpenAI Select Partner'));
+  assert.equal((html.match(/alt="OpenAI Select Partner"/g) || []).length, 1);
+  assert.ok(!html.includes('J2J Connection is an OpenAI Select Partner'));
   assert.ok(html.includes('href="https://openai.com/business/partners/"'));
   assert.doesNotMatch(html, /OpenAI (?:Certified|Elite|Advanced) Partner/);
   const badge = fs.readFileSync(new URL('partners/openai-select-partner.svg', root));

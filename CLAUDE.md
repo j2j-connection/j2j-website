@@ -112,6 +112,7 @@ nextjs-site/
 
 ### 2026-09-11 (OpenAI Select Partner)
 
+- Refined the badge placement after design review: desktop uses a bottom-aligned credential column to the right of the hero actions; smaller screens keep it below with clear space. Removed the repeated partner sentence from the about section. The original badge artwork is unchanged.
 - Added the supplied OpenAI Select Partner badge beneath the hero calls to action and the exact designation in the about section. The attached sharing guidance permits website use and requires the unaltered asset and full designation. No certification, exclusivity, project endorsement, or Partner Locator listing is claimed.
 - Added exported-page checks for the exact designation, accessible badge text, public program link, and byte-for-byte asset integrity. Reviewed the additional portal brand guidelines before publication; the prepared landscape badge and placement require no artwork changes. Keep the private guideline document outside the public repository.
 
