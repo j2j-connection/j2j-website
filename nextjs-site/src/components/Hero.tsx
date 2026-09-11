@@ -1,4 +1,5 @@
 import Highlight from './Highlight'
+import Image from 'next/image'
 import { site, bookingUrl, CASE_STUDY_NAMED, caseStudyClient } from '@/content/site'
 
 export default function Hero() {
@@ -52,6 +53,11 @@ export default function Hero() {
         <a href="/case-studies/billable-time/" data-event="case-study-open-hero" className="mt-7 inline-block py-2 font-medium underline decoration-marker decoration-2 underline-offset-4">
           {CASE_STUDY_NAMED ? `See what we built for ${caseStudyClient.name}` : 'See our billable-time case study'} ↗
         </a>
+        <div className="mt-10">
+          <a href="https://openai.com/business/partners/" aria-label="OpenAI Select Partner - about the OpenAI Partner Network" className="inline-block rounded-lg focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-ink">
+            <Image src="/partners/openai-select-partner.svg" alt="OpenAI Select Partner" width={375} height={177} className="h-auto w-[188px] max-w-full" />
+          </a>
+        </div>
       </div>
     </section>
   )

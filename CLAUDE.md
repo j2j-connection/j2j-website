@@ -82,6 +82,8 @@ nextjs-site/
 
 ## Development Notes
 
+- **Partner designation**: use exactly `OpenAI Select Partner`, not certified, Advanced, or Elite. Use the supplied badge unchanged at its original aspect ratio. The original SVG is `public/partners/openai-select-partner.svg`; an export test pins its SHA-256 to prevent accidental alterations. Link to the public OpenAI Partner Network page, not an implied J2J directory listing. Keep private confirmation emails and partner documents out of this public repo.
+
 - **No server-side features** (static export only)
 - **Images unoptimized** for GitHub Pages compatibility
 - **All nav links use `/#section`** format so anchors resolve correctly from any path
@@ -107,6 +109,11 @@ nextjs-site/
 **Status**: Built-environment positioning live in production (deployed 2026-09-10)
 
 ## Changelog
+
+### 2026-09-11 (OpenAI Select Partner)
+
+- Added the supplied OpenAI Select Partner badge beneath the hero calls to action and the exact designation in the about section. The attached sharing guidance permits website use and requires the unaltered asset and full designation. No certification, exclusivity, project endorsement, or Partner Locator listing is claimed.
+- Added exported-page checks for the exact designation, accessible badge text, public program link, and byte-for-byte asset integrity. Publication remains pending the additional portal brand-guideline review.
 
 ### 2026-09-10 (retire budget demo)
 

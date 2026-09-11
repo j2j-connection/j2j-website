@@ -1,10 +1,21 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 
 const root = new URL('../out/', import.meta.url);
 const read = name => fs.readFileSync(new URL(name, root), 'utf8');
 const pages = ['/', '/case-studies/billable-time/'];
+
+test('homepage uses the supplied OpenAI Select Partner badge and exact designation', () => {
+  const html = read('index.html');
+  assert.ok(html.includes('alt="OpenAI Select Partner"'));
+  assert.ok(html.includes('J2J Connection is an OpenAI Select Partner'));
+  assert.ok(html.includes('href="https://openai.com/business/partners/"'));
+  assert.doesNotMatch(html, /OpenAI (?:Certified|Elite|Advanced) Partner/);
+  const badge = fs.readFileSync(new URL('partners/openai-select-partner.svg', root));
+  assert.equal(createHash('sha256').update(badge).digest('hex'), '312a3c4767dcf6a51eab6b73f49143a54dee60a88899f4b0b2ca448547efac86');
+});
 
 test('every public content page has its own canonical, description, share metadata and one heading', () => {
   const titles = new Set();

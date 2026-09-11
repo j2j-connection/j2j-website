@@ -27,6 +27,9 @@ export default function WhoWeAre() {
           people you talk to on the first call are the same people who build
           your system and answer when something needs attention.
         </p>
+        <p className="mt-5 max-w-xl leading-relaxed text-muted">
+          J2J Connection is an OpenAI Select Partner, part of the OpenAI Partner Network.
+        </p>
         <div className="mt-12 grid max-w-2xl gap-8 sm:grid-cols-2">
           {team.map((person) => (
             <div key={person.name} className="border-t-2 border-ink pt-5">
