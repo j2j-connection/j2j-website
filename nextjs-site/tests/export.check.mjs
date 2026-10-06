@@ -95,7 +95,7 @@ test('retired demo URLs redirect to the case study without shipping the demo', (
 });
 
 test('all local links and assets in exported content resolve on the static host', () => {
-  for (const route of pages) {
+  for (const route of [...pages, '/apps/phone-activity/', '/apps/phone-activity/privacy/', '/apps/phone-activity/terms/']) {
     const html = read(`${route.slice(1)}index.html`);
     for (const match of html.matchAll(/(?:href|src)="([^"#]+)"/g)) {
       const url = new URL(match[1].replaceAll('&amp;', '&'), `https://j2j.info${route}`);
@@ -104,4 +104,19 @@ test('all local links and assets in exported content resolve on the static host'
       assert.ok(fs.existsSync(new URL(target.endsWith('/') ? `${target}index.html` : target, root)), `${route}: ${url.pathname}`);
     }
   }
+});
+
+test('phone application pages export independently with accurate permission and privacy disclosures', () => {
+  for (const route of ['/apps/phone-activity/', '/apps/phone-activity/privacy/', '/apps/phone-activity/terms/']) {
+    const html = read(`${route.slice(1)}index.html`);
+    assert.match(html, route.endsWith('/terms/') ? /separate service agreement/ : /full Google Drive access/);
+    assert.ok(html.includes(`href="https://j2j.info${route}"`));
+    assert.equal((html.match(/<h1\b/g) || []).length, 1);
+    assert.match(html, /J2J_logo\.svg/);
+    assert.doesNotMatch(html, /property="og:image"|name="twitter:image"/);
+  }
+  const policy = read('apps/phone-activity/privacy/index.html');
+  assert.match(policy, /message contents/);
+  assert.match(policy, /Limited Use/);
+  assert.match(policy, /not a guaranteed 24-hour maximum/);
 });
