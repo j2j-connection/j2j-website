@@ -47,7 +47,7 @@ nextjs-site/
 │   └── content/
 │       └── site.ts    # Single source of truth for gated/contact content
 ├── public/
-│   ├── J2J_logo.svg   # Main logo (no video assets)
+│   ├── J2J_logo.svg   # Main logo
 │   ├── CNAME          # j2j.info - carried into the export so Pages keeps the domain
 │   └── team/          # hayden.png, tom.png - circular profile illustrations (480x480, transparent bg)
 └── out/                # Generated static export (auto-created, git-ignored)
@@ -109,6 +109,13 @@ nextjs-site/
 **Status**: Built-environment positioning live in production (deployed 2026-09-10)
 
 ## Changelog
+
+### 2026-10-09 (product film avatar)
+
+- Replaced the homepage J2J Time film with the approved 50-second v7 cut, featuring a small circular presenter during the first 8.4 seconds. The existing narration, captions and planned-feature disclosures are retained.
+- Use versioned MP4, poster and caption paths in `public/media/` so browsers request the updated assets. The public media folder contains only the delivered files; editable sources remain in the separate production workspace. Earlier cuts are preserved in source history and the production workspace.
+- Preserve click-to-play, inline playback, captions, the Book a demo link, and the distinction between working reports and planned QuickBooks Time updates. Parser: ai; media/file checks mechanical.
+
 
 ### 2026-09-11 (privacy disclosure)
 

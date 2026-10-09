@@ -18,16 +18,18 @@ test('the public film names the billable-time problem and distinguishes planned 
   assert.match(demo, /preload="none"/);
   assert.match(demo, /playsInline/);
   assert.match(demo, /kind="captions"/);
+  assert.match(demo, /src="\/media\/j2j-time-v7\.mp4"/);
+  assert.doesNotMatch(demo, /j2j-time-v6/);
   assert.match(demo, /aria-describedby=/);
 });
 test('published film has local captions and a still image, without shipping private sources', () => {
-  const video = new URL('public/media/j2j-time-v6.mp4', root);
-  const poster = new URL('public/media/j2j-time-v6-poster.jpg', root);
+  const video = new URL('public/media/j2j-time-v7.mp4', root);
+  const poster = new URL('public/media/j2j-time-v7-poster.jpg', root);
   assert.ok(fs.statSync(video).size > 1000000);
   assert.ok(fs.statSync(poster).size > 10000);
-  const captions = read('public/media/j2j-time-v6.vtt');
+  const captions = read('public/media/j2j-time-v7.vtt');
   assert.ok(captions.startsWith('WEBVTT\n'));
   assert.match(captions, /Tracking billable time/);
   assert.match(captions, /building a review and approval flow/);
-  assert.equal(fs.readdirSync(new URL('public/media/',root)).sort().join(','), 'j2j-time-v6-poster.jpg,j2j-time-v6.mp4,j2j-time-v6.vtt');
+  assert.equal(fs.readdirSync(new URL('public/media/',root)).sort().join(','), 'j2j-time-v7-poster.jpg,j2j-time-v7.mp4,j2j-time-v7.vtt');
 });
