@@ -1,3 +1,4 @@
+import J2JTimeDemo from './J2JTimeDemo'
 import Highlight from './Highlight'
 import { CASE_STUDY_NAMED, caseStudyClient, testimonial } from '@/content/site'
 
@@ -75,6 +76,7 @@ export default function CaseStudy() {
             </ul>
           </div>
         </div>
+        <J2JTimeDemo />
         {testimonial && (
           <blockquote className="mt-14 max-w-2xl border-l-2 border-ink pl-6">
             <p className="font-display text-xl font-bold leading-snug">
