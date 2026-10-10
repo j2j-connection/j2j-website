@@ -23,6 +23,7 @@ npm run build      # Build for production (outputs to /out/)
 npm run lint       # Run ESLint
 npm test           # Attribution and positioning regressions
 npm run test:export # Metadata, sitemap, schema, links, and claims after build
+npm run report:growth -- --out ./local-only/growth-report.html # Private signup report; requires scoped workspace/segment environment IDs
 ```
 
 ## Project Structure
@@ -110,6 +111,14 @@ nextjs-site/
 **Status**: Built-environment positioning live in production (deployed 2026-09-10)
 
 ## Changelog
+
+### 2026-10-10 UTC (growth measurement and reporting)
+
+- Product funnel events cover homepage product clicks, signup/demo CTA clicks, video play and 25/50/75/90 percent actual played coverage, form starts, validation problems and submission attempts. Video and form stages are deduplicated per mounted element; seeking to the end does not imply watching. Native form behavior remains intact, including without JavaScript. Events carry validated acquisition labels; no entered field values are read.
+- GoatCounter `count.js` sends `location.search` separately in its `q` field even when `path` is clean. Use `no_onload` and `no_events`, sanitize `get_data` before the first controlled count, and pass only validated UTM labels. Unknown page paths are excluded; provider-interface changes fail closed. Tests include sensitive query fields and negative controls. This supersedes the earlier assumption that cleaning `path` alone cleans every transmitted field.
+- The actual existing GoatCounter account has weekly summaries enabled and its page/referrer row limits expanded. Dashboard access and existing collection settings remain as configured. Native summaries concern website visits/events, not the Customer.io signup audience.
+- `scripts/growth-report.mjs` refreshes the private Customer.io signup report and source breakdown with `cio-j2j`, preserving Keychain-backed authentication. Set `J2J_CIO_ENVIRONMENT_ID` and `J2J_CIO_TIME_SEGMENT_ID` locally; keep account details and report artifacts outside this public repo. It reads the existing consent-based segment, uses encoded segment-membership filters, paginates every page, checks counts before/after and rejects incomplete/duplicate reads. Outputs aggregate HTML/JSON into an explicitly private folder, never email/company/profile IDs. It is a current audience snapshot, not a historical cohort or a joined visitor conversion rate.
+- Confirmed signups come from the Customer.io audience, not thank-you page visits or client submit events. Booking clicks remain clicks; completed meetings are independently confirmed in Calendly. New instrumentation cannot reconstruct earlier video/form behavior. Parser: ai; provider/browser/API/build checks mechanical.
 
 ### 2026-10-10 UTC (J2J Time discovery and signup)
 

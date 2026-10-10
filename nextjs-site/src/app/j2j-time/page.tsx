@@ -30,8 +30,8 @@ export default function TimePage() {
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">Your work lives across emails, meetings, calls and texts. J2J Time brings that activity into a daily report by project, so you can review your day and decide what to bill.</p>
           <p className="mt-4 max-w-2xl leading-relaxed text-muted">Built by J2J Connection for consultants and project teams who bill clients for their time.</p>
           <div className="mt-8 flex flex-wrap items-center gap-5">
-            <a href="#early-access" className="inline-flex min-h-12 items-center rounded-md bg-ink px-6 py-3 font-semibold text-paper hover:opacity-85">Join early access</a>
-            <a href="#demo" className="inline-flex min-h-11 items-center py-2 font-medium underline underline-offset-4">Watch the 50-second demo ↓</a>
+            <a href="#early-access" data-event="j2j-time-signup-cta-product" className="inline-flex min-h-12 items-center rounded-md bg-ink px-6 py-3 font-semibold text-paper hover:opacity-85">Join early access</a>
+            <a href="#demo" data-event="j2j-time-demo-cta-product" className="inline-flex min-h-11 items-center py-2 font-medium underline underline-offset-4">Watch the 50-second demo ↓</a>
           </div>
           <p className="mt-5 text-sm text-muted">A daily report to review. You stay in charge of billing.</p>
         </section>
@@ -46,7 +46,7 @@ export default function TimePage() {
               <span className="font-mono text-xs uppercase tracking-wider text-muted">50 seconds · Sound on</span>
             </div>
             <figure className="mt-8">
-              <video controls playsInline preload="none" width="1920" height="1080" poster="/media/j2j-time-v7-poster.jpg" aria-label="J2J Time product demonstration" aria-describedby="time-video-note" className="aspect-video w-full rounded-xl border border-line bg-ink">
+              <video data-j2j-video="product" controls playsInline preload="none" width="1920" height="1080" poster="/media/j2j-time-v7-poster.jpg" aria-label="J2J Time product demonstration" aria-describedby="time-video-note" className="aspect-video w-full rounded-xl border border-line bg-ink">
                 <source src="/media/j2j-time-v7.mp4" type="video/mp4" />
                 <track kind="captions" src="/media/j2j-time-v7.vtt" srcLang="en" label="English" />
                 <p><a href="/media/j2j-time-v7.mp4">Watch the J2J Time video</a>.</p>

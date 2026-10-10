@@ -70,6 +70,7 @@ function browserContext({ hostname = 'j2j.info', blockedStorage = false, search 
     },
   };
   vm.runInNewContext(fs.readFileSync(new URL('../public/site-analytics.js', import.meta.url), 'utf8'), context);
+  if (context.goatcounter) context.goatcounter.get_data = vars => ({ ...vars, q: context.location.search });
   return { context, listeners, scripts, links, counts, inputs };
 }
 
@@ -98,9 +99,77 @@ test('production loads analytics once, queues early clicks, and never calls a cl
   listeners.click({ target: { closest: () => links[0] } });
   context.goatcounter.count = event => counts.push(event);
   scripts[0].load();
-  assert.equal(counts.length, 1);
-  assert.equal(counts[0].path, 'booking-click-home');
-  assert.equal(counts[0].event, true);
+  assert.equal(counts.length, 2);
+  assert.equal(counts[0].path, '/');
+  assert.equal(counts[1].path, 'booking-click-home');
+  assert.equal(counts[1].event, true);
+  assert.ok(!JSON.stringify(counts).includes('private'));
+});
+
+test('the provider cannot transmit raw queries, including emails and search questions', () => {
+  const { context, scripts } = browserContext({ search: '?utm_source=chatgpt.com&utm_medium=ai&utm_campaign=fall&email=private@example.com&q=private-client' });
+  assert.equal(context.goatcounter.no_onload, true);
+  context.goatcounter.get_data = vars => ({ p: vars.path, q: context.location.search, r: 'unsafe-referrer' });
+  context.goatcounter.count = () => {};
+  scripts[0].load();
+  const data = context.goatcounter.get_data({ path: '/' });
+  assert.equal(new URLSearchParams(data.q).get('utm_campaign'), 'fall');
+  assert.ok(!JSON.stringify(data).includes('private'));
+  assert.match(data.r, /ai.*chatgpt.com/);
+});
+
+test('video progress uses played ranges, so seeking and replay do not fake completion', () => {
+  const api = load();
+  const ranges = list => ({ length: list.length, start: i => list[i][0], end: i => list[i][1] });
+  assert.equal(api.watchedFraction({ duration: 50, played: ranges([[49, 50]]) }), 0.02);
+  assert.equal(api.watchedFraction({ duration: 50, played: ranges([[0, 10], [30, 35]]) }), 0.3);
+  assert.equal(api.watchedFraction({ duration: NaN, played: ranges([]) }), 0);
+});
+
+test('video and form events are deduplicated, carry acquisition labels and never include entered values', () => {
+  const { context, scripts, listeners, counts } = browserContext({ search: '?utm_source=chatgpt.com&utm_medium=ai' });
+  context.goatcounter.count = e => counts.push(e);
+  scripts[0].load();
+  const video = { dataset: { j2jVideo: 'product' }, duration: 50, played: { length: 1, start: () => 0, end: () => 26 } };
+  listeners.play({ target: video }); listeners.play({ target: video });
+  listeners.timeupdate({ target: video }); listeners.timeupdate({ target: video });
+  const form = { dataset: { j2jSignup: 'product' }, checkValidity: () => true };
+  const field = { value: 'private@example.com', closest: () => form };
+  listeners.focusin({ target: field }); listeners.focusin({ target: field });
+  listeners.invalid({ target: field }); listeners.invalid({ target: field });
+  listeners.submit({ target: form, defaultPrevented: false });
+  assert.equal(counts.filter(e => e.path === 'j2j-time-video-play-product').length, 1);
+  assert.equal(counts.filter(e => e.path === 'j2j-time-video-50-product').length, 1);
+  assert.equal(counts.filter(e => e.path === 'j2j-time-signup-start-product').length, 1);
+  assert.equal(counts.filter(e => e.path === 'j2j-time-signup-validation-product').length, 1);
+  assert.equal(counts.filter(e => e.path === 'j2j-time-signup-submit-product').length, 1);
+  assert.ok(counts.filter(e => e.event).every(e => e.referrer.includes('ai:chatgpt.com')));
+  assert.ok(!JSON.stringify(counts).includes('private'));
+  assert.ok(!counts.some(e => /signup-(complete|success)/.test(e.path)));
+});
+
+test('invalid or cancelled submissions and direct thanks-page visits never become conversions', () => {
+  const { context, scripts, listeners, counts } = browserContext();
+  context.goatcounter.count = e => counts.push(e); scripts[0].load();
+  listeners.submit({ target: { dataset: { j2jSignup: 'product' }, checkValidity: () => false } });
+  listeners.submit({ target: { dataset: { j2jSignup: 'product' }, checkValidity: () => true }, defaultPrevented: true });
+  context.location.pathname = '/j2j-time/thanks/'; listeners['j2j-pageview']();
+  assert.ok(!counts.some(e => /signup-submit|signup-complete|signup-success/.test(e.path)));
+});
+
+test('a provider change fails closed instead of sending raw query data', () => {
+  const { context, scripts, counts } = browserContext({ search: '?email=private@example.com' });
+  delete context.goatcounter.get_data;
+  context.goatcounter.count = e => counts.push(e);
+  scripts[0].load();
+  context.J2JAnalytics.track('j2j-time-signup-start-product');
+  assert.equal(counts.length, 0);
+});
+
+test('unrecognized page paths cannot transmit identifiers through pageview URLs', () => {
+  const { context, scripts, listeners, counts } = browserContext();
+  context.goatcounter.count = e => counts.push(e); scripts[0].load();
+  context.location.pathname = '/customer/private@example.com/'; listeners['j2j-pageview']();
   assert.ok(!JSON.stringify(counts).includes('private'));
 });
 
@@ -113,7 +182,7 @@ test('client-side navigation records the new page once and updates booking place
   links[0].dataset = {};
   listeners['j2j-pageview']();
   listeners['j2j-pageview']();
-  assert.equal(counts.filter(e => !e.event).length, 1);
-  assert.equal(counts[0].path, '/case-studies/billable-time/');
+  assert.equal(counts.filter(e => !e.event).length, 2);
+  assert.equal(counts[1].path, '/case-studies/billable-time/');
   assert.match(links[0].href, /utm_content=case-studies-billable-time/);
 });

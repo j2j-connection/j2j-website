@@ -12,7 +12,7 @@ export default function TimeSignup() {
           <p id="signup-note" className="mt-5 leading-relaxed text-muted">Join the interest list for product updates and early access. We’ll get in touch about availability and fit for your team.</p>
           <p className="mt-4 text-sm leading-relaxed text-muted">No payment or account connection required. Prefer to talk it through? <a href={bookingUrl ?? site.mailto} data-placement="j2j-time-signup" className="text-ink underline underline-offset-4">Book a demo</a>.</p>
         </div>
-        <form id="j2j-time-signup" name="J2J Time early access" method="POST" action={timeProduct.signupAction} aria-describedby="signup-note" className="space-y-5">
+        <form id="j2j-time-signup" name="J2J Time early access" data-j2j-signup="product" method="POST" action={timeProduct.signupAction} aria-describedby="signup-note" className="space-y-5">
           <div>
             <label htmlFor="time-email" className="block text-sm font-semibold">Email address</label>
             <input id="time-email" name="email" type="email" required autoComplete="email" maxLength={254} className="mt-2 min-h-12 w-full rounded-md border border-muted/40 bg-paper px-3 py-3 text-base" />

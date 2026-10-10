@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "node --test tests/*.test.mjs",
-    "test:export": "node --test tests/export.check.mjs"
+    "test:export": "node --test tests/export.check.mjs",
+    "report:growth": "node scripts/growth-report.mjs"
   },
   "dependencies": {
     "react": "19.1.0",

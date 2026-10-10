@@ -7,6 +7,17 @@ const root = new URL('../out/', import.meta.url);
 const read = name => fs.readFileSync(new URL(name, root), 'utf8');
 const pages = ['/', '/j2j-time/', '/guides/automatic-billable-time-tracking/', '/case-studies/billable-time/', '/privacy/'];
 
+test('product funnel hooks are present on the deployed film, native form and CTAs', () => {
+  const home = read('index.html');
+  const product = read('j2j-time/index.html');
+  assert.match(home, /data-j2j-video="home"/);
+  assert.match(home, /data-event="j2j-time-product-click-home"/);
+  assert.match(product, /data-j2j-video="product"/);
+  assert.match(product, /data-j2j-signup="product"/);
+  assert.match(product, /data-event="j2j-time-signup-cta-product"/);
+  assert.match(product, /data-event="j2j-time-demo-cta-product"/);
+});
+
 test('J2J Time is an indexable product with evidence, answers and an accessible native signup', () => {
   const html = read('j2j-time/index.html');
   assert.match(html, /AI time tracker for/);

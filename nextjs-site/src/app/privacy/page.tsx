@@ -24,7 +24,7 @@ export default function PrivacyPage() {
         <div className="mt-12 max-w-2xl space-y-10">
           <section aria-labelledby="visits">
             <h2 id="visits" className="font-display text-2xl font-bold">Website visits</h2>
-            <p className="mt-4 leading-relaxed text-muted">We use GoatCounter to understand which pages people visit and which links they click. Our website analytics does not receive your name or email address. We remove extra information from page addresses and send only the referring website’s domain, not its full address.</p>
+            <p className="mt-4 leading-relaxed text-muted">We use GoatCounter to understand page visits, link clicks, video viewing and steps through the signup form. Our website analytics does not receive your name, email address or the text you enter in the form. We send page paths and validated referral and campaign labels, removing other address parameters and full referring addresses.</p>
           </section>
           <section aria-labelledby="referrals">
             <h2 id="referrals" className="font-display text-2xl font-bold">How you found us</h2>

@@ -11,7 +11,7 @@ export default function J2JTimeDemo() {
         Your work is scattered across emails, meetings, calls, and texts. J2J Time brings that activity into a daily report, so you can review your work and decide what to bill.
       </p>
       <figure className="mt-6">
-        <video controls playsInline preload="none" width="1920" height="1080" poster="/media/j2j-time-v7-poster.jpg" aria-label="J2J Time product demonstration" aria-describedby="j2j-time-video-note" className="aspect-video w-full rounded-lg bg-ink">
+        <video data-j2j-video="home" controls playsInline preload="none" width="1920" height="1080" poster="/media/j2j-time-v7-poster.jpg" aria-label="J2J Time product demonstration" aria-describedby="j2j-time-video-note" className="aspect-video w-full rounded-lg bg-ink">
           <source src="/media/j2j-time-v7.mp4" type="video/mp4" />
           <track kind="captions" src="/media/j2j-time-v7.vtt" srcLang="en" label="English" />
           <p><a href="/media/j2j-time-v7.mp4">Watch the J2J Time video</a>.</p>
@@ -21,7 +21,7 @@ export default function J2JTimeDemo() {
         </figcaption>
       </figure>
       <div className="mt-6 flex flex-wrap items-center gap-4">
-        <a href="/j2j-time/" className="inline-flex min-h-11 items-center rounded-md border border-ink px-5 py-3 text-sm font-medium hover:bg-marker-soft/60">Explore J2J Time &amp; join early access</a>
+        <a href="/j2j-time/" data-event="j2j-time-product-click-home" className="inline-flex min-h-11 items-center rounded-md border border-ink px-5 py-3 text-sm font-medium hover:bg-marker-soft/60">Explore J2J Time &amp; join early access</a>
         <a href={bookingUrl ?? site.mailto} data-event="j2j-time-demo-booking" data-placement="j2j-time" className="inline-flex min-h-11 items-center rounded-md bg-ink px-5 py-3 text-sm font-medium text-paper hover:bg-ink/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink">Book a demo</a>
         <span className="text-sm text-muted">Tell us how your team tracks billable time.</span>
       </div>
