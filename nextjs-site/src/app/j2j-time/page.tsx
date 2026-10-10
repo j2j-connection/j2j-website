@@ -25,12 +25,12 @@ export default function TimePage() {
     <>
       <article>
         <section className="mx-auto max-w-5xl px-6 pb-16 pt-16 md:pb-24 md:pt-24 lg:px-8">
-          <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">J2J Time · Early access</p>
+          <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">J2J Time · Request access</p>
           <h1 className="mt-6 max-w-4xl font-display text-4xl font-extrabold leading-[1.08] tracking-tight md:text-6xl lg:text-7xl">An AI time tracker for <Highlight>billable work.</Highlight></h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">Your work lives across emails, meetings, calls and texts. J2J Time brings that activity into a daily report by project, so you can review your day and decide what to bill.</p>
           <p className="mt-4 max-w-2xl leading-relaxed text-muted">Built by J2J Connection for consultants and project teams who bill clients for their time.</p>
           <div className="mt-8 flex flex-wrap items-center gap-5">
-            <a href="#early-access" data-event="j2j-time-signup-cta-product" className="inline-flex min-h-12 items-center rounded-md bg-ink px-6 py-3 font-semibold text-paper hover:opacity-85">Join early access</a>
+            <a href="#early-access" data-event="j2j-time-signup-cta-product" className="inline-flex min-h-12 items-center rounded-md bg-ink px-6 py-3 font-semibold text-paper hover:opacity-85">Request access</a>
             <a href="#demo" data-event="j2j-time-demo-cta-product" className="inline-flex min-h-11 items-center py-2 font-medium underline underline-offset-4">Watch the 50-second demo ↓</a>
           </div>
           <p className="mt-5 text-sm text-muted">A daily report to review. You stay in charge of billing.</p>

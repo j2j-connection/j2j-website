@@ -2,7 +2,7 @@ export const timeProduct = {
   name: 'J2J Time',
   url: 'https://j2j.info/j2j-time/',
   title: 'J2J Time | AI time tracker for billable work',
-  description: 'Turn email, calendar, call and text activity into a daily report by project. Review your work, decide what to bill, and join J2J Time early access.',
+  description: 'Turn email, calendar, call and text activity into a daily report by project. Review your work, decide what to bill, and request access to J2J Time.',
   // Customer.io documents this site ID as a public form identifier, not an API key.
   signupAction: 'https://customerioforms.com/forms/submit_action?site_id=d1ab729a02e2581ffc93&form_id=j2j-time-early-access-v1&success_url=https%3A%2F%2Fj2j.info%2Fj2j-time%2Fthanks%2F',
 }
@@ -18,7 +18,7 @@ export const timeQuestions = [
   },
   {
     question: 'Does it work with Outlook, Google Workspace and other email platforms?',
-    answer: 'The working reporting workflow uses Outlook email and calendar activity. If your team uses Google Workspace or another mail platform, tell us when you join early access. We will confirm the connection and scope for your setup before onboarding.',
+    answer: 'The working reporting workflow uses Outlook email and calendar activity. If your team uses Google Workspace or another mail platform, tell us when you request access. We will confirm the connection and scope for your setup before onboarding.',
   },
   {
     question: 'Does J2J Time support Android and iPhone?',
@@ -37,12 +37,12 @@ export const timeQuestions = [
     answer: 'The report arrives by email, with activity organized by project. You review the source details and reply with corrections. A dedicated editing and approval flow is planned; the current review happens in the report email.',
   },
   {
-    question: 'What happens when I join early access?',
-    answer: 'You register interest in J2J Time and agree to receive product updates. We will contact you about availability and whether it fits your workflow. Joining does not create a paid account, connect your email or phone, or commit you to a subscription.',
+    question: 'What happens when I request access?',
+    answer: 'You request access to J2J Time and agree to receive product updates. We will get in touch to discuss your team’s setup and confirm how J2J Time fits your workflow. Requesting access does not create a paid account, connect your email or phone, or commit you to a subscription.',
   },
   {
     question: 'What information does setup require?',
-    answer: 'Joining early access only needs your email address; company name is optional. Before any product connection, we agree the sources, account permissions, processing and retention with your team. The phone application has separate privacy and permission information.',
+    answer: 'Requesting access only needs your email address; company name is optional. Before any product connection, we agree the sources, account permissions, processing and retention with your team. The phone application has separate privacy and permission information.',
   },
 ]
 

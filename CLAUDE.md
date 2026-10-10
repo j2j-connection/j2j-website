@@ -44,7 +44,7 @@ nextjs-site/
 │   │   ├── HowItWorks.tsx # fixed-price engagement steps (id="how")
 │   │   ├── WhoWeAre.tsx   # Tom + Hayden bios, speaking note (id="about")
 │   │   ├── Contact.tsx    # Consulting contact (id="contact")
-│   │   ├── TimeSignup.tsx # Native Customer.io early-access form on the product page
+│   │   ├── TimeSignup.tsx # Native Customer.io access-request form on the product page
 │   │   └── Footer.tsx     # Logo, copyright, mailto
 │   └── content/
 │       └── site.ts    # Single source of truth for gated/contact content
@@ -79,7 +79,7 @@ nextjs-site/
 - **Light design system**: paper background, ink text, marker-yellow highlight accents (see `globals.css` tokens).
 - **Highlight swipe**: a one-time CSS animation reveals the yellow highlight behind "earns its keep." on load; respects `prefers-reduced-motion`.
 - **Mobile-first nav**: fixed header, hamburger menu on small screens, anchor links with `scroll-mt-20` so the fixed header never covers a section heading.
-- **Product interest form**: J2J Time has a native POST form using Customer.io's documented public forms action. It works without a JavaScript SDK or frontend API key. It collects email, optional company, product-update consent and sanitized referral labels. Joining is early-access interest, not a paid account or immediate connector setup. Consulting contact remains Calendly or email.
+- **Product interest form**: J2J Time has a native POST form using Customer.io's documented public forms action. It works without a JavaScript SDK or frontend API key. It collects email, optional company, product-update consent and sanitized referral labels. Requesting access starts a conversation about fit and onboarding, not a paid account or immediate connector setup. Consulting contact remains Calendly or email.
 - **Static export**: GitHub Pages compatible build, no server-side features, images unoptimized by design.
 
 ## Development Notes
@@ -111,6 +111,11 @@ nextjs-site/
 **Status**: Built-environment positioning live in production (deployed 2026-09-10)
 
 ## Changelog
+
+### 2026-10-10 UTC (access-request copy)
+
+- Thomas approved “Request access” instead of “early access.” Apply the same terminology to the signup card, hero/homepage/guide links, consent, questions, search/share metadata, privacy and confirmation. The approved heading is “Start capturing the work behind your billable time.” Explain that J2J will contact the requester to confirm fit; retain Book a demo and the existing product boundaries.
+- Existing `early-access` anchor, native Customer.io form ID, hidden interest value and consent version remain stable so old links, the audience and reporting continue working. Those identifiers are compatibility details, not public offer wording. No free month, trial, price or automatic onboarding is established. Parser: ai; copy/export checks mechanical.
 
 ### 2026-10-10 UTC (growth measurement and reporting)
 

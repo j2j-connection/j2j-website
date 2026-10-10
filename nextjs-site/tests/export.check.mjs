@@ -7,6 +7,20 @@ const root = new URL('../out/', import.meta.url);
 const read = name => fs.readFileSync(new URL(name, root), 'utf8');
 const pages = ['/', '/j2j-time/', '/guides/automatic-billable-time-tracking/', '/case-studies/billable-time/', '/privacy/'];
 
+test('access requests use consistent buyer copy without promising a trial or immediate setup', () => {
+  const product = read('j2j-time/index.html');
+  assert.match(product, /Start capturing the work behind your billable time\./);
+  assert.match(product, /Leave your email and we’ll get in touch to see how J2J Time fits your team’s workflow\./);
+  assert.match(product, /<button[^>]+type="submit"[^>]*>Request access<\/button>/);
+  assert.match(product, /contact me about getting started with J2J Time and product updates/);
+  assert.match(product, /name="j2j_time_interest" value="early-access"/);
+  assert.match(product, /value="product-updates-v1"/);
+  assert.match(read('j2j-time/thanks/index.html'), /Thanks for requesting access\./);
+  for (const route of [...pages, '/j2j-time/thanks/']) {
+    assert.doesNotMatch(read(`${route.slice(1)}index.html`), /early access|first month free|free for 30 days/i, route);
+  }
+});
+
 test('product funnel hooks are present on the deployed film, native form and CTAs', () => {
   const home = read('index.html');
   const product = read('j2j-time/index.html');
@@ -21,7 +35,7 @@ test('product funnel hooks are present on the deployed film, native form and CTA
 test('J2J Time is an indexable product with evidence, answers and an accessible native signup', () => {
   const html = read('j2j-time/index.html');
   assert.match(html, /AI time tracker for/);
-  for (const term of ['Outlook', 'Google', 'Android', 'iPhone', 'QuickBooks Time', 'manual', 'early access']) assert.ok(html.includes(term), term);
+  for (const term of ['Outlook', 'Google', 'Android', 'iPhone', 'QuickBooks Time', 'manual', 'Request access']) assert.ok(html.includes(term), term);
   assert.match(html, /href="\/case-studies\/billable-time\/"/);
   assert.match(html, /href="\/guides\/automatic-billable-time-tracking\/"/);
   assert.match(html, /<video[^>]+controls=""/);

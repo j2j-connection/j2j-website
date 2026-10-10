@@ -64,7 +64,7 @@ export default function TimeTrackingGuide() {
         <section aria-labelledby="our-approach" className="rounded-xl border border-line bg-marker-soft/40 p-6 md:p-8">
           <h2 id="our-approach" className="font-display text-2xl font-bold">How J2J approaches billable-time reporting</h2>
           <p className="mt-4 leading-relaxed text-muted">Our working reporting workflow brings Outlook email and calendar activity into a nightly report for a person to review. Corrections happen by email, and QuickBooks Time entry is currently manual. <Link href="/j2j-time/" className="text-ink underline underline-offset-4">J2J Time</Link> builds on that work, with a dedicated review, approval and QuickBooks Time update flow planned.</p>
-          <p className="mt-4 leading-relaxed text-muted">Read the <Link href="/case-studies/billable-time/" className="text-ink underline underline-offset-4">billable-time case study</Link> for the original workflow and the limits of its historical evaluation, or <Link href="/j2j-time/#early-access" className="text-ink underline underline-offset-4">join J2J Time early access</Link> to discuss your team’s setup.</p>
+          <p className="mt-4 leading-relaxed text-muted">Read the <Link href="/case-studies/billable-time/" className="text-ink underline underline-offset-4">billable-time case study</Link> for the original workflow and the limits of its historical evaluation, or <Link href="/j2j-time/#early-access" className="text-ink underline underline-offset-4">request access to J2J Time</Link> to discuss your team’s setup.</p>
         </section>
       </div>
     </article>
