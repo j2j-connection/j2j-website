@@ -112,6 +112,11 @@ nextjs-site/
 
 ## Changelog
 
+### 2026-10-10 UTC (shorter product journey)
+
+- Thomas approved a shorter product-page flow: promise, film, three concise workflow steps, access request, then optional questions. Replace repeated platform/integration paragraphs with the existing full answers in nine native details/summary disclosures; keep those answers server-rendered, collapsed initially and usable without JavaScript. Preserve current-versus-planned product boundaries and the accessible film transcript.
+- Compact the real-client proof to one factual sentence and the case-study link after the steps. The form retains its action, consent, acquisition fields and analytics hooks. Export checks assert the signup comes before questions and all nine answers remain in HTML. Parser: ai; layout/export checks mechanical.
+
 ### 2026-10-10 UTC (access-request copy)
 
 - Thomas approved “Request access” instead of “early access.” Apply the same terminology to the signup card, hero/homepage/guide links, consent, questions, search/share metadata, privacy and confirmation. The approved heading is “Start capturing the work behind your billable time.” Explain that J2J will contact the requester to confirm fit; retain Book a demo and the existing product boundaries.

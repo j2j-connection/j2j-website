@@ -7,6 +7,22 @@ const root = new URL('../out/', import.meta.url);
 const read = name => fs.readFileSync(new URL(name, root), 'utf8');
 const pages = ['/', '/j2j-time/', '/guides/automatic-billable-time-tracking/', '/case-studies/billable-time/', '/privacy/'];
 
+test('the product reaches signup before optional questions, whose answers remain in the HTML', () => {
+  const html = read('j2j-time/index.html');
+  const signup = html.indexOf('id="early-access"');
+  const questions = html.indexOf('aria-labelledby="questions-title"');
+  assert.ok(signup > html.indexOf('id="workflow-title"') && signup < questions, 'signup follows the workflow and precedes questions');
+  const section = html.slice(questions, html.indexOf('</section>', questions));
+  const answers = [...section.matchAll(/<details\b([^>]*)>(.*?)<\/details>/gs)];
+  assert.equal(answers.length, 9, 'all product questions remain available');
+  for (const [, attributes, body] of answers) {
+    assert.doesNotMatch(attributes, /\bopen(?:=|\s|$)/, 'answers begin collapsed');
+    assert.match(body, /<summary\b[^>]*>.+?<\/summary>/s);
+    assert.match(body, /<p\b[^>]*>.+?<\/p>/s, 'answers are rendered without fetching or JavaScript');
+  }
+  assert.match(section, /Today, you review the daily report and enter time into QuickBooks Time manually/);
+});
+
 test('access requests use consistent buyer copy without promising a trial or immediate setup', () => {
   const product = read('j2j-time/index.html');
   assert.match(product, /Start capturing the work behind your billable time\./);
