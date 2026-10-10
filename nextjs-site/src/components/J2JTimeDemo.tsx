@@ -21,6 +21,7 @@ export default function J2JTimeDemo() {
         </figcaption>
       </figure>
       <div className="mt-6 flex flex-wrap items-center gap-4">
+        <a href="/j2j-time/" className="inline-flex min-h-11 items-center rounded-md border border-ink px-5 py-3 text-sm font-medium hover:bg-marker-soft/60">Explore J2J Time &amp; join early access</a>
         <a href={bookingUrl ?? site.mailto} data-event="j2j-time-demo-booking" data-placement="j2j-time" className="inline-flex min-h-11 items-center rounded-md bg-ink px-5 py-3 text-sm font-medium text-paper hover:bg-ink/90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink">Book a demo</a>
         <span className="text-sm text-muted">Tell us how your team tracks billable time.</span>
       </div>

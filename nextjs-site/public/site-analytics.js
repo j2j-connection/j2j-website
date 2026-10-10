@@ -55,7 +55,15 @@
     function decorate(link) {
       link.href = bookingHref(link.href, source, link.dataset.placement || placement());
     }
+    function decorateSignup() {
+      const labels = clean(source);
+      document.querySelectorAll('input[data-j2j-attribution]').forEach(input => {
+        const key = input.dataset.j2jAttribution;
+        if (keys.includes(key)) input.value = labels[key] || '';
+      });
+    }
     document.querySelectorAll('a[href^="https://calendly.com/"]').forEach(decorate);
+    decorateSignup();
     document.addEventListener('click', event => {
       const link = event.target.closest?.('a');
       if (!link) return;
@@ -67,6 +75,7 @@
     let lastPath = location.pathname;
     document.addEventListener('j2j-pageview', () => {
       document.querySelectorAll('a[href^="https://calendly.com/"]').forEach(decorate);
+      decorateSignup();
       if (lastPath === location.pathname) return;
       lastPath = location.pathname;
       if (!production) return;

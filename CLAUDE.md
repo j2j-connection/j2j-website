@@ -3,7 +3,7 @@
 ## Architecture Overview
 
 **Current Stack**: Next.js 15.5.2 + TypeScript + Tailwind CSS v4
-**Site**: A scrolling homepage and billable-time case study for J2J Connection. Light, paper-and-ink design with a marker-yellow accent.
+**Site**: A consulting homepage, J2J Time product page, time-tracking guide and billable-time case study for J2J Connection. Light, paper-and-ink design with a marker-yellow accent.
 **Deployment**: GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`)
 **Directory**: All code is in `/nextjs-site/` subdirectory
 
@@ -42,7 +42,8 @@ nextjs-site/
 │   │   ├── CaseStudy.tsx  # featured client case study + two "More work" cards on a pale-yellow band (id="work")
 │   │   ├── HowItWorks.tsx # fixed-price engagement steps (id="how")
 │   │   ├── WhoWeAre.tsx   # Tom + Hayden bios, speaking note (id="about")
-│   │   ├── Contact.tsx    # Single mailto CTA, no forms (id="contact")
+│   │   ├── Contact.tsx    # Consulting contact (id="contact")
+│   │   ├── TimeSignup.tsx # Native Customer.io early-access form on the product page
 │   │   └── Footer.tsx     # Logo, copyright, mailto
 │   └── content/
 │       └── site.ts    # Single source of truth for gated/contact content
@@ -73,11 +74,11 @@ nextjs-site/
 
 ## Key Features
 
-- **Content routes**: `/`, `/case-studies/billable-time/`, and `/privacy/`, all self-canonical and in the sitemap. Retired `/demos/` and `/demos/budget/` URLs contain only immediate HTML redirects with noindex, a case-study canonical, and a fallback link. The case-study path stays generic so the naming gate can anonymize it without a route change. Supporting unrelated work is collapsed on the homepage.
+- **Discovery routes**: `/`, `/j2j-time/`, `/guides/automatic-billable-time-tracking/`, `/case-studies/billable-time/`, and `/privacy/`, all self-canonical and in the sitemap. `/j2j-time/thanks/` is noindex and excluded from the sitemap. Retired demo URLs preserve their redirects. Supporting phone app policies remain independent.
 - **Light design system**: paper background, ink text, marker-yellow highlight accents (see `globals.css` tokens).
 - **Highlight swipe**: a one-time CSS animation reveals the yellow highlight behind "earns its keep." on load; respects `prefers-reduced-motion`.
 - **Mobile-first nav**: fixed header, hamburger menu on small screens, anchor links with `scroll-mt-20` so the fixed header never covers a section heading.
-- **No on-site intake form**: contact is Calendly or `team@j2j.info`. The real LC Three case study is the primary example; the budget demo is retired.
+- **Product interest form**: J2J Time has a native POST form using Customer.io's documented public forms action. It works without a JavaScript SDK or frontend API key. It collects email, optional company, product-update consent and sanitized referral labels. Joining is early-access interest, not a paid account or immediate connector setup. Consulting contact remains Calendly or email.
 - **Static export**: GitHub Pages compatible build, no server-side features, images unoptimized by design.
 
 ## Development Notes
@@ -86,7 +87,7 @@ nextjs-site/
 
 - **No server-side features** (static export only)
 - **Images unoptimized** for GitHub Pages compatibility
-- **All nav links use `/#section`** format so anchors resolve correctly from any path
+- **Homepage section links use `/#section`** so they resolve from any path; product and guide links use their own routes. The desktop nav starts at `lg` to accommodate the product link without crowding tablet widths.
 - **Straight vs curly quotes**: prose in `site.ts` and components uses curly apostrophes (’) since it flows directly into rendered copy. Type literal Unicode glyphs (’ “ ”) - they pass `react/no-unescaped-entities` cleanly. Never use `&apos;`/`&quot;` entities (they render as straight quotes) and never disable the lint rule.
 - **No em dashes** in site copy or repo docs - regular dashes only.
 
@@ -109,6 +110,13 @@ nextjs-site/
 **Status**: Built-environment positioning live in production (deployed 2026-09-10)
 
 ## Changelog
+
+### 2026-10-10 UTC (J2J Time discovery and signup)
+
+- Added a dedicated J2J Time product page, a practical automatic billable-time guide, readable product questions, film transcript, canonical/share metadata and descriptive software/video/breadcrumb schema. Linked them from navigation, the homepage film, the case study and the sitemap. Public crawling remains open; no indexing, AI citation or rich-result guarantee is claimed.
+- Preserve the product boundary: current daily activity reports, email corrections and manual QuickBooks Time entry; dedicated editing, approval and direct updates are planned. Wider email-platform fit is confirmed during onboarding. The case-study metric now specifies unique calendar events and the plus-or-minus-one-day matching window.
+- Use the separate J2J Time interest audience for product updates. Form fields are prefixed `j2j_time_` apart from email; do not change existing newsletter subscription flags. QA contacts are marked and excluded from the product audience. Private account identifiers and test receipts stay outside this public repo.
+- Signup referral fields use the existing validated acquisition labels; never include email, full referrers or search questions in visit analytics. The confirmation route does not emit a fabricated completed-signup event. Parser: ai; API/browser/static-export checks mechanical.
 
 ### 2026-10-09 (product film avatar)
 

@@ -46,7 +46,7 @@ export default function BillableTimeCaseStudy() {
               <h2 id="result" className="font-display text-2xl font-bold">What the evaluation showed</h2>
               <div className="mt-5 border-l-4 border-marker bg-marker-soft/40 p-6">
                 <p className="font-display text-4xl font-bold">599 of 627</p>
-                <p className="mt-2 leading-relaxed">Billable events matched recorded entries in QuickBooks Time in the project evaluation, approximately 95.5%.</p>
+                <p className="mt-2 leading-relaxed">Unique billable calendar events matched recorded entries in QuickBooks Time within a plus-or-minus-one-day window in the historical project evaluation, approximately 95.5%.</p>
               </div>
               <p className="mt-4 leading-relaxed text-muted">That measures classification agreement in one evaluation sample. It is not a measure of time-estimate accuracy, recovered revenue, or a guarantee for future reports. People still need to review the output.</p>
               <p className="mt-4 leading-relaxed text-muted">The practical change is a draft to check rather than a week to reconstruct. Calendar and email activity can surface work someone might otherwise forget to record.</p>
@@ -71,6 +71,7 @@ export default function BillableTimeCaseStudy() {
           <h2 id="next-step" className="font-display text-2xl font-bold">Where does useful work go unrecorded?</h2>
           <p className="mt-4 max-w-2xl leading-relaxed text-muted">Start with a free 30-minute conversation about your workflow. If there is a fit, we agree a scope and price before implementation. Any deeper discovery or ongoing support is priced separately.</p>
           <div className="mt-6 flex flex-wrap gap-5">
+            <Link href="/j2j-time/" className="inline-block rounded-full border border-ink px-6 py-3 font-medium">Explore J2J Time</Link>
             <a href={bookingUrl || site.mailto} data-placement="billable-time-case-study" className="inline-block rounded-full bg-ink px-6 py-3 font-medium text-paper">{bookingUrl ? 'Book a 30-minute call' : 'Email us'}</a>
           </div>
         </section>

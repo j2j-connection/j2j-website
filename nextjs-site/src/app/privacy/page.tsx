@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 import { site } from '@/content/site'
 
 const title = 'Privacy | J2J Connection'
-const description = 'How J2J uses website analytics and referral information when you visit or book a call.'
+const description = 'How J2J handles website visits, referral information, bookings and J2J Time early-access signups.'
 const url = 'https://j2j.info/privacy/'
 
 export const metadata: Metadata = {
@@ -34,6 +34,11 @@ export default function PrivacyPage() {
             <h2 id="contact" className="font-display text-2xl font-bold">Booking and getting in touch</h2>
             <p className="mt-4 leading-relaxed text-muted">Booking takes place on Calendly, not on this website. Information you enter there is handled through Calendly. Email links open your email app. The information you choose to send is separate from our website visit counts.</p>
             <p className="mt-4 leading-relaxed text-muted">For questions about this website or your information, email <a href={site.mailto} className="text-ink underline underline-offset-4">{site.email}</a>.</p>
+          </section>
+          <section aria-labelledby="early-access-privacy">
+            <h2 id="early-access-privacy" className="font-display text-2xl font-bold">J2J Time early access</h2>
+            <p className="mt-4 leading-relaxed text-muted">If you submit the early-access form, we send your email address, optional company name, product-update consent and referral labels to Customer.io, where we keep the J2J Time interest list. Referral labels help us understand how you found J2J Time; they do not include your search question or full referring address. Customer.io records the submission and when it was received. We use this information to contact you about J2J Time availability, onboarding and product updates.</p>
+            <p className="mt-4 leading-relaxed text-muted">This form does not connect your email, calendar or phone accounts. Your signup details are separate from GoatCounter visit counts. To opt out or request removal from the interest list, email <a href={site.mailto} className="text-ink underline underline-offset-4">{site.email}</a>. Any connected product has its own agreed permissions and privacy information.</p>
           </section>
         </div>
       </article>

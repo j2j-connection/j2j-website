@@ -5,7 +5,50 @@ import { createHash } from 'node:crypto';
 
 const root = new URL('../out/', import.meta.url);
 const read = name => fs.readFileSync(new URL(name, root), 'utf8');
-const pages = ['/', '/case-studies/billable-time/', '/privacy/'];
+const pages = ['/', '/j2j-time/', '/guides/automatic-billable-time-tracking/', '/case-studies/billable-time/', '/privacy/'];
+
+test('J2J Time is an indexable product with evidence, answers and an accessible native signup', () => {
+  const html = read('j2j-time/index.html');
+  assert.match(html, /AI time tracker for/);
+  for (const term of ['Outlook', 'Google', 'Android', 'iPhone', 'QuickBooks Time', 'manual', 'early access']) assert.ok(html.includes(term), term);
+  assert.match(html, /href="\/case-studies\/billable-time\/"/);
+  assert.match(html, /href="\/guides\/automatic-billable-time-tracking\/"/);
+  assert.match(html, /<video[^>]+controls=""/);
+  assert.match(html, /Video transcript/);
+  const form = html.match(/<form\b[^>]*>.*?<\/form>/s)?.[0];
+  assert.ok(form);
+  assert.match(form, /method="POST"/);
+  assert.match(form, /action="https:\/\/customerioforms\.com\/forms\/submit_action\?/);
+  assert.match(form, /type="email"[^>]+required=""/);
+  assert.match(form, /type="checkbox"[^>]+required=""/);
+  assert.match(form, /name="j2j_time_consent"/);
+  assert.doesNotMatch(form, /name="(?:unsubscribed|api_key|id)"|localStorage|sessionStorage/);
+  const nodes = [...html.matchAll(/<script[^>]+type="application\/ld\+json"[^>]*>(.*?)<\/script>/gs)].flatMap(m => { const data = JSON.parse(m[1]); return data['@graph'] || [data]; });
+  const app = nodes.find(n => n['@type'] === 'SoftwareApplication');
+  assert.equal(app?.name, 'J2J Time');
+  assert.equal(app?.publisher?.['@id'], 'https://j2j.info/#organization');
+  const film = nodes.find(n => n['@type'] === 'VideoObject');
+  assert.equal(film?.duration, 'PT50S');
+  assert.equal(film?.contentUrl, 'https://j2j.info/media/j2j-time-v7.mp4');
+  assert.ok(film?.transcript.includes('building a review and approval flow'));
+  assert.doesNotMatch(JSON.stringify(nodes), /aggregateRating|"price"|FAQPage/);
+});
+
+test('signup confirmation is excluded from discovery and signup privacy is disclosed', () => {
+  const html = read('j2j-time/thanks/index.html');
+  assert.match(html, /name="robots" content="noindex, nofollow"/);
+  assert.match(html, /href="\/j2j-time\/"/);
+  assert.doesNotMatch(read('sitemap.xml'), /\/thanks\//);
+  assert.match(read('privacy/index.html'), /Customer\.io/);
+});
+
+test('time-tracking guide explains the billing decision and links to the product', () => {
+  const html = read('guides/automatic-billable-time-tracking/index.html');
+  assert.match(html, /href="\/j2j-time\/"/);
+  assert.match(html, /QuickBooks Time/);
+  assert.match(html, /<table/);
+  assert.doesNotMatch(html, /best time tracker|guaranteed|95% accurate|—/i);
+});
 
 test('privacy disclosure is separate from the footer on every content page', () => {
   for (const route of pages) {

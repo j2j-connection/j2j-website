@@ -50,18 +50,19 @@ test('malformed stored attribution and referrers cannot break a contact link', (
   }
 });
 
-function browserContext({ hostname = 'j2j.info', blockedStorage = false } = {}) {
+function browserContext({ hostname = 'j2j.info', blockedStorage = false, search = '?utm_source=gold&utm_medium=referral' } = {}) {
   const listeners = {};
   const scripts = [];
   const links = [{ href: 'https://calendly.com/tom-j2j/30min', dataset: { placement: 'hero' } }];
   const counts = [];
+  const inputs = ['utm_source', 'utm_medium', 'utm_campaign'].map(key => ({ dataset: { j2jAttribution: key }, value: 'unknown' }));
   const context = {
     URL, URLSearchParams,
-    location: { protocol: 'https:', hostname, pathname: '/', search: '?utm_source=gold&utm_medium=referral' },
+    location: { protocol: 'https:', hostname, pathname: '/', search },
     sessionStorage: { getItem() { if (blockedStorage) throw Error('disabled'); return null; }, setItem() { if (blockedStorage) throw Error('disabled'); } },
     document: {
       readyState: 'complete', referrer: 'https://partner.example/private-path?email=private@example.com', title: 'J2J',
-      querySelectorAll: () => links,
+      querySelectorAll: selector => selector === 'input[data-j2j-attribution]' ? inputs : links,
       querySelector: () => ({ dataset: { j2jAnalytics: 'j2j' } }),
       addEventListener: (name, handler) => { listeners[name] = handler; },
       createElement: () => ({ dataset: {}, addEventListener(name, handler) { this[name] = handler; } }),
@@ -69,8 +70,19 @@ function browserContext({ hostname = 'j2j.info', blockedStorage = false } = {}) 
     },
   };
   vm.runInNewContext(fs.readFileSync(new URL('../public/site-analytics.js', import.meta.url), 'utf8'), context);
-  return { context, listeners, scripts, links, counts };
+  return { context, listeners, scripts, links, counts, inputs };
 }
+
+test('signup fields retain only safe acquisition labels across navigation, without changing contact fields', () => {
+  const { context, inputs, listeners } = browserContext({ blockedStorage: true, search: '?utm_source=chatgpt.com&utm_medium=ai&utm_campaign=private%40example.com&email=private@example.com' });
+  assert.deepEqual(inputs.map(i => i.value), ['chatgpt.com', 'ai', '']);
+  inputs.forEach(i => { i.value = 'unknown'; });
+  context.location.pathname = '/j2j-time/';
+  context.location.search = '';
+  listeners['j2j-pageview']();
+  assert.deepEqual(inputs.map(i => i.value), ['chatgpt.com', 'ai', '']);
+  assert.ok(!JSON.stringify(inputs).includes('example.com'));
+});
 
 test('blocked storage still permits attributed booking links, while previews send no analytics', () => {
   const { links, scripts, context } = browserContext({ hostname: 'localhost', blockedStorage: true });

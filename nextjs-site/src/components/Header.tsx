@@ -6,6 +6,7 @@ import { useState } from 'react'
 import { site } from '@/content/site'
 
 const navLinks = [
+  { href: '/j2j-time/', label: 'J2J Time' },
   { href: '/#services', label: 'What we do' },
   { href: '/#work', label: 'Our work' },
   { href: '/#how', label: 'How it works' },
@@ -31,7 +32,7 @@ export default function Header() {
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-8 md:flex">
+          <nav className="hidden items-center gap-5 lg:flex">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -50,7 +51,7 @@ export default function Header() {
           </nav>
 
           <button
-            className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 md:hidden"
+            className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
             aria-expanded={isMenuOpen}
@@ -66,7 +67,7 @@ export default function Header() {
         <div
           id="mobile-menu"
           inert={!isMenuOpen || undefined}
-          className={`overflow-hidden transition-all duration-300 md:hidden ${
+          className={`overflow-hidden transition-all duration-300 lg:hidden ${
             isMenuOpen ? 'max-h-80 pb-6' : 'max-h-0'
           }`}
         >
