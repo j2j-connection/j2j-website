@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   title: timeProduct.title,
   description: timeProduct.description,
   alternates: { canonical: timeProduct.url },
-  openGraph: { title: timeProduct.title, description: timeProduct.description, url: timeProduct.url, type: 'website', siteName: 'J2J Connection', images: [{ url: 'https://j2j.info/media/j2j-time-v7-poster.jpg', width: 1920, height: 1080, alt: 'J2J Time product demo: tracking billable time without reconstructing your day.' }] },
-  twitter: { card: 'summary_large_image', title: timeProduct.title, description: timeProduct.description, images: ['https://j2j.info/media/j2j-time-v7-poster.jpg'] },
+  openGraph: { title: timeProduct.title, description: timeProduct.description, url: timeProduct.url, type: 'website', siteName: 'J2J Connection', images: [{ url: 'https://j2j.info/media/j2j-time-v8-poster.jpg', width: 1920, height: 1080, alt: 'J2J Time product demo: tracking billable time without reconstructing your day.' }] },
+  twitter: { card: 'summary_large_image', title: timeProduct.title, description: timeProduct.description, images: ['https://j2j.info/media/j2j-time-v8-poster.jpg'] },
 }
 
 const workflow = [
@@ -46,10 +46,10 @@ export default function TimePage() {
               <span className="font-mono text-xs uppercase tracking-wider text-muted">50 seconds · Sound on</span>
             </div>
             <figure className="mt-8">
-              <video data-j2j-video="product" controls playsInline preload="none" width="1920" height="1080" poster="/media/j2j-time-v7-poster.jpg" aria-label="J2J Time product demonstration" aria-describedby="time-video-note" className="aspect-video w-full rounded-xl border border-line bg-ink">
-                <source src="/media/j2j-time-v7.mp4" type="video/mp4" />
-                <track kind="captions" src="/media/j2j-time-v7.vtt" srcLang="en" label="English" />
-                <p><a href="/media/j2j-time-v7.mp4">Watch the J2J Time video</a>.</p>
+              <video data-j2j-video="product" controls playsInline preload="none" width="1920" height="1080" poster="/media/j2j-time-v8-poster.jpg" aria-label="J2J Time product demonstration" aria-describedby="time-video-note" className="aspect-video w-full rounded-xl border border-line bg-ink">
+                <source src="/media/j2j-time-v8.mp4" type="video/mp4" />
+                <track kind="captions" src="/media/j2j-time-v8.vtt" srcLang="en" label="English" />
+                <p><a href="/media/j2j-time-v8.mp4">Watch the J2J Time video</a>.</p>
               </video>
               <figcaption id="time-video-note" className="mt-4 max-w-3xl text-sm leading-relaxed text-muted">The film shows the working daily report and our planned review, approval and QuickBooks Time workflow. Planned screens use example data; current QuickBooks Time entry is manual.</figcaption>
             </figure>
@@ -104,7 +104,7 @@ export default function TimePage() {
         '@graph': [
           { '@type': 'WebPage', '@id': `${timeProduct.url}#page`, url: timeProduct.url, name: timeProduct.title, description: timeProduct.description, isPartOf: { '@id': 'https://j2j.info/#website' }, mainEntity: { '@id': `${timeProduct.url}#software` }, video: { '@id': `${timeProduct.url}#video` } },
           { '@type': 'SoftwareApplication', '@id': `${timeProduct.url}#software`, name: timeProduct.name, url: timeProduct.url, applicationCategory: 'BusinessApplication', description: timeQuestions[0].answer, publisher: { '@id': 'https://j2j.info/#organization' } },
-          { '@type': 'VideoObject', '@id': `${timeProduct.url}#video`, name: 'J2J Time: from everyday work to approved time', description: 'See the working daily activity report and planned editing, approval and QuickBooks Time updates. Current QuickBooks Time entry is manual.', thumbnailUrl: ['https://j2j.info/media/j2j-time-v7-poster.jpg'], contentUrl: 'https://j2j.info/media/j2j-time-v7.mp4', uploadDate: '2026-10-09T23:35:22Z', duration: 'PT50S', transcript: timeTranscript.join('\n'), publisher: { '@id': 'https://j2j.info/#organization' } },
+          { '@type': 'VideoObject', '@id': `${timeProduct.url}#video`, name: 'J2J Time: from everyday work to approved time', description: 'See the working daily activity report and planned editing, approval and QuickBooks Time updates. Current QuickBooks Time entry is manual.', thumbnailUrl: ['https://j2j.info/media/j2j-time-v8-poster.jpg'], contentUrl: 'https://j2j.info/media/j2j-time-v8.mp4', uploadDate: '2026-10-09T22:09:30Z', duration: 'PT50S', transcript: timeTranscript.join('\n'), publisher: { '@id': 'https://j2j.info/#organization' } },
           { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'J2J Connection', item: 'https://j2j.info/' }, { '@type': 'ListItem', position: 2, name: 'J2J Time', item: timeProduct.url }] },
         ],
       }).replace(/</g, '\\u003c') }} />

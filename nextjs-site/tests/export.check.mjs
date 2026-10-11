@@ -70,7 +70,7 @@ test('J2J Time is an indexable product with evidence, answers and an accessible 
   assert.equal(app?.publisher?.['@id'], 'https://j2j.info/#organization');
   const film = nodes.find(n => n['@type'] === 'VideoObject');
   assert.equal(film?.duration, 'PT50S');
-  assert.equal(film?.contentUrl, 'https://j2j.info/media/j2j-time-v7.mp4');
+  assert.equal(film?.contentUrl, 'https://j2j.info/media/j2j-time-v8.mp4');
   assert.ok(film?.transcript.includes('building a review and approval flow'));
   assert.doesNotMatch(JSON.stringify(nodes), /aggregateRating|"price"|FAQPage/);
 });

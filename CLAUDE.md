@@ -112,6 +112,11 @@ nextjs-site/
 
 ## Changelog
 
+### 2026-10-11 UTC (product-only website film)
+
+- The default homepage and product-page film now uses the original 50-second product-only narrated cut. Audio, captions, playback controls, signup/booking links and planned-feature disclosures are retained.
+- Versioned v8 media paths replace the avatar cut in the player, fallback link, poster, share metadata and VideoObject. The media test pins the approved product-only MP4 hash; no new narration or re-encoding. Earlier cuts remain in Git history and the production workspace. Parser: ai; media/hash/build checks mechanical.
+
 ### 2026-10-10 UTC (shorter product journey)
 
 - Thomas approved a shorter product-page flow: promise, film, three concise workflow steps, access request, then optional questions. Replace repeated platform/integration paragraphs with the existing full answers in nine native details/summary disclosures; keep those answers server-rendered, collapsed initially and usable without JavaScript. Preserve current-versus-planned product boundaries and the accessible film transcript.
