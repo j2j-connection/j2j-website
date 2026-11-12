@@ -36,7 +36,7 @@ export default function PhoneActivityTermsPage() {
           </section>
           <section>
             <h2 className="font-display text-2xl font-bold">Data and disconnection</h2>
-            <p className="mt-4 leading-relaxed text-muted">Read the <Link href="/apps/phone-activity/privacy/" className="text-ink underline underline-offset-4">app privacy policy</Link> before authorizing. It describes full Drive permission, transient backup processing, retained metadata, deletion limits and the separate steps to stop backup uploads and revoke access. Ask J2J to disable processing or discuss changes to your setup at any time.</p>
+            <p className="mt-4 leading-relaxed text-muted">Read the <Link href="/apps/phone-activity/privacy/" className="text-ink underline underline-offset-4">app privacy policy</Link> before authorizing. It describes full Drive permission, transient backup processing, retained metadata and original archives, optional deletion limits and the separate steps to stop backup uploads and revoke access. Ask J2J to disable processing or discuss changes to your setup at any time.</p>
           </section>
           <p className="leading-relaxed text-muted">Questions: <a href="mailto:tom@j2j.info" className="text-ink underline underline-offset-4">tom@j2j.info</a>.</p>
         </div>

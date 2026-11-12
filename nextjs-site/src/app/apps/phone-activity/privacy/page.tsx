@@ -19,11 +19,11 @@ export default function PhoneActivityPrivacyPage() {
       <article className="mx-auto max-w-5xl px-6 py-16 md:py-24 lg:px-8">
         <Link href="/apps/phone-activity/" className="inline-block py-2 text-sm text-muted underline underline-offset-4">← Phone Activity overview</Link>
         <h1 className="mt-8 font-display text-4xl font-extrabold tracking-tight md:text-6xl">Phone Activity privacy</h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">This policy covers LC3 Phone Activity, operated by J2J Connection LLC. It is separate from our website visitor privacy notice. Last updated October 6, 2026.</p>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">This policy covers LC3 Phone Activity, operated by J2J Connection LLC. It is separate from our website visitor privacy notice. Last updated October 8, 2026.</p>
         <div className="mt-12 max-w-2xl space-y-10">
           <section>
             <h2 className="font-display text-2xl font-bold">What you authorize</h2>
-            <p className="mt-4 leading-relaxed text-muted">The app requests your Google email identity to verify that you own the configured backup folder, and full Google Drive access to read and permanently delete eligible backup files. This Google permission is broad. Our code restricts operations to the configured folder and expected backup files; the restriction is not enforced by Google’s permission system.</p>
+            <p className="mt-4 leading-relaxed text-muted">The app requests your Google email identity to verify that you own the configured backup folder, and full Google Drive access to read eligible backup files and, only after a separate retention decision, delete them. This Google permission is broad. Our code restricts operations to the configured folder and expected backup files; the restriction is not enforced by Google’s permission system.</p>
             <p className="mt-4 leading-relaxed text-muted">A separate Android backup app collects and uploads phone data under its own permissions and privacy terms. Its backups may include message contents, phone numbers, contact names, attachments and call logs, including personal communications. This app does not collect WhatsApp communications.</p>
           </section>
           <section>
@@ -39,7 +39,7 @@ export default function PhoneActivityPrivacyPage() {
           </section>
           <section>
             <h2 className="font-display text-2xl font-bold">Deletion and retention</h2>
-            <p className="mt-4 leading-relaxed text-muted">After a successful import, the worker permanently deletes the processed Drive backup and checks that it is absent. Failed recent imports remain for retry; the worker attempts to remove expired unprocessed backups after 24 hours and records a gap. Deletion is best effort: outages, revoked access, changed files or insufficient permissions can leave files in Drive longer. This is not a guaranteed 24-hour maximum.</p>
+            <p className="mt-4 leading-relaxed text-muted">By default, original backup files remain in your Google Drive so activity can be compared with the source archives. Failed imports also remain available for retry. We agree the archive retention period with you before ongoing processing. Automatic deletion is enabled only after a separate retention decision. If selected, the worker permanently deletes processed backups and checks their absence; it also attempts to remove expired unprocessed backups after 24 hours and records a gap. Deletion is best effort: outages, revoked access, changed files or insufficient permissions can delay it. This is not a guaranteed 24-hour maximum.</p>
             <p className="mt-4 leading-relaxed text-muted">Deleting a cloud backup does not remove the original messages or call history from your phone. Later backups can contain the same older conversations again. Local phone backups and the backup app’s settings need separate management.</p>
             <p className="mt-4 leading-relaxed text-muted">Historical metadata retention, report recipients and any applicable legal retention requirements must be agreed before ongoing customer processing is enabled. Contact us to request deletion of your retained phone records or connection credential. Existing delivered reports and provider recovery copies may need separate handling; we will explain what can be removed and any required retention.</p>
           </section>

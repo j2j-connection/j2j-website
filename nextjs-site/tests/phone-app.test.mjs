@@ -36,3 +36,13 @@ test('phone privacy policy discloses transient content, retained metadata and li
   assert.match(page, /mailto:tom@j2j.info/);
   assert.doesNotMatch(page, /—|never leaves|completely anonymous|guaranteed within 24/);
 });
+
+test('phone disclosures preserve comparison archives and distinguish optional deletion', () => {
+  const privacy = read('../src/app/apps/phone-activity/privacy/page.tsx');
+  const overview = read('../src/app/apps/phone-activity/page.tsx');
+  assert.match(privacy, /By default, original backup files remain in your Google Drive/);
+  assert.match(privacy, /Failed imports also remain available for retry/);
+  assert.match(privacy, /only after a separate retention decision/);
+  assert.match(overview, /preserve the original backup files/);
+  assert.doesNotMatch(overview, /retain activity metadata and remove processed backup files/);
+});

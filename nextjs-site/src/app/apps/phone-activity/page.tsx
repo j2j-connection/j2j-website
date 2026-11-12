@@ -24,7 +24,7 @@ export default function PhoneActivityPage() {
         <div className="mt-12 max-w-2xl space-y-10">
           <section>
             <h2 className="font-display text-2xl font-bold">How the connection works</h2>
-            <p className="mt-4 leading-relaxed text-muted">A separately installed backup app uploads supported native messages and call logs to a designated folder in your Google Drive. You then authorize this app to read those backups, retain activity metadata and remove processed backup files. Your original phone conversations are not deleted.</p>
+            <p className="mt-4 leading-relaxed text-muted">A separately installed backup app uploads supported native messages and call logs to a designated folder in your Google Drive. You then authorize this app to read those backups, retain activity metadata and preserve the original backup files for comparison. Automatic archive deletion requires a separate retention decision. Your original phone conversations are not deleted.</p>
             <p className="mt-4 leading-relaxed text-muted">Reports show message counts and call durations. A setup operator can associate activity with agreed client projects. Counts are evidence to review, not automatically calculated billable hours. WhatsApp is not included. RCS and attachment coverage depend on the device and backup app and need individual testing.</p>
           </section>
           <section>
