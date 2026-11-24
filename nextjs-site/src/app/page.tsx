@@ -1,5 +1,7 @@
 import Hero from '@/components/Hero'
+import ToolsStrip from '@/components/ToolsStrip'
 import Services from '@/components/Services'
+import Guardrails from '@/components/Guardrails'
 import CaseStudy from '@/components/CaseStudy'
 import HowItWorks from '@/components/HowItWorks'
 import WhoWeAre from '@/components/WhoWeAre'
@@ -16,7 +18,9 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <ToolsStrip />
       <Services />
+      <Guardrails />
       <CaseStudy />
       <HowItWorks />
       <WhoWeAre />

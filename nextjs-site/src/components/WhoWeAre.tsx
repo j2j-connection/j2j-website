@@ -34,7 +34,7 @@ export default function WhoWeAre() {
         <div className="mt-12 grid max-w-2xl gap-8 sm:grid-cols-2">
           {team.map((person) => (
             <div key={person.name} className="border-t-2 border-ink pt-5">
-              <div className="relative mb-4 h-24 w-24 overflow-hidden rounded-full bg-marker-soft">
+              <div className="relative mb-5 h-44 w-44 overflow-hidden rounded-2xl bg-marker-soft">
                 <Image src={person.photo} alt={person.name} fill className="object-cover" />
               </div>
               <div className="font-display text-lg font-bold">{person.name}</div>

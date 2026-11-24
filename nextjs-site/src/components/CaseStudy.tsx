@@ -41,7 +41,7 @@ export default function CaseStudy() {
           A construction consultancy was losing billable hours{' '}
           <Highlight>in plain sight.</Highlight>
         </h2>
-        <div className="mt-12 grid gap-12 md:grid-cols-[1fr_260px] md:gap-16">
+        <div className="mt-12 grid gap-12 md:grid-cols-[1fr_300px] md:gap-16 lg:grid-cols-[1fr_340px]">
           <div className="space-y-5 leading-relaxed text-muted">
             <p>
               {caseStudyClient.name} is {caseStudyClient.descriptor}. A typical
@@ -80,6 +80,33 @@ export default function CaseStudy() {
                 </li>
               ))}
             </ul>
+            <div className="mt-8 rounded-xl border border-line bg-paper p-5 shadow-[0_1px_0_rgba(28,26,20,0.06),0_12px_32px_-16px_rgba(28,26,20,0.25)]">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Nightly draft</span>
+                <span className="rounded-full bg-marker px-2 py-0.5 font-mono text-[11px] font-medium uppercase tracking-wide">For review</span>
+              </div>
+              <div className="mt-4">
+                {[
+                  { time: '9:00–9:45', label: 'Site call', source: 'from calendar', hours: '0.75 h' },
+                  { time: '10:15–11:00', label: 'Proposal follow-up', source: 'from email', hours: '0.75 h' },
+                  { time: '1:30–2:30', label: 'Client meeting', source: 'from calendar', hours: '1.0 h' },
+                ].map((row) => (
+                  <div key={row.time} className="flex items-baseline justify-between gap-3 border-t border-line py-3 first:border-t-0 first:pt-0 last:pb-0">
+                    <div>
+                      <div className="font-mono text-xs text-muted">{row.time}</div>
+                      <div className="mt-0.5 text-sm font-medium">{row.label}</div>
+                      <div className="text-xs text-muted">{row.source}</div>
+                    </div>
+                    <div className="font-mono text-sm">{row.hours}</div>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-4 border-t border-line pt-4 text-sm leading-relaxed text-muted">
+                In the historical check, 599 of 627 events matched their
+                QuickBooks Time entries. People review the draft and decide
+                what bills.
+              </p>
+            </div>
           </div>
         </div>
         <J2JTimeDemo />
