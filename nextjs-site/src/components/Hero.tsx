@@ -7,7 +7,9 @@ export default function Hero() {
     <section className="px-6 lg:px-8">
       <div className="mx-auto max-w-5xl py-24 md:py-36">
         <h1 className="max-w-3xl font-display text-4xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
-          AI that <Highlight>earns its keep.</Highlight>
+          You run the firm.
+          <br />
+          We <Highlight>set up the AI.</Highlight>
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
           J2J helps owners of architecture, design, construction, and real
