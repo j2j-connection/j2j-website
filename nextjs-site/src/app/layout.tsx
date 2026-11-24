@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     url: 'https://j2j.info/',
     siteName: 'J2J Connection',
     type: 'website',
-    images: [{ url: 'https://j2j.info/og.png', width: 1733, height: 908, alt: 'J2J Connection. AI that earns its keep. Practical AI for the built environment.' }],
+    images: [{ url: 'https://j2j.info/og.png', width: 1733, height: 908, alt: 'J2J Connection. You run the firm. We set up the AI. Practical AI for the built environment.' }],
   },
   twitter: {
     card: 'summary_large_image',

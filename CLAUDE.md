@@ -37,7 +37,7 @@ nextjs-site/
 │   │   └── globals.css  # Design tokens (paper/ink/marker), highlight-swipe animation
 │   ├── components/
 │   │   ├── Header.tsx     # Fixed nav with mobile hamburger menu
-│   │   ├── Hero.tsx       # "AI that earns its keep." with Highlight marker swipe
+│   │   ├── Hero.tsx       # "You run the firm. We set up the AI." with Highlight marker swipe
 │   │   ├── Highlight.tsx  # Reusable yellow marker-highlight wrapper
 │   │   ├── Services.tsx   # "What we do" - three-step process (id="services")
 │   │   ├── CaseStudy.tsx  # featured client case study + two "More work" cards on a pale-yellow band (id="work")
@@ -77,7 +77,7 @@ nextjs-site/
 
 - **Discovery routes**: `/`, `/j2j-time/`, `/guides/automatic-billable-time-tracking/`, `/case-studies/billable-time/`, and `/privacy/`, all self-canonical and in the sitemap. `/j2j-time/thanks/` is noindex and excluded from the sitemap. Retired demo URLs preserve their redirects. Supporting phone app policies remain independent.
 - **Light design system**: paper background, ink text, marker-yellow highlight accents (see `globals.css` tokens).
-- **Highlight swipe**: a one-time CSS animation reveals the yellow highlight behind "earns its keep." on load; respects `prefers-reduced-motion`.
+- **Highlight swipe**: a one-time CSS animation reveals the yellow highlight behind "set up the AI." on load; respects `prefers-reduced-motion`.
 - **Mobile-first nav**: fixed header, hamburger menu on small screens, anchor links with `scroll-mt-20` so the fixed header never covers a section heading.
 - **Product interest form**: J2J Time has a native POST form using Customer.io's documented public forms action. It works without a JavaScript SDK or frontend API key. It collects email, optional company, product-update consent and sanitized referral labels. Requesting access starts a conversation about fit and onboarding, not a paid account or immediate connector setup. Consulting contact remains Calendly or email.
 - **Static export**: GitHub Pages compatible build, no server-side features, images unoptimized by design.
@@ -111,6 +111,11 @@ nextjs-site/
 **Status**: Built-environment positioning live in production (deployed 2026-09-10)
 
 ## Changelog
+
+### 2026-11-24 (hero tagline, draft)
+
+- Hero headline changed from "AI that earns its keep." to "You run the firm. We set up the AI." (Hayden's pick, Nov 24, 2026, from a tagline brainstorm where "earns its keep" was the incumbent). Two-line lockup, marker swipe now behind "set up the AI." The subhead paragraph is unchanged, so the owner-audience and ChatGPT/Claude copy pins still hold.
+- `public/og.png` regenerated with the new headline (same generation pattern as the 2026-10-11 card: paper, ink, marker yellow, exact text "J2J Connection", the headline, "Practical AI for the built environment", "j2j.info", resized to 1733x908), and the layout og alt text updated to match.
 
 ### 2026-11-24 (site polish, draft)
 
