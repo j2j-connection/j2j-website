@@ -112,6 +112,13 @@ nextjs-site/
 
 ## Changelog
 
+### 2026-11-23 (AEO visibility)
+
+- Added a dedicated `/services/chatgpt-business-setup/` page: what a setup includes, how it works, six server-rendered questions in the product page pattern (no FAQPage schema, per the export checks), Service and breadcrumb schema, and the booking/email CTA. Added the route to the sitemap and to the export check page list.
+- Homepage now names the service and the base: the services section links to the setup page, and Who We Are states Santa Monica, California. Layout metadata and the Organization schema carry the location (PostalAddress, areaServed) and the ChatGPT Business setup wording, keeping the built-environment title and description phrases the copy tests pin.
+- Added `public/llms.txt` with a plain summary, service links, and contact details.
+- Added an anonymous interior-design card to the homepage "More work" set: a nine-person San Francisco design studio ChatGPT Business setup, deliberately client-anonymous like the other two cards.
+
 ### 2026-10-11 UTC (product-only website film)
 
 - The default homepage and product-page film now uses the original 50-second product-only narrated cut. Audio, captions, playback controls, signup/booking links and planned-feature disclosures are retained.

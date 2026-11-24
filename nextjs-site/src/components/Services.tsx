@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 const services = [
   {
     step: '1',
@@ -33,6 +35,15 @@ export default function Services() {
             </div>
           ))}
         </div>
+        <p className="mt-14 max-w-2xl leading-relaxed text-muted">
+          Many engagements start with the platform itself. We{' '}
+          <Link href="/services/chatgpt-business-setup/" className="text-ink underline underline-offset-4">
+            set up ChatGPT Business for your team
+          </Link>
+          , with your tools connected, access levels by role, plain-language
+          guardrails, and training for every seat, from our base in Santa
+          Monica, California.
+        </p>
       </div>
     </section>
   )

@@ -11,6 +11,12 @@ const facts = [
 
 const moreWork = [
   {
+    eyebrow: 'Interior design · AI setup',
+    title: 'A design studio’s AI, out of personal accounts and into one workspace.',
+    body: 'A nine-person interior design studio in San Francisco had client material spread across personal ChatGPT accounts, with no shared rules and no control over who could see what. We set up a ChatGPT Business workspace for the studio, connected email, calendar, and files with access levels by role, agreed plain-language guardrails, and trained the whole team.',
+    facts: ['9-person studio team', 'ChatGPT Business workspace', 'Access levels by role', 'Training for the whole team'],
+  },
+  {
     eyebrow: 'Private equity · Exit planning',
     title: 'Who gets what when the company sells?',
     body: 'A venture-backed company was heading into an exit with four series of preferred stock, accrued dividends, and more than 80 shareholders - and no way to answer the one question every investor asks: what do I take home at each price? We built an interactive model that reads the cap table, applies the legal waterfall from the company charter, and lets any investor test any exit scenario in seconds.',
