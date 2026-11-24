@@ -22,17 +22,21 @@ export default function Services() {
   return (
     <section id="services" className="scroll-mt-20 border-t border-line px-6 lg:px-8">
       <div className="mx-auto max-w-5xl py-20 md:py-28">
-        <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">What we do</p>
-        <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold tracking-tight md:text-4xl">
-          AI set up for your firm, done for you.
-        </h2>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-          You did not start a firm to become an AI expert, and your team
-          does not have spare hours to figure it out between projects. Your
-          team is probably already trying AI on personal accounts. We bring
-          it into one proper workspace, with rules your clients would
-          approve of, and we handle every step.
-        </p>
+        <div className="lg:grid lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-x-16">
+          <div>
+            <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">What we do</p>
+            <h2 className="mt-4 max-w-2xl text-balance font-display text-3xl font-bold tracking-tight md:text-4xl">
+              AI set up for your firm, done for you.
+            </h2>
+          </div>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted lg:mt-8">
+            You did not start a firm to become an AI expert, and your team
+            does not have spare hours to figure it out between projects. Your
+            team is probably already trying AI on personal accounts. We bring
+            it into one proper workspace, with rules your clients would
+            approve of, and we handle every step.
+          </p>
+        </div>
         <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
           {services.map((service) => (
             <div key={service.step} className="border-t-2 border-ink pt-6">

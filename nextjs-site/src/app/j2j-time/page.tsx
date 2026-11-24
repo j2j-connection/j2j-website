@@ -24,7 +24,7 @@ export default function TimePage() {
   return (
     <>
       <article>
-        <section className="mx-auto max-w-5xl px-6 pb-16 pt-16 md:pb-24 md:pt-24 lg:px-8">
+        <section className="mx-auto max-w-[68rem] px-6 pb-16 pt-16 md:pb-24 md:pt-24 lg:px-8">
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">J2J Time · Request access</p>
           <h1 className="mt-6 max-w-4xl font-display text-4xl font-extrabold leading-[1.08] tracking-tight md:text-6xl lg:text-7xl">An AI time tracker for <Highlight>billable work.</Highlight></h1>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted">Your work lives across emails, meetings, calls and texts. J2J Time brings that activity into a daily report by project, so you can review your day and decide what to bill.</p>
@@ -37,7 +37,7 @@ export default function TimePage() {
         </section>
 
         <section id="demo" aria-labelledby="demo-title" className="border-y border-line bg-marker-soft/35">
-          <div className="mx-auto max-w-5xl px-6 py-14 md:py-20 lg:px-8">
+          <div className="mx-auto max-w-[68rem] px-6 py-14 md:py-20 lg:px-8">
             <div className="flex flex-wrap items-end justify-between gap-4">
               <div>
                 <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">See the workflow</p>
@@ -63,7 +63,7 @@ export default function TimePage() {
           </div>
         </section>
 
-        <section aria-labelledby="workflow-title" className="mx-auto max-w-5xl px-6 py-14 md:py-16 lg:px-8">
+        <section aria-labelledby="workflow-title" className="mx-auto max-w-[68rem] px-6 py-14 md:py-16 lg:px-8">
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">How J2J Time works</p>
           <h2 id="workflow-title" className="mt-4 max-w-3xl font-display text-3xl font-bold tracking-tight md:text-4xl">A starting point for your timesheet.</h2>
           <ol className="mt-10 grid gap-8 md:grid-cols-3">
@@ -79,9 +79,9 @@ export default function TimePage() {
           </div>
         </section>
 
-        <div className="mx-auto max-w-5xl px-6 lg:px-8"><TimeSignup /></div>
+        <div className="mx-auto max-w-[68rem] px-6 lg:px-8"><TimeSignup /></div>
 
-        <section aria-labelledby="questions-title" className="mx-auto max-w-5xl px-6 py-14 md:py-16 lg:px-8">
+        <section aria-labelledby="questions-title" className="mx-auto max-w-[68rem] px-6 py-14 md:py-16 lg:px-8">
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">Questions, answered</p>
           <h2 id="questions-title" className="mt-4 font-display text-3xl font-bold tracking-tight md:text-4xl">Choosing a time tracker for your team.</h2>
           <div className="mt-8 divide-y divide-line border-y border-line">

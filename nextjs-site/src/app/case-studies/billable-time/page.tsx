@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 export default function BillableTimeCaseStudy() {
   return (
     <>
-      <article className="mx-auto max-w-5xl px-6 py-16 md:py-24 lg:px-8">
+      <article className="mx-auto max-w-[68rem] px-6 py-16 md:py-24 lg:px-8">
         <Link href="/#work" className="inline-block py-2 text-sm text-muted underline underline-offset-4">← Back to our work</Link>
         <p className="mt-8 font-mono text-xs uppercase tracking-[0.2em] text-muted">Case study{CASE_STUDY_NAMED ? ` · ${caseStudyClient.name}` : ''}</p>
         <h1 className="mt-5 max-w-3xl font-display text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">Billable work shouldn’t depend on <Highlight>memory.</Highlight></h1>

@@ -120,16 +120,23 @@ export default function CaseStudy() {
             </cite>
           </blockquote>
         )}
-        <details className="mt-12 border-t border-line pt-6">
-          <summary className="cursor-pointer py-2 font-medium">More work, beyond the built environment</summary>
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
+        <details className="group mt-12 border-y border-ink/15">
+          <summary className="disclosure flex min-h-11 cursor-pointer items-center justify-between gap-6 py-5 font-display text-lg font-bold">
+            More work, beyond the built environment
+            <span aria-hidden className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-ink/20 bg-paper transition-transform duration-200 group-open:rotate-45">
+              <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                <path d="M6 1.5v9M1.5 6h9" />
+              </svg>
+            </span>
+          </summary>
+          <div className="grid gap-6 pb-8 pt-2 md:grid-cols-2 lg:grid-cols-3">
             {moreWork.map((work) => (
-              <div key={work.title} className="rounded-lg border border-line bg-paper p-6 md:p-8">
+              <div key={work.title} className="flex flex-col rounded-lg border border-line bg-paper p-6 md:p-8">
                 <div className="font-mono text-xs uppercase tracking-[0.15em] text-muted">
                   {work.eyebrow}
                 </div>
                 <h3 className="mt-3 font-display text-xl font-bold">{work.title}</h3>
-                <p className="mt-3 leading-relaxed text-muted">{work.body}</p>
+                <p className="mt-3 flex-1 leading-relaxed text-muted">{work.body}</p>
                 <ul className="mt-5 space-y-1.5 border-t border-line pt-4">
                   {work.facts.map((fact) => (
                     <li key={fact} className="font-mono text-xs">

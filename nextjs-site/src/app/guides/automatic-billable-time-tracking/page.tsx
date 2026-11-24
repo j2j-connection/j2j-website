@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function TimeTrackingGuide() {
   return <>
-    <article className="mx-auto max-w-5xl px-6 py-16 md:py-24 lg:px-8">
+    <article className="mx-auto max-w-[68rem] px-6 py-16 md:py-24 lg:px-8">
       <Link href="/j2j-time/" className="inline-block min-h-11 py-2 text-sm text-muted underline underline-offset-4">← J2J Time</Link>
       <p className="mt-8 font-mono text-xs uppercase tracking-[0.18em] text-muted">A practical guide · By J2J Connection</p>
       <h1 className="mt-5 max-w-4xl font-display text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">Automatic billable-time tracking starts with the work behind the hours.</h1>

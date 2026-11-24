@@ -14,7 +14,7 @@ const nav = [
 export default function Footer() {
   return (
     <footer className="border-t border-line">
-      <div className="mx-auto max-w-5xl px-6 pt-14 lg:px-8">
+      <div className="mx-auto max-w-[68rem] px-6 pt-14 lg:px-8">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
             <div className="font-display text-4xl font-extrabold tracking-tight md:text-5xl">
@@ -34,7 +34,7 @@ export default function Footer() {
           </nav>
         </div>
       </div>
-      <div className="mx-auto flex max-w-5xl flex-col items-start justify-between gap-4 px-6 py-10 sm:flex-row sm:items-center lg:px-8">
+      <div className="mx-auto flex max-w-[68rem] flex-col items-start justify-between gap-4 px-6 py-10 sm:flex-row sm:items-center lg:px-8">
         <div className="flex items-center gap-3">
           <div className="relative h-8 w-8">
             <Image src="/J2J_logo.svg" alt="J2J logo" fill className="object-contain" />
