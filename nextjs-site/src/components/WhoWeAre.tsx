@@ -23,9 +23,10 @@ export default function WhoWeAre() {
           Two brothers. One standard: it has to actually work.
         </h2>
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
-          J2J Connection is Hayden and Tom. We keep it small on purpose: the
-          people you talk to on the first call are the same people who build
-          your system and answer when something needs attention.
+          J2J Connection is Hayden and Tom, based in Santa Monica,
+          California. We keep it small on purpose: the people you talk to on
+          the first call are the same people who build your system and answer
+          when something needs attention.
         </p>
         <div className="mt-12 grid max-w-2xl gap-8 sm:grid-cols-2">
           {team.map((person) => (

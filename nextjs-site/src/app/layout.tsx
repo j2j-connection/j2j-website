@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 const description =
-  'J2J builds practical AI systems for construction and real estate teams. We improve project workflows, connect existing tools, and stay until the system works.'
+  'J2J Connection is an AI consultancy in Santa Monica, California. We build practical AI systems for construction and real estate teams, set up ChatGPT Business workspaces with access levels by role and team training, connect the tools you already use, and stay until the system works.'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://j2j.info'),
@@ -62,7 +62,7 @@ export default function RootLayout({
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           '@context': 'https://schema.org',
           '@graph': [
-            { '@type': 'Organization', '@id': 'https://j2j.info/#organization', name: 'J2J Connection', legalName: site.company, url: 'https://j2j.info/', logo: 'https://j2j.info/J2J_logo.svg', email: site.email, description },
+            { '@type': 'Organization', '@id': 'https://j2j.info/#organization', name: 'J2J Connection', legalName: site.company, url: 'https://j2j.info/', logo: 'https://j2j.info/J2J_logo.svg', email: site.email, description, address: { '@type': 'PostalAddress', addressLocality: 'Santa Monica', addressRegion: 'CA', addressCountry: 'US' }, areaServed: ['Santa Monica', 'Los Angeles', 'San Francisco', 'New York'], knowsAbout: ['ChatGPT Business setup', 'AI implementation', 'Workflow automation', 'Team AI training'] },
             { '@type': 'WebSite', '@id': 'https://j2j.info/#website', url: 'https://j2j.info/', name: 'J2J Connection', publisher: { '@id': 'https://j2j.info/#organization' } },
           ],
         }).replace(/</g, '\\u003c') }} />
