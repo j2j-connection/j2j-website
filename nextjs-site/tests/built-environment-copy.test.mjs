@@ -31,7 +31,8 @@ test('LC Three replaces the budget demo throughout the reading journey', () => {
 
 test('the first viewport clearly identifies the built-environment audience', () => {
   assert.doesNotMatch(hero, /Practical AI for the built environment/);
-  assert.match(hero, /teams across the built environment/);
+  assert.match(hero, /owners of architecture, design, construction, and real/);
+  assert.match(hero, /ChatGPT and Claude/);
   assert.doesNotMatch(hero, /owners, developers, architects, engineers, and contractors/);
   assert.match(header, /Built Environment AI/);
 });

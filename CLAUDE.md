@@ -112,6 +112,12 @@ nextjs-site/
 
 ## Changelog
 
+### 2026-11-23 (owner positioning, draft)
+
+- Repositioned the consulting homepage from generic built-environment teams to firm owners: the hero now addresses owners of architecture, design, construction, and real estate firms and names ChatGPT and Claude implementations, done for you. This deliberately supersedes the earlier reviewed choice to describe the audience generically ("teams across the built environment"); the hero copy test now pins the owner wording instead.
+- Services section reframed around done-for-you setup and the personal-accounts problem; Who We Are names the owner client directly.
+- The setup service page moved from `/services/chatgpt-business-setup/` to `/services/chatgpt-claude-setup/` and now covers both platforms, including platform choice, project-team-shaped access levels, and training that respects billable time. A noindex redirect stub in the retired-demo pattern keeps the one-day-old URL working.
+
 ### 2026-11-23 (AEO visibility)
 
 - Added a dedicated `/services/chatgpt-business-setup/` page: what a setup includes, how it works, six server-rendered questions in the product page pattern (no FAQPage schema, per the export checks), Service and breadcrumb schema, and the booking/email CTA. Added the route to the sitemap and to the export check page list.

@@ -5,7 +5,7 @@ import { createHash } from 'node:crypto';
 
 const root = new URL('../out/', import.meta.url);
 const read = name => fs.readFileSync(new URL(name, root), 'utf8');
-const pages = ['/', '/services/chatgpt-business-setup/', '/j2j-time/', '/guides/automatic-billable-time-tracking/', '/case-studies/billable-time/', '/privacy/'];
+const pages = ['/', '/services/chatgpt-claude-setup/', '/j2j-time/', '/guides/automatic-billable-time-tracking/', '/case-studies/billable-time/', '/privacy/'];
 
 test('the product reaches signup before optional questions, whose answers remain in the HTML', () => {
   const html = read('j2j-time/index.html');

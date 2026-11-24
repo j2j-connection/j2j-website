@@ -24,8 +24,15 @@ export default function Services() {
       <div className="mx-auto max-w-5xl py-20 md:py-28">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">What we do</p>
         <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold tracking-tight md:text-4xl">
-          Practical AI, built around project work.
+          AI set up for your firm, done for you.
         </h2>
+        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+          You did not start a firm to become an AI expert, and your team
+          does not have spare hours to figure it out between projects. Your
+          team is probably already trying AI on personal accounts. We bring
+          it into one proper workspace, with rules your clients would
+          approve of, and we handle every step.
+        </p>
         <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
           {services.map((service) => (
             <div key={service.step} className="border-t-2 border-ink pt-6">
@@ -36,9 +43,9 @@ export default function Services() {
           ))}
         </div>
         <p className="mt-14 max-w-2xl leading-relaxed text-muted">
-          Many engagements start with the platform itself. We{' '}
-          <Link href="/services/chatgpt-business-setup/" className="text-ink underline underline-offset-4">
-            set up ChatGPT Business for your team
+          Most engagements start with the platform itself. We{' '}
+          <Link href="/services/chatgpt-claude-setup/" className="text-ink underline underline-offset-4">
+            set up ChatGPT or Claude for your team
           </Link>
           , with your tools connected, access levels by role, plain-language
           guardrails, and training for every seat, from our base in Santa
