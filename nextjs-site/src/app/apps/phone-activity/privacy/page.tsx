@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function PhoneActivityPrivacyPage() {
   return (
     <>
-      <article className="mx-auto max-w-5xl px-6 py-16 md:py-24 lg:px-8">
+      <article className="mx-auto max-w-[68rem] px-6 py-16 md:py-24 lg:px-8">
         <Link href="/apps/phone-activity/" className="inline-block py-2 text-sm text-muted underline underline-offset-4">← Phone Activity overview</Link>
         <h1 className="mt-8 font-display text-4xl font-extrabold tracking-tight md:text-6xl">Phone Activity privacy</h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">This policy covers LC3 Phone Activity, operated by J2J Connection LLC. It is separate from our website visitor privacy notice. Last updated October 6, 2026.</p>

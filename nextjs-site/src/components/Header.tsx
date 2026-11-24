@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-line bg-paper/85 backdrop-blur-md">
-      <div className="mx-auto max-w-5xl px-6 lg:px-8">
+      <div className="mx-auto max-w-[68rem] px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-3 transition-opacity hover:opacity-80">
             <div className="relative h-10 w-10">

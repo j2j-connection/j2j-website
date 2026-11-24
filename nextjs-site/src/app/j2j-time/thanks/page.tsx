@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function TimeThanks() {
   return <>
-    <section className="mx-auto max-w-5xl px-6 py-20 md:py-28 lg:px-8">
+    <section className="mx-auto max-w-[68rem] px-6 py-20 md:py-28 lg:px-8">
       <p className="font-mono text-xs uppercase tracking-[0.18em] text-muted">J2J Time · Request access</p>
       <h1 className="mt-6 max-w-3xl font-display text-4xl font-extrabold tracking-tight md:text-6xl">Thanks for requesting access.</h1>
       <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">After your request is received, we’ll get in touch to discuss your team’s setup and confirm how J2J Time fits your workflow. You haven’t connected any accounts or committed to a subscription.</p>

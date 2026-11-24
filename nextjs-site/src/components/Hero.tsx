@@ -1,23 +1,30 @@
 import Highlight from './Highlight'
+import SetupSheet from './SetupSheet'
 import Image from 'next/image'
 import { site, bookingUrl, CASE_STUDY_NAMED, caseStudyClient } from '@/content/site'
 
 export default function Hero() {
   return (
-    <section className="px-6 lg:px-8">
-      <div className="mx-auto max-w-5xl py-24 md:py-36">
-        <h1 className="max-w-3xl font-display text-4xl font-extrabold leading-[1.05] tracking-tight md:text-7xl">
-          You run the firm.
-          <br />
-          We <Highlight>set up the AI.</Highlight>
-        </h1>
-        <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
-          J2J helps owners of architecture, design, construction, and real
-          estate firms put ChatGPT and Claude to work, without becoming
-          their own IT department. We set it up, connect the information
-          your team already has, train everyone, and stay until it works.
-        </p>
-        <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_188px] lg:items-end lg:gap-16">
+    <section className="relative isolate overflow-hidden px-6 lg:px-8">
+      <div aria-hidden className="drafting-grid pointer-events-none absolute inset-0 -z-10 hidden lg:block" />
+      <div className="mx-auto max-w-5xl py-20 md:py-28 lg:py-32">
+        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_360px] lg:items-center lg:gap-10">
+          <div>
+            <h1 className="max-w-3xl font-display text-4xl font-extrabold leading-[1.05] tracking-tight md:text-7xl lg:text-6xl xl:text-7xl">
+              You run the firm.
+              <br />
+              We <Highlight>set up the AI.</Highlight>
+            </h1>
+            <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
+              J2J helps owners of architecture, design, construction, and real
+              estate firms put ChatGPT and Claude to work, without becoming
+              their own IT department. We set it up, connect the information
+              your team already has, train everyone, and stay until it works.
+            </p>
+          </div>
+          <SetupSheet className="hidden lg:block" />
+        </div>
+        <div className="mt-10 grid gap-10 lg:mt-12 lg:grid-cols-[minmax(0,1fr)_188px] lg:items-end lg:gap-16">
           <div>
             <div className="flex flex-wrap items-center gap-4">
               {bookingUrl ? (

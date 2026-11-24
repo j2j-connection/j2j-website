@@ -39,6 +39,7 @@ nextjs-site/
 │   │   ├── Header.tsx     # Fixed nav with mobile hamburger menu
 │   │   ├── Hero.tsx       # "You run the firm. We set up the AI." with Highlight marker swipe
 │   │   ├── Highlight.tsx  # Reusable yellow marker-highlight wrapper
+│   │   ├── SetupSheet.tsx # Hero checklist card (desktop only): the five things a setup includes, checked off once on load
 │   │   ├── Services.tsx   # "What we do" - three-step process (id="services")
 │   │   ├── CaseStudy.tsx  # featured client case study + two "More work" cards on a pale-yellow band (id="work")
 │   │   ├── HowItWorks.tsx # fixed-price engagement steps (id="how")
@@ -111,6 +112,13 @@ nextjs-site/
 **Status**: Built-environment positioning live in production (deployed 2026-09-10)
 
 ## Changelog
+
+### 2026-11-24 (layout pass, draft)
+
+- Desktop layout pass within the existing design system (paper, ink, marker; no new colors, fonts, or imagery). The hero gains a setup sheet on `lg` and up: a checklist card listing the five things the services section already promises (workspace, connected email/calendar/files, access levels by role, plain-language guardrails, training for every seat), checked off once on load after the headline swipe. It is hidden below `lg` and static under `prefers-reduced-motion`. Keep its wording in step with `Services.tsx`. The badge row and its pinned grid classes are unchanged.
+- Tools strip is now a row of chips (the two platforms filled, connected tools outlined). Services, How it works, and Who we are use a two-column layout on desktop so the right third of the page is no longer empty; mobile order is unchanged. Contact is a solid marker panel with the actions beside the copy. The "More work" disclosure has a proper row with a plus control and a three-column card grid on desktop.
+- Header, footer, and every subpage wrapper moved from `max-w-5xl` (padding inside) to `max-w-[68rem]`, so the logo, page content, and footer share one left edge at 1024px of content on every route. Previously the homepage sections sat 32px outside the header and footer.
+- No copy changed apart from the setup sheet's own labels. Section order, anchors, analytics hooks, and the contact flow are unchanged.
 
 ### 2026-11-24 (hero tagline, draft)
 

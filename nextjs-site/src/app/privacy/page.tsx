@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <article className="mx-auto max-w-5xl px-6 py-16 md:py-24 lg:px-8">
+      <article className="mx-auto max-w-[68rem] px-6 py-16 md:py-24 lg:px-8">
         <Link href="/" className="inline-block py-2 text-sm text-muted underline underline-offset-4">← Back to J2J</Link>
         <h1 className="mt-8 font-display text-4xl font-extrabold tracking-tight md:text-6xl">Privacy</h1>
         <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">This website is operated by {site.company}. Here is how information is handled when you visit or get in touch.</p>
