@@ -112,7 +112,11 @@ nextjs-site/
 
 ## Changelog
 
-### 2026-11-23 (owner positioning, draft)
+### 2026-11-24 (site polish, draft)
+
+- Visual richness pass within the existing design system (paper, ink, marker; no new colors, no stock imagery): a tools strip under the hero naming the platforms J2J sets up and connects; a dark guardrails section carrying the client-material, money, and access-by-role rules; a nightly-draft report panel in the LC Three case study using the case study's own 599-of-627 QuickBooks check figure; larger square team photos; a footer wordmark with site navigation; and a tinted contact panel.
+
+### 2026-11-23 (owner positioning)
 
 - Repositioned the consulting homepage from generic built-environment teams to firm owners: the hero now addresses owners of architecture, design, construction, and real estate firms and names ChatGPT and Claude implementations, done for you. This deliberately supersedes the earlier reviewed choice to describe the audience generically ("teams across the built environment"); the hero copy test now pins the owner wording instead.
 - Services section reframed around done-for-you setup and the personal-accounts problem; Who We Are names the owner client directly.

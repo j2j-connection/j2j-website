@@ -4,6 +4,7 @@ export default function Contact() {
   return (
     <section id="contact" className="scroll-mt-20 border-t border-line px-6 lg:px-8">
       <div className="mx-auto max-w-5xl py-20 md:py-28">
+        <div className="rounded-3xl bg-marker-soft/60 px-6 py-10 md:px-12 md:py-14">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-muted">Contact</p>
         <h2 className="mt-4 max-w-2xl font-display text-3xl font-bold tracking-tight md:text-4xl">
           Tell us where your projects get stuck.
@@ -33,6 +34,7 @@ export default function Contact() {
         <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted">
           When you get in touch, let us know how you heard about J2J.
         </p>
+        </div>
       </div>
     </section>
   )
