@@ -10,9 +10,10 @@ export default function Hero() {
           AI that <Highlight>earns its keep.</Highlight>
         </h1>
         <p className="mt-8 max-w-xl text-lg leading-relaxed text-muted">
-          J2J helps teams across the built environment put AI to work on the
-          real friction in projects. We connect the information your team
-          already has, automate repetitive work, and stay until it works.
+          J2J helps owners of architecture, design, construction, and real
+          estate firms put ChatGPT and Claude to work, without becoming
+          their own IT department. We set it up, connect the information
+          your team already has, train everyone, and stay until it works.
         </p>
         <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,1fr)_188px] lg:items-end lg:gap-16">
           <div>

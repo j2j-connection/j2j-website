@@ -1,10 +1,10 @@
 # J2J Connection
 
-> J2J Connection (legal name J2J Connection LLC) is an AI consultancy based in Santa Monica, California, run by Hayden Jardine and Tom Jardine. J2J helps small firms put AI to work properly: ChatGPT Business setup and team training, practical AI systems for construction and real estate teams, and workflow automation built around the tools a team already uses. Engagements are fixed scope and fixed price, agreed before work starts. The first 30-minute call is free.
+> J2J Connection (legal name J2J Connection LLC) is an AI consultancy based in Santa Monica, California, run by Hayden Jardine and Tom Jardine. J2J sets up AI for owners of architecture, design, construction, and real estate firms who want their teams using AI and do not have the time to implement it themselves: ChatGPT Business or Claude workspaces, connected tools, access levels by role, plain-language guardrails, and training for every seat, done for you. Engagements are fixed scope and fixed price, agreed before work starts. The first 30-minute call is free.
 
 ## Services
 
-- [ChatGPT Business setup](https://j2j.info/services/chatgpt-business-setup/): Workspace setup for small firms, with email, calendar and files connected, access levels set by role, plain-language guardrails, and training for the whole team.
+- [ChatGPT and Claude setup](https://j2j.info/services/chatgpt-claude-setup/): Business workspace setup for built environment firms, with email, calendar and files connected, access levels set by role, plain-language guardrails, and training for the whole team.
 - [AI consulting for the built environment](https://j2j.info/): Practical AI systems for construction and real estate teams, built around project work.
 - [J2J Time](https://j2j.info/j2j-time/): An AI time tracker that drafts billable time entries from calendar and email activity for human review.
 
